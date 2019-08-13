@@ -1,0 +1,32 @@
+{
+  "name": "course_programming_from_base_to_ace",
+  "version": "0.0.1",
+  "description": "CSharp Programming Course for VIVES University of Applied Sciences (Bachelor Degree)",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BioBoost/course_programming_from_base_to_ace.git"
+  },
+  "keywords": [
+    "csharp",
+    "programming",
+    "course",
+    "VIVES"
+  ],
+  "author": "Nico De Witte <aka BioBoost>",
+  "license": "SEE LICENSE IN README.md",
+  "bugs": {
+    "url": "https://github.com/BioBoost/course_programming_from_base_to_ace/issues"
+  },
+  "homepage": "https://github.com/BioBoost/course_programming_from_base_to_ace#readme",
+  "devDependencies": {
+    "vuepress": "^1.0.3"
+  }
+}
