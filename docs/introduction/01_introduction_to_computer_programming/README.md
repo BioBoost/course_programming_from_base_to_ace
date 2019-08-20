@@ -106,8 +106,8 @@ It is technically possible to compile Java down to native code **ahead-of-time**
 
 The C\# compilation process consists of two different phases before the machine code can be executed by a processor.
 
-* In a first step (at compile time) your code is transformed from C\# to the Common Intermediate Language (CIL) by the language specific C\# compiler. The result is an executable binary `.exe` (or `.dll` in case of a library). The same happens when you write your code in for example VB.net, but then the VB compiler is used to generate the IL code.
-* This binary can then be used on another system that has the required .NET runtime installed. The Just-In-Time (JIT) compiler will take the IL code as input and transform it into the processor specific machine code on which the binary is being executed.
+* In a first step (at compile time) your code is transformed **from C\# to the Common Intermediate Language (CIL)** by the language specific C\# compiler. The result is an executable binary `.exe` (or `.dll` in case of a library). The same happens when you write your code in for example VB.net, but then the VB compiler is used to generate the CIL code.
+* This binary can then be used on another system that has the required .NET runtime installed. The Just-In-Time (JIT) compiler will take the CIL code as input and **transform it into the processor specific machine code** on which the binary is being executed.
 
 ![C\# Compilation Process](./img/csharp_compilation_process.png)
 
