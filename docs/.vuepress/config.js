@@ -9,6 +9,7 @@ module.exports = {
     sidebar: {
       '/introduction/': [
         '',
+        '01_introduction_to_computer_programming/',
       ],
 
       '/oop/': [
