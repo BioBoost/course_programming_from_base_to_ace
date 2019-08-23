@@ -10,6 +10,7 @@ module.exports = {
       '/introduction/': [
         '',
         '01_introduction_to_computer_programming/',
+        '02_basic_building_blocks/',
       ],
 
       '/oop/': [
