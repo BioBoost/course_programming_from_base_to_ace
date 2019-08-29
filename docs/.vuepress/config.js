@@ -11,6 +11,7 @@ module.exports = {
         '',
         '01_introduction_to_computer_programming/',
         '02_basic_building_blocks/',
+        '03_starting_in_csharp/',
       ],
 
       '/oop/': [
