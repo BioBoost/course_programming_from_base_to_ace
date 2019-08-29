@@ -60,10 +60,11 @@ Starting the application can be achieved by navigating to `Debug => Start Debugg
 Hello World!
 
 C:\Program Files\dotnet\dotnet.exe (process 12088) exited with code 0.
-To automatically close the console when debugging stops, enable Tools->Options->Debugging->Automatically close the console when debugging stops.
+To automatically close the console when debugging stops,
+enable Tools->Options->Debugging->Automatically close the console when debugging stops.
 Press any key to close this window . . .
 ```
 
-The terminal and application will automatically close when you press a key on your keyboard.
+Notice that the application terminates after outputting the text to the terminal. The window of the terminal stays open for our convenience, so the developer can see what was outputted to the terminal. The terminal can be closed by pressing a key on your keyboard.
 
 While not diving into many details here, there are however a couple of things which can be clarified about the code above.
