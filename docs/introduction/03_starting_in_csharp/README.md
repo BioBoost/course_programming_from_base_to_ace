@@ -187,6 +187,61 @@ namespace HelloWorld
 }
 ```
 
+## Comments
+
+Not all lines of text that are present in the source code of an application are considered code. Some are actually comments which are not executed or compiled. There are two ways in C# to indicate that some text is a comment and should be ignored in the compilation process. The first is prepending a double slash `//` before the comment. This needs to be placed before each line of comments.
+
+```csharp
+// This is a line of comments
+// This is another line of comments
+// Yet again some comments
+```
+
+Because this can be a bit of a nuisance when you have a big block of comments, you can also place `/*` before your block and `*/` after the block (also called a **block-comment**). This allows a programmer to easily create a paragraph as comments.
+
+```csharp
+/*
+  This is a bigger paragraph
+  that consists of multiple lines.
+  It is typically also called a block-comment.
+  */
+```
+
+::: warning - Too much Information
+It is completely normal as a beginning programmer to place a lot of comments inside your code. While this is helpful when learning to program, it is also kind of dangerous. Code typically changes while the project evolves and often comments do not. They can therefore contain wrong information about the code and become useless and even misleading. A good programmer (one that takes care of his/her code) will not need a lot of comments. The best documentation is the code itself, of course provided that you take care of your naming of things and your code in general.
+:::
+
+The hello world application can be extended a bit by adding some comments as shown in the next code snippet:
+
+```csharp
+// Allows us to directly use the
+// resources inside of the System namespace
+using System;
+
+/*
+    HelloWorld is the namespace of our application.
+    It is a logical group that bundles all the
+    resources we create inside our project.
+    It also avoid name collisions.
+*/
+namespace HelloWorld
+{
+    class Program   // Single class that contains the Main() method
+    {
+        /*
+            The main method is the entry-point of our application
+            It is automatically called when the application is started
+        */
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Hello World!");    // Write some text to the terminal
+        }
+    }
+}
+```
+
+Note that single line comments can also be placed after code on the same line.
+
 ## Train Yourself
 
 ### Multiple Choice
