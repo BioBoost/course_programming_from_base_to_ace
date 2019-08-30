@@ -1,5 +1,6 @@
 ---
 description: This chapter will sketch a scene for the reader what computer programming is all about. It will introduce terms such as application, compiler, interpreter and such.
+title: 01 - Introduction to Computer Programming
 ---
 
 # Chapter 01 - Introduction to Computer Programming
