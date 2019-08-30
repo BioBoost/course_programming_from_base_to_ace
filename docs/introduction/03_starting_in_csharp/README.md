@@ -186,3 +186,57 @@ namespace HelloWorld
     }
 }
 ```
+
+## Train Yourself
+
+### Multiple Choice
+
+1. How do we call a piece/line of code as shown below?
+
+    ```csharp
+    Console.Write("Sharpy says hi!");
+    ```
+
+    * A decision
+    * A statement
+    * A condition
+    * A namespace
+
+2. What is the entry point of a C# application ?
+
+    * The `start()` method
+    * The file `HelloWorld.cs`
+    * The `Main()` method
+    * The `Program` class
+
+3. What is common use of a Hello World application ?
+
+    * Proof of concept to show a device can run user code
+    * To show that code is faster with a compiler
+    * To check if your application contains bugs
+    * Test if a programming language is object oriented
+
+4. How do we call a line of code that performs a specific action and is terminated with a semicolon ?
+
+    * A condition
+    * A class
+    * A method
+    * A statement
+
+5. Code in `Main()` is placed between ...
+
+    * slashes `//`
+    * curly brackets `{}`
+    * parentheses `()`
+    * brackets `[]`
+
+6. The rectangle's (process step) in a flowchart will often map on ... in C#.
+
+    * a condition
+    * an escape sequence
+    * a statement
+    * a method
+
+### Exercises and Challenges
+
+Checkout the exercises and challenges which can be found at [https://github.com/BioBoost/csharp_practical](https://github.com/BioBoost/csharp_practical).
