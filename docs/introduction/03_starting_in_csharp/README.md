@@ -242,6 +242,69 @@ namespace HelloWorld
 
 Note that single line comments can also be placed after code on the same line.
 
+## Experimenting with Terminal Output
+
+`WriteLine()` is the name of the method that prints a new line of text to the terminal every time it is used. To output multiple lines of text, one can place multiple statements below each other. Try the following code, it should output three lines of text.
+
+```csharp
+static void Main(string[] args)
+{
+    Console.WriteLine("Hello World!");
+    Console.WriteLine("My name is Nico De Witte");
+    Console.WriteLine("I am 33 years old and I am a teacher at VIVES University College");
+}
+```
+
+This will result in the following output:
+
+```text
+Hello World!
+My name is Nico De Witte
+I am 33 years old and I am a teacher at VIVES University College
+```
+
+Notice how every statement in the code is **terminated** (ended) with a semicolon `;`. Also note that `WriteLine()` ends with a new line every time it is called with a string to display. The string provided to `WriteLine()` is called an **argument**. It is a piece of information that is given to a method so it can be used inside the method - to be displayed, processed or handled in another way.
+
+Forgetting to place a semicolon at the end of a statement will throw of the C# compiler and generate what is known as a **syntax error**. Take for example the code below where the second `WriteLine()` has not terminated correctly. In this case Visual Studio will warn you, even before actually running the code.
+
+It will generate a message stating `; expected`. The line of code will also be marked using red squiggly lines below the code. If you hover over the red squiggly line, the message `; expected` is shown.
+
+```csharp{4}
+static void Main(string[] args)
+{
+    Console.WriteLine("Hello World!");
+    Console.WriteLine("My name is Nico De Witte")
+    Console.WriteLine("I am 33 years old and I am a teacher at VIVES University College");
+}
+```
+
+![Syntax Error indicated by Visual Studio](./img/syntax_error_semicolon.png)
+
+Strings can be concatenated in C# by placing a `+` sign between the different parts. C# can also concatenate strings with other types such as numbers. When compiler detects that a string is required for an operation, it will automatically try to convert the given information to a string. The code below shows different examples of string concatenations.
+
+```csharp
+static void Main(string[] args)
+{
+    Console.WriteLine("It is now " + "7:44 PM");
+    Console.WriteLine("My class counts " + 18 + " students");
+    Console.WriteLine("I am currently about " + 980106323 + " seconds old");
+    Console.WriteLine("Number of cats in my house: " + 1);
+    Console.WriteLine("I am " + 1.86 + " meters tall");
+}
+```
+
+This code outputs:
+
+```text
+It is now 7:44 PM
+My class counts 18 students
+I am currently about 980106323 seconds old
+Number of cats in my house: 1
+I am 1.86 meters tall
+```
+
+The code above shows both integer numbers and floating point numbers. Floating point numbers use a point `.` as a decimal separator when specifying floating point numbers.
+
 ## Train Yourself
 
 ### Multiple Choice
@@ -291,6 +354,35 @@ Note that single line comments can also be placed after code on the same line.
     * an escape sequence
     * a statement
     * a method
+
+7. What code statement can be used to output our name and age to the terminal as shown below ?
+
+    ```text
+    Hello, my name is Nico and I am 33 years of age.
+    ```
+
+    * `Console.WriteLine("Hello, my name is Nico and I am " + 33 + " years of age.");`
+    * `Console.WriteLine('Hello, my name is Nico and I am ' + 33 + ' years of age.');`
+    * `Console.WriteLine("Hello, my name is Nico and I am " 33 " years of age.");`
+    * `Console.WriteLine("Hello, my name is Nico and I am " + 33 + ' years of age.')`
+
+8. When we forget to place a semicolon `;` at the end of a statement, then we create a ...
+
+    * bug
+    * runtime error
+    * syntax error
+    * system error
+
+9. What is the result of the following statement?
+
+    ```csharp
+    Console.WriteLine("The total is " + 88 + 12 + " euro.");
+    ```
+
+    * The total is 88 + 12 euro.
+    * The total is 8812 euro.
+    * The total is 100 euro.
+    * The total is euro.
 
 ### Exercises and Challenges
 
