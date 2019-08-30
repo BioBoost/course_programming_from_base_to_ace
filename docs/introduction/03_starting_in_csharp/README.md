@@ -327,7 +327,7 @@ The code above shows both integer numbers and floating point numbers. Floating p
     * The `Main()` method
     * The `Program` class
 
-3. What is common use of a Hello World application ?
+3. What is a common use of a Hello World application ?
 
     * Proof of concept to show a device can run user code
     * To show that code is faster with a compiler
