@@ -139,3 +139,90 @@ static void Main(string[] args)
 Visual Studio will display squiggly lines below `ageOfPerson` and forcing to run this application will result in an error:
 
 ![Uninitialized Variable](./img/uninitialized_variable.png)
+
+## Data Types
+
+There are two kinds of data types in C#: value types and reference types. Variables of value types directly contain their data whereas variables of reference types store references to their data, the latter being known as objects. More on this later.
+
+![Value versus Reference Type](./img/value_versus_reference_type.png)
+
+::: tip string is a reference type
+Note that strings, such as "Hello World", are not listed as a simple datatype. That is because strings are actually objects. More on this later.
+:::
+
+### Simple Data Types
+
+The most basic data types available in C# are the **simple value types**. These can store integral values, characters, floating-point values and such. The simple data types are identified through reserved words.
+
+#### Integral Types
+
+| Reserved Word | Description |
+| --- | --- |
+| `sbyte` | Signed 8-bit integers with values between -128 and 127. |
+| `byte` | Unsigned 8-bit integers with values between 0 and 255. |
+| `short` | Signed 16-bit integers with values between -32768 and 32767. |
+| `ushort` | Unsigned 16-bit integers with values between 0 and 65535. |
+| `int` | Signed 32-bit integers with values between -2147483648 and 2147483647. |
+| `uint` | Unsigned 32-bit integers with values between 0 and 4294967295. |
+| `long` | Signed 64-bit integers with values between -9223372036854775808 and 9223372036854775807. |
+| `ulong` | Unsigned 64-bit integers with values between 0 and 18446744073709551615. |
+| `char` | Unsigned 16-bit integers with values between 0 and 65535. The set of possible values for the char type corresponds to the Unicode character set. |
+
+#### Floating Point Types
+
+C# supports two floating point types: `float` and `double`.
+
+| Reserved Word | Description |
+| --- | --- |
+| `float` | 32-bit single-precision IEEE 754 format. Can represent values ranging from approximately `1.5 * 10^-45` to `3.4 * 10^38` with a precision of 7 digits. |
+| `double` | 64-bit double-precision IEEE 754 format. Can represent values ranging from approximately `5.0 * 10^-324` to `1.7 × 10^308` with a precision of 15-16 digits. |
+
+By default most programmers will use the `double` type. Computers these days are optimized to handle double precision floating point numbers.
+
+<!-- TODO - Add some representation of floating point values here -->
+
+#### The Decimal Type
+
+The decimal type is a 128-bit data type suitable for **financial and monetary calculations**.
+
+| Reserved Word | Description |
+| --- | --- |
+| `decimal` | Represent values ranging from `1.0 * 10^-28` to approximately `7.9 * 10^28` with 28-29 significant digits. |
+
+#### The Boolean Type
+
+The boolean data type has only two possible values: `true` and `false`. Use this data type for simple flags that track true/false conditions.
+
+| Reserved Word | Description |
+| --- | --- |
+| `bool` | Only valid values are `true` and `false` |
+
+### Some Examples
+
+Examples of variable declarations with initialization of different simple data types:
+
+```csharp
+// Simple integer
+int numberOfStudents = 55;
+
+// Byte
+byte startOfFrame = 0x21;
+byte endOfFrame = 0;
+
+// Characters (from the alphabet) or other symbols
+char startOfAlphabet = 'a';
+char dollarSign = '$';
+
+// Floating point numbers
+double averageWaterUsage = 3870.35478;
+
+// Booleans can only be true or false
+bool isOlderThanEighteen = true;
+bool isStillATeenager = false;
+```
+
+::: tip Literals
+Literals are the values that are literally used inside source code. Examples are `"Hello World", 13, -154, 'X', 0x23`. They are mostly used for the initialization of variables.
+:::
+
+Note that the hexadecimal notation of literals can also be used when for example assigning integral values to variables.
