@@ -355,34 +355,12 @@ The code above shows both integer numbers and floating point numbers. Floating p
     * a statement
     * a method
 
-7. What code statement can be used to output our name and age to the terminal as shown below ?
-
-    ```text
-    Hello, my name is Nico and I am 33 years of age.
-    ```
-
-    * `Console.WriteLine("Hello, my name is Nico and I am " + 33 + " years of age.");`
-    * `Console.WriteLine('Hello, my name is Nico and I am ' + 33 + ' years of age.');`
-    * `Console.WriteLine("Hello, my name is Nico and I am " 33 " years of age.");`
-    * `Console.WriteLine("Hello, my name is Nico and I am " + 33 + ' years of age.')`
-
-8. When we forget to place a semicolon `;` at the end of a statement, then we create a ...
+7. When we forget to place a semicolon `;` at the end of a statement, then we create a ...
 
     * bug
     * runtime error
     * syntax error
     * system error
-
-9. What is the result of the following statement?
-
-    ```csharp
-    Console.WriteLine("The total is " + 88 + 12 + " euro.");
-    ```
-
-    * The total is 88 + 12 euro.
-    * The total is 8812 euro.
-    * The total is 100 euro.
-    * The total is euro.
 
 ### Exercises and Challenges
 
