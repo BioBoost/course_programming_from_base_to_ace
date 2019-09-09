@@ -26,7 +26,7 @@ In addition, "Hello world!" can be a **useful sanity test** to make sure that a 
 
 Let's jump right in and create a "Hello World" application in C#.
 
-::: warning Naming Things
+::: warning 👍 Naming Things
 Naming things correctly is one of the main responsibilities of a programmer. By giving things (applications, variables, methods, ...) decent names, you will make your own life and that of fellow programmers a lot easier.
 :::
 
@@ -34,8 +34,8 @@ Open Visual Studio and create a new project of the type `Console Application (.N
 
 ![Creating a Console Application in .NET Core](./img/console_app_project_vs.png)
 
-::: tip Console Applications
-When developing applications a choice must be made between a GUI and a console application. As discussed earlier, a console application has no real graphical user interface and interacts with the user via the terminal (console). The default options for input and output are essentially text. This course will first focus on console applications after which it will introduce WPF allowing the creation of graphical applications.
+::: tip ⌨️ Console Applications
+When developing applications, a choice must be made between a GUI and a console application. As discussed earlier, a console application has no real graphical user interface and interacts with the user via the terminal (console). The default options for input and output are essentially text. This course will first focus on console applications after which it will introduce WPF allowing the creation of graphical applications.
 :::
 
 Once the wizard is finished it will automatically generate a basic "Hello World" application with the code shown below.
@@ -62,7 +62,8 @@ Hello World!
 
 C:\Program Files\dotnet\dotnet.exe (process 12088) exited with code 0.
 To automatically close the console when debugging stops,
-enable Tools->Options->Debugging->Automatically close the console when debugging stops.
+enable Tools->Options->Debugging->Automatically close the
+console when debugging stops.
 Press any key to close this window . . .
 ```
 
@@ -70,7 +71,7 @@ Notice that the application terminates after outputting the text to the terminal
 
 ## Dissecting Hello World
 
-While not diving into many details here, there are however a couple of things which can be clarified about the code above.
+While not diving into many details here, there are however a couple of things which can be clarified about the source code of the "Hello World" application.
 
 ### The Main Method
 
@@ -93,7 +94,7 @@ namespace HelloWorld
 
 This piece of code needs to be in every C# application and is the start-point of your program. Without it, your program would not be able to be executed. It is often called the **entry-point of the application**.
 
-The piece of code shown above is also more general known as a **method**. A method consists of some code that can be executed by **calling** it somewhere else in your application using the name of the method. Here the name of the method is `Main()`. Most of the applications that are used as examples in this chapter will contain code that needs to be placed inside this main method, between the curly braces `{}`, which is called the **body** of the method.
+The code previously shown is also more generally known as a **method**. A method consists of some code that can be executed by **calling** it somewhere else in your application using the name of the method. Here the name of the method is `Main()`. Most of the applications that are used as examples in this chapter will contain code that needs to be placed inside this main method, between the curly braces `{}`, which is called the **body** of the method.
 
 Do not worry to much about the keywords such as `static` and `void`. This course will explain these later.
 
@@ -120,11 +121,11 @@ namespace HelloWorld
 }
 ```
 
-Most lines of code such as `Console.WriteLine("Hello World!");` are called `statements`. A statement is an action that is performed in code, often acting on some part of data or information. In the example above, the information is a piece of text, namely "Hello World!". This piece of text is called a **String** in programming languages and they are most often specified between two quotes `"Placing some text between quotes makes it a string"`.
+Most lines of code such as `Console.WriteLine("Hello World!");` are called **statements**. A statement is an action that is performed in code, often acting on some external piece of data or information. In the example above, the information is a text, namely "Hello World!". This piece of text is called a **string** in programming languages and they are enclosed between two quotes `"Placing some text between quotes makes it a string"`.
 
 A statement is typically **terminated** using a semicolon `;`. By placing this at the end of a statement, the compiler knows that the line of code has ended.
 
-The data `"Hello World!"` (in this case a piece of text) that is provided to the method `Console.WriteLine()` is called an **argument**. It is a piece of information that is passed to a method so it can be used inside the method - to be displayed, processed or handled in another way.
+The data `"Hello World!"` (in this case a piece of text) that is provided to the method `Console.WriteLine()` is called an **argument**. It is a piece of information that is **passed** to a method so it can be used inside the method - to be displayed, processed or handled in another way.
 
 ### Namespace
 
@@ -145,7 +146,7 @@ namespace HelloWorld
 }
 ```
 
-To avoid collisions with the resources provided by .NET, the applications created in Visual Studio are automatically put into their own namespace, based on the name of the application. In this case, the `Program` class is put inside the namespace `HelloWorld`. More on namespaces later.
+To avoid collisions with the resources provided by .NET, the applications created in Visual Studio are automatically put into their own namespace, based on the name of the application. In this case, the `Program` class is put inside the namespace `HelloWorld`.
 
 ### Using
 
@@ -197,7 +198,7 @@ Not all lines of text that are present in the source code of an application are 
 // Yet again some comments
 ```
 
-Because this can be a bit of a nuisance when you have a big block of comments, you can also place `/*` before your block and `*/` after the block (also called a **block-comment**). This allows a programmer to easily create a paragraph as comments.
+This can be a bit of a nuisance when creating bigger blocks of comments. Therefore comments can also be placed between `/*` and `*/`. This type of comment is also called a **block-comment**. This allows a programmer to easily create a paragraph as comments.
 
 ```csharp
 /*
@@ -207,30 +208,30 @@ Because this can be a bit of a nuisance when you have a big block of comments, y
   */
 ```
 
-::: warning - Too much Information
+::: warning 📝 Too much Information
 It is completely normal as a beginning programmer to place a lot of comments inside your code. While this is helpful when learning to program, it is also kind of dangerous. Code typically changes while the project evolves and often comments do not. They can therefore contain wrong information about the code and become useless and even misleading. A good programmer (one that takes care of his/her code) will not need a lot of comments. The best documentation is the code itself, of course provided that you take care of your naming of things and your code in general.
 :::
 
 The hello world application can be extended a bit by adding some comments as shown in the next code snippet:
 
 ```csharp
-// Allows us to directly use the
+// Allows direct usage of
 // resources inside of the System namespace
 using System;
 
 /*
-    HelloWorld is the namespace of our application.
-    It is a logical group that bundles all the
-    resources we create inside our project.
-    It also avoid name collisions.
+  HelloWorld is the namespace of the application.
+  It is a logical group that bundles all the
+  resources created inside the project.
+  It also avoid name collisions.
 */
 namespace HelloWorld
 {
   class Program   // Single class that contains the Main() method
   {
     /*
-        The main method is the entry-point of our application
-        It is automatically called when the application is started
+      The main method is the entry-point of the application.
+      It is automatically called when the application is started
     */
     static void Main(string[] args)
     {
@@ -251,7 +252,7 @@ static void Main(string[] args)
 {
   Console.WriteLine("Hello World!");
   Console.WriteLine("My name is Nico De Witte");
-  Console.WriteLine("I am 33 years old and I am a teacher at VIVES University College");
+  Console.WriteLine("I am a teacher at VIVES University College");
 }
 ```
 
@@ -260,27 +261,27 @@ This will result in the following output:
 ```text
 Hello World!
 My name is Nico De Witte
-I am 33 years old and I am a teacher at VIVES University College
+I am a teacher at VIVES University College
 ```
 
-Notice how every statement in the code is **terminated** (ended) with a semicolon `;`. Also note that `WriteLine()` ends with a new line every time it is called with a string to display. The string provided to `WriteLine()` is called an **argument**. It is a piece of information that is given to a method so it can be used inside the method - to be displayed, processed or handled in another way.
+Notice how every statement in the code is **terminated** (ended) with a semicolon `;`. Also note that `WriteLine()` ends with a new line every time it is called with a string to display. The string provided to `WriteLine()` is called an **argument**. It is a piece of information that is given to a method so it can be used inside that method - to be displayed, processed or handled in another way.
 
-Forgetting to place a semicolon at the end of a statement will throw of the C# compiler and generate what is known as a **syntax error**. Take for example the code below where the second `WriteLine()` has not terminated correctly. In this case Visual Studio will warn you, even before actually running the code.
-
-It will generate a message stating `; expected`. The line of code will also be marked using red squiggly lines below the code. If you hover over the red squiggly line, the message `; expected` is shown.
+Forgetting to place a semicolon at the end of a statement will throw of the C# compiler and generate what is known as a **syntax error**. Take for example the code below where the second `WriteLine()` has not been terminated correctly. In this case Visual Studio will warn you, even before actually running the code.
 
 ```csharp{4}
 static void Main(string[] args)
 {
   Console.WriteLine("Hello World!");
   Console.WriteLine("My name is Nico De Witte")
-  Console.WriteLine("I am 33 years old and I am a teacher at VIVES University College");
+  Console.WriteLine("I am a teacher at VIVES University College");
 }
 ```
 
+It will generate a message stating `; expected`. The line of code will also be marked using red squiggly lines below the code. If you hover over the red squiggly line, the message `; expected` is shown.
+
 ![Syntax Error indicated by Visual Studio](./img/syntax_error_semicolon.png)
 
-Strings can be concatenated in C# by placing a `+` sign between the different parts. C# can also concatenate strings with other types such as numbers. When compiler detects that a string is required for an operation, it will automatically try to convert the given information to a string. The code below shows different examples of string concatenations.
+Strings can be **concatenated** (stitched together) in C# by placing a `+` sign (called the **concatenation operator**) between the different parts. C# can also concatenate strings with other types such as numbers. When the compiler detects that a string is required for an operation, **it will automatically try to convert the given information to a string**. The code below shows different examples of string concatenations.
 
 ```csharp
 static void Main(string[] args)
@@ -303,7 +304,7 @@ Number of cats in my house: 1
 I am 1.86 meters tall
 ```
 
-The code above shows both integer numbers and floating point numbers. Floating point numbers use a point `.` as a decimal separator when specifying floating point numbers.
+The previous code example shows both integer numbers and floating point numbers. Floating point numbers use a point `.` as a decimal separator when specifying floating point numbers.
 
 ## Train Yourself
 
