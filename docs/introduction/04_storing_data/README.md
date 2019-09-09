@@ -142,13 +142,9 @@ Visual Studio will display squiggly lines below `ageOfPerson` and forcing to run
 
 ## Data Types
 
-There are two kinds of data types in C#: value types and reference types. Variables of value types directly contain their data whereas variables of reference types store references to their data, the latter being known as objects. More on this later.
+There are two kinds of data types in C#: **value types** and **reference types**. Variables of value types directly contain their data whereas variables of reference types store references to their data, the latter being known as objects.
 
 ![Value versus Reference Type](./img/value_versus_reference_type.png)
-
-::: tip string is a reference type
-Note that strings, such as "Hello World", are not listed as a simple datatype. That is because strings are actually objects. More on this later.
-:::
 
 ### Simple Data Types
 
@@ -167,6 +163,8 @@ The most basic data types available in C# are the **simple value types**. These 
 | `long` | Signed 64-bit integers with values between -9223372036854775808 and 9223372036854775807. |
 | `ulong` | Unsigned 64-bit integers with values between 0 and 18446744073709551615. |
 | `char` | Unsigned 16-bit integers with values between 0 and 65535. The set of possible values for the char type corresponds to the Unicode character set. |
+
+While there are quite a bit of integral data types available, the ones you will need the most here are `int` for integral numbers and `char` for single characters.
 
 #### Floating Point Types
 
@@ -197,6 +195,16 @@ The boolean data type has only two possible values: `true` and `false`. Use this
 | --- | --- |
 | `bool` | Only valid values are `true` and `false` |
 
+### Strings - A Reference Type
+
+A **string** in C# is a **piece of text** that is placed between **double quotes**, for example `"Hello my name is Nico"`.
+
+Strings are not a simple datatype, because they are actually objects.
+
+| Reserved Word | Description |
+| --- | --- |
+| `string` | Reference datatype for text |
+
 ### Some Examples
 
 Examples of variable declarations with initialization of different simple data types:
@@ -219,6 +227,11 @@ double averageWaterUsage = 3870.35478;
 // Booleans can only be true or false
 bool isOlderThanEighteen = true;
 bool isStillATeenager = false;
+
+// String literals are placed between double quotes
+// and stored in string objects
+string greeting = "Hello World";
+string courseName = "Introduction to Programming";
 ```
 
 ::: tip Literals
