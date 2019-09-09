@@ -45,13 +45,13 @@ using System;
 
 namespace HelloWorld
 {
-    class Program
+  class Program
+  {
+    static void Main(string[] args)
     {
-        static void Main(string[] args)
-        {
-            Console.WriteLine("Hello World!");
-        }
+      Console.WriteLine("Hello World!");
     }
+  }
 }
 ```
 
@@ -110,13 +110,13 @@ using System;
 
 namespace HelloWorld
 {
-    class Program
+  class Program
+  {
+    static void Main(string[] args)
     {
-        static void Main(string[] args)
-        {
-            Console.WriteLine("Hello World!");
-        }
+      Console.WriteLine("Hello World!");
     }
+  }
 }
 ```
 
@@ -135,13 +135,13 @@ using System;
 
 namespace HelloWorld
 {
-    class Program
+  class Program
+  {
+    static void Main(string[] args)
     {
-        static void Main(string[] args)
-        {
-            Console.WriteLine("Hello World!");
-        }
+      Console.WriteLine("Hello World!");
     }
+  }
 }
 ```
 
@@ -156,13 +156,13 @@ using System;
 
 namespace HelloWorld
 {
-    class Program
+  class Program
+  {
+    static void Main(string[] args)
     {
-        static void Main(string[] args)
-        {
-            Console.WriteLine("Hello World!");
-        }
+      Console.WriteLine("Hello World!");
     }
+  }
 }
 ```
 
@@ -177,13 +177,13 @@ using System;
 
 namespace HelloWorld
 {
-    class Program
+  class Program
+  {
+    static void Main(string[] args)
     {
-        static void Main(string[] args)
-        {
-            Console.WriteLine("Hello World!");
-        }
+      Console.WriteLine("Hello World!");
     }
+  }
 }
 ```
 
@@ -226,17 +226,17 @@ using System;
 */
 namespace HelloWorld
 {
-    class Program   // Single class that contains the Main() method
+  class Program   // Single class that contains the Main() method
+  {
+    /*
+        The main method is the entry-point of our application
+        It is automatically called when the application is started
+    */
+    static void Main(string[] args)
     {
-        /*
-            The main method is the entry-point of our application
-            It is automatically called when the application is started
-        */
-        static void Main(string[] args)
-        {
-            Console.WriteLine("Hello World!");    // Write some text to the terminal
-        }
+      Console.WriteLine("Hello World!");    // Write some text to the terminal
     }
+  }
 }
 ```
 
@@ -249,9 +249,9 @@ Note that single line comments can also be placed after code on the same line.
 ```csharp
 static void Main(string[] args)
 {
-    Console.WriteLine("Hello World!");
-    Console.WriteLine("My name is Nico De Witte");
-    Console.WriteLine("I am 33 years old and I am a teacher at VIVES University College");
+  Console.WriteLine("Hello World!");
+  Console.WriteLine("My name is Nico De Witte");
+  Console.WriteLine("I am 33 years old and I am a teacher at VIVES University College");
 }
 ```
 
@@ -272,9 +272,9 @@ It will generate a message stating `; expected`. The line of code will also be m
 ```csharp{4}
 static void Main(string[] args)
 {
-    Console.WriteLine("Hello World!");
-    Console.WriteLine("My name is Nico De Witte")
-    Console.WriteLine("I am 33 years old and I am a teacher at VIVES University College");
+  Console.WriteLine("Hello World!");
+  Console.WriteLine("My name is Nico De Witte")
+  Console.WriteLine("I am 33 years old and I am a teacher at VIVES University College");
 }
 ```
 
@@ -285,11 +285,11 @@ Strings can be concatenated in C# by placing a `+` sign between the different pa
 ```csharp
 static void Main(string[] args)
 {
-    Console.WriteLine("It is now " + "7:44 PM");
-    Console.WriteLine("My class counts " + 18 + " students");
-    Console.WriteLine("I am currently about " + 980106323 + " seconds old");
-    Console.WriteLine("Number of cats in my house: " + 1);
-    Console.WriteLine("I am " + 1.86 + " meters tall");
+  Console.WriteLine("It is now " + "7:44 PM");
+  Console.WriteLine("My class counts " + 18 + " students");
+  Console.WriteLine("I am currently about " + 980106323 + " seconds old");
+  Console.WriteLine("Number of cats in my house: " + 1);
+  Console.WriteLine("I am " + 1.86 + " meters tall");
 }
 ```
 
