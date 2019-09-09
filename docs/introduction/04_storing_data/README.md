@@ -232,7 +232,10 @@ bool isStillATeenager = false;
 // and stored in string objects
 string greeting = "Hello World";
 string courseName = "Introduction to Programming";
+string callMe = "N";
 ```
+
+A single character is placed between single quotes `'`, while strings are placed between double quotes `"`. However its perfectly legal for a string to only contain a single character as shown in the previous example.
 
 ::: tip Literals
 Literals are the values that are literally used inside source code. Examples are `"Hello World", 13, -154, 'X', 0x23`. They are mostly used for the initialization of variables.
