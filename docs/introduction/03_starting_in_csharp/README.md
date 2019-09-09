@@ -362,6 +362,28 @@ The code above shows both integer numbers and floating point numbers. Floating p
     * syntax error
     * system error
 
+8. What code statement can be used to output our name and age to the terminal as shown below ?
+
+    ```text
+    Hello, my name is Nico and I am 33 years of age.
+    ```
+
+    * `Console.WriteLine("Hello, my name is Nico and I am " + 33 + " years of age.");`
+    * `Console.WriteLine('Hello, my name is Nico and I am ' + 33 + ' years of age.');`
+    * `Console.WriteLine("Hello, my name is Nico and I am " 33 " years of age.");`
+    * `Console.WriteLine("Hello, my name is Nico and I am " + 33 + ' years of age.')`
+
+9. What is the result of the following statement?
+
+    ```csharp
+    Console.WriteLine("The total is " + 88 + 12 + " euro.");
+    ```
+
+    * The total is 88 + 12 euro.
+    * The total is 8812 euro.
+    * The total is 100 euro.
+    * The total is euro.
+
 ### Exercises and Challenges
 
 Checkout the exercises and challenges which can be found at [https://github.com/BioBoost/csharp_practical](https://github.com/BioBoost/csharp_practical).
