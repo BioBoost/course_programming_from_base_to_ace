@@ -168,7 +168,7 @@ The most basic data types available in C# are the **simple value types**. These 
 | `ulong` | Unsigned 64-bit integers with values between 0 and 18446744073709551615. |
 | `char` | Unsigned 16-bit integers with values between 0 and 65535. The set of possible values for the char type corresponds to the Unicode character set. |
 
-While there are quite a bit of integral data types available, the ones you will need the most here are `int` for integral numbers and `char` for single characters.
+While there are quite a bit of integral data types available, the ones you will need the most are `int` for integral numbers and `char` for single characters.
 
 #### Floating Point Types
 
