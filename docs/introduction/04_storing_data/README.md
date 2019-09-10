@@ -251,24 +251,24 @@ Literals are the values that are literally used inside source code. Examples are
 
 1. What is a valid value for a `boolean`?
 
-    * [ ] `true`
-    * [ ] `undefined`
-    * [ ] `not`
-    * [ ] `nill`
+    * `true`
+    * `undefined`
+    * `not`
+    * `nill`
 
 2. Suppose you want to store the age of your dog in a variable (the years). What would be the most obvious datatype for this?
 
-    * [ ] `double`
-    * [ ] `string`
-    * [ ] `char`
-    * [ ] `int`
+    * `double`
+    * `string`
+    * `char`
+    * `int`
 
 3. What is the most correct and complete definition of a variable?
 
-    * [ ] A variable is a symbolic name for a location in memory where the actual data resides.
-    * [ ] A variable is a symbolic name for a location in memory where the actual data resides with a size determined by the datatype of that variable.
-    * [ ] A variable is a symbolic name for a location in memory where the actual data resides with a size determined by the value with which the variable was initialized.
-    * [ ] A variable is a symbolic name for a location in memory where the actual data resides with a size that is not constant.
+    * A variable is a symbolic name for a location in memory where the actual data resides.
+    * A variable is a symbolic name for a location in memory where the actual data resides with a size determined by the datatype of that variable.
+    * A variable is a symbolic name for a location in memory where the actual data resides with a size determined by the value with which the variable was initialized.
+    * A variable is a symbolic name for a location in memory where the actual data resides with a size that is not constant.
 
 ### Exercises and Challenges
 
