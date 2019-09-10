@@ -5,6 +5,8 @@ title: 02 - Basic Building Blocks
 
 # Chapter 02 - Basic Building Blocks
 
+![Basic Building Blocks of a Programming Language](./img/building_blocks.png)
+
 Almost every programming language out there has a number of basic building blocks required to solve problems and build programs.
 
 * **Variables** label memory locations where data is stored and allow for ease of access.
