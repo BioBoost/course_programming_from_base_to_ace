@@ -5,7 +5,9 @@ title: 04 - Storing Data
 
 # Chapter 04 - Storing Data
 
-The programs that we create need to store all sorts of data. From basic information such as numbers, characters and strings to complex data types that a programmer can define for himself.
+![Data versus Information](./img/data_vs_information.png)
+
+The programs that we create need to store all sorts of information. From basic data such as numbers, characters and strings to complex data types that a programmer can define for himself.
 
 | Type | Examples | Description |
 | --- | --- | --- |
@@ -14,23 +16,23 @@ The programs that we create need to store all sorts of data. From basic informat
 | characters | `'a'`, `'Z'`, `'$'`, `'\n'` | Single unicode characters that are used to represent most of the written languages throughout the world. |
 | strings | `"Hello World"`, `"Nico De Witte"`, `"X"` | A sequential collection of characters that represent a text. |
 
-::: tip Representations
+::: tip 🖼️ Representations
 Note that integer numbers are written without a point, while floating point numbers are represented with a decimal point `.` (not a comma). Single characters are always placed between single quotes `'` while strings are placed between double quotes `"`.
 :::
 
-This data is read, stored, manipulated and outputted through the application. The data itself is stored inside the memory of the computer or system the program is running on. Inside the application one does not need to access the memory directly, for this the programmer can make use of variables.
+This data is read, stored, manipulated and outputted throughout the application. The data itself is stored inside the memory of the computer or system the program is running on. Inside the application one does not need to access the memory directly, for this the programmer can make use of variables.
 
 ## Variables
 
 A variable is a **symbolic name** associated with a memory location that stores the actual data which may be changed through the variable. The variable's name should represent what information the variable references. They are called variables because they represent **information that can change**.
 
-Computer memory can be thought of a huge cabinet with millions of small drawers. The content of the drawers is the information stored in memory that we use inside our application. While it is perfectly possible to refer to a drawer using its location (for example second row, third column), it is a lot harder to remember. There is also no link between the location and the actual content of the drawer. Now if we place a label on the drawer that is descriptive enough of its content, which is the analogy of our **variable name**, it is much easier to refer to the drawer using the descriptive name (for example `count`, `age`, `name`).
+Computer memory can be thought of a huge cabinet with millions of small drawers. The content of the drawers is the information stored in memory that is used inside the application. While it is perfectly possible to refer to a drawer using its location (for example second row, third column), it is a lot harder to remember. There is also no link between the location and the actual content of the drawer. Now if a label were placed on the drawer that is descriptive enough of its content, which is the analogy of our **variable name**, it is much easier to refer to the drawer using the descriptive name (for example `count`, `age`, `name`).
 
 ![Memory is analogous to a huge cabinet with millions of small drawers](./img/drawers_memory.png)
 
 Something to be aware of is that every memory cell in a computer has the same fixed size (expressed in a number of bytes) depending on the hardware architecture of that system. However, the data that is stored may be bigger than the size of single memory cell. Take for example a piece of text or a floating point number.
 
-Basically as a programmer you need to tell the computer what type of data you wish to store in memory. This will inform the compiler how much memory is required. This can be achieved by specifying what is called the **datatype of the variable**.
+Basically as a programmer you need to tell the compiler what type of data you wish to store in memory. This will inform the compiler how much memory is required. This can be achieved by specifying what is called the **datatype of the variable**.
 
 Both the datatype and the name of variable are specified when the variable is **declared**.
 
@@ -81,7 +83,7 @@ static void Main(string[] args)
 }
 ```
 
-::: tip Splitting Lines of Text
+::: tip 🪓 Splitting Lines of Text
 Note how the long string can be split up by concatenating it using the `+` operator. The same could of been achieved using multiple `Console.Write()` statements, but it would of been more work to type.
 :::
 
@@ -100,7 +102,7 @@ static void Main(string[] args)
 }
 ```
 
-::: warning Declare a variable before using it
+::: warning 🚨 Declare a variable before using it
 In C# you must declare a variable before it can be used. This is a rule for many programming languages but not for all. Some programming languages will automatically create variables as they are used.
 :::
 
@@ -116,7 +118,7 @@ static void Main(string[] args)
 }
 ```
 
-This because when a variable is declared, you can **immediately initialize it** with a value in a single line of code as shown below.
+This because when a variable is declared, you can **immediately initialize it** with a value in a single line of code as shown in the next code snippet.
 
 ```csharp
 public static void main(String[] args) {
@@ -124,7 +126,9 @@ public static void main(String[] args) {
 }
 ```
 
-The process of initialization is the act of **giving a variable a sensible value**. This is often done together with the declaration. Forgetting to initialize a variable can have severe consequences and create hard to track bugs. Luckily the C# compiler and Visual Studio will not allow you to use an uninitialized variable and throw the error `Use of unassigned local variable 'ageOfPerson'`. This safety net is not provided by all programming languages. For example C++ will allow you to use uninitialized variables. In this case their value is undetermined and often contains garbage data.
+The process of **initialization** is the act of **giving a variable a sensible value**. This is often done together with the declaration.
+
+Forgetting to initialize a variable can have severe consequences and create hard to track bugs. Luckily the C# compiler and Visual Studio will not allow you to use an uninitialized variable and throw the error `Use of unassigned local variable`. This safety net is not provided by all programming languages. For example C++ will allow you to use uninitialized variables. In this case their value is undetermined and often contains garbage data.
 
 Try running the following code:
 
@@ -136,7 +140,7 @@ static void Main(string[] args)
 }
 ```
 
-Visual Studio will display squiggly lines below `ageOfPerson` and forcing to run this application will result in an error:
+Visual Studio will display squiggly lines below `ageOfPerson`. Forcing to run this application will result in an error:
 
 ![Uninitialized Variable](./img/uninitialized_variable.png)
 
@@ -146,9 +150,9 @@ There are two kinds of data types in C#: **value types** and **reference types**
 
 ![Value versus Reference Type](./img/value_versus_reference_type.png)
 
-### Simple Data Types
+### Simple Value Types
 
-The most basic data types available in C# are the **simple value types**. These can store integral values, characters, floating-point values and such. The simple data types are identified through reserved words.
+The most basic data types available in C# are the **simple value types**. These can store integral values, characters, floating-point values and such. The simple value types are identified through reserved words. They can be categorized in integral, floating-point, decimal and boolean types.
 
 #### Integral Types
 
@@ -199,7 +203,7 @@ The boolean data type has only two possible values: `true` and `false`. Use this
 
 A **string** in C# is a **piece of text** that is placed between **double quotes**, for example `"Hello my name is Nico"`.
 
-Strings are not a simple datatype, because they are actually objects.
+Strings are not a simple data types because they are actually objects.
 
 | Reserved Word | Description |
 | --- | --- |
@@ -207,7 +211,7 @@ Strings are not a simple datatype, because they are actually objects.
 
 ### Some Examples
 
-Examples of variable declarations with initialization of different simple data types:
+Examples of variable declarations of different data types with initialization:
 
 ```csharp
 // Simple integer
@@ -237,8 +241,6 @@ string callMe = "N";
 
 A single character is placed between single quotes `'`, while strings are placed between double quotes `"`. However its perfectly legal for a string to only contain a single character as shown in the previous example.
 
-::: tip Literals
-Literals are the values that are literally used inside source code. Examples are `"Hello World", 13, -154, 'X', 0x23`. They are mostly used for the initialization of variables.
+::: tip 🖍️ Literals
+Literals are the values that are literally used inside source code. Examples are `"Hello World", 13, -154, 'X', 0x23`. They are mostly used for the initialization of variables. Note that the hexadecimal notation of literals can also be used when for example assigning integral values to variables.
 :::
-
-Note that the hexadecimal notation of literals can also be used when for example assigning integral values to variables.
