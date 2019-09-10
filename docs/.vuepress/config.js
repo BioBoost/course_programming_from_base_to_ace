@@ -13,7 +13,8 @@ module.exports = {
         '02_basic_building_blocks/',
         '03_starting_in_csharp/',
         '04_storing_data/',
-        '05_processing_data/'
+        '05_processing_data/',
+        '06_getting_user_data/'
       ],
 
       '/oop/': [
