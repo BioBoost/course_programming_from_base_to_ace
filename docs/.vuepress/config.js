@@ -54,5 +54,9 @@ module.exports = {
         zIndex: 10000,
       },
     }],
+    ['container', {
+      type: 'codeoutput',
+      defaultTitle: 'Output',
+    }]
   ],
 }

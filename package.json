@@ -31,5 +31,6 @@
     "vuepress-plugin-zooming": "^1.1.1"
   },
   "dependencies": {
+    "vuepress-plugin-container": "^2.0.2"
   }
 }
