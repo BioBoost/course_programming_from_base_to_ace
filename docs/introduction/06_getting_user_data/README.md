@@ -96,5 +96,5 @@ You are quitte tall with a height of 1.86m.
 :::
 
 ::: warning 🚫 Double and double
-Note that `double` is the syntax for creating a simple data type that is used to declare variables of a floating-point type. `Double` (actually `System.Double`) is a complexer struct type. However, `double` is actually an alias for `System.Double`, so it would actually be legal to use `double.Parse()` but almost no developer does this. More on this later.
+Note that `double` is the syntax for a simple data type that is used to declare variables of a floating-point type. `Double` (actually `System.Double`) is a complexer struct type. However, `double` is actually an alias for `System.Double`, so it would actually be legal to use `double.Parse()` but almost no developer does this. More on this later.
 :::
