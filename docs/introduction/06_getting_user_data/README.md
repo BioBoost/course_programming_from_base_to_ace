@@ -30,6 +30,13 @@ string name = Console.ReadLine();
 Console.WriteLine("Hello " + name + ". Very nice to meet you.");
 ```
 
+::: codeoutput
+<pre>
+Please enter your name: Nico
+Hello Nico. Very nice to meet you.
+</pre>
+:::
+
 Some remarks are needed about this code example:
 
 * Instead of `Console.WriteLine()` the snippet makes use of `Console.Write()`, allowing the user to type after the question. Nothing wrong if `Console.WriteLine()` would of been used, it just feels more natural this way.
@@ -49,6 +56,13 @@ int age = Int32.Parse(ageText);
 
 Console.WriteLine("How interesting that you are " + age + " years young.");
 ```
+
+::: codeoutput
+<pre>
+Please enter your age: 33
+How interesting that you are 33 years young.
+</pre>
+:::
 
 Take note on how the `ageText` variable is passed to the `Parse()` method. Again the `Parse()` method returns a resulting value. If we wish to save this for later processing, it needs to be stored in a variable (`age` in this case).
 
@@ -73,6 +87,13 @@ double height = Double.Parse(Console.ReadLine());
 
 Console.WriteLine("You are quitte tall with a height of " + height + "m.");
 ```
+
+::: codeoutput
+<pre>
+Please enter your height in meters: 1.86
+You are quitte tall with a height of 1.86m.
+</pre>
+:::
 
 ::: warning 🚫 Double and double
 Note that `double` is the syntax for creating a simple data type that is used to declare variables of a floating-point type. `Double` (actually `System.Double`) is a complexer struct type. However, `double` is actually an alias for `System.Double`, so it would actually be legal to use `double.Parse()` but almost no developer does this. More on this later.
