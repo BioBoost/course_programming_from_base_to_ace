@@ -36,6 +36,37 @@ Basically as a programmer you need to tell the compiler what type of data you wi
 
 Both the datatype and the name of variable are specified when the variable is **declared**.
 
+## Naming a Variable
+
+Choosing a name for a variable is a big decision. Bad names will make your code less readable and maintainable. Keep in mind that other people might need to study or change your code. Below are some best practices:
+
+* use English variable names
+* use descriptive names
+* don't abbreviate
+* use camelCase for local variables
+* start with a letter, can start with an underscore `_` too, but only used in specific cases.
+* don't use C# syntax keywords
+
+Take a look at some examples:
+
+| Variable Name | Good or Bad ? | Description |
+| --- | :---: | --- |
+| `myVariable` | ❌ | Not a descriptive name. Can be anything |
+| `lineCounter` | ✔️ | Describes that it keeps track of the number of lines |
+| `string` | ❌ | Keyword of C# |
+| `teller` | ❌ | Not English |
+| `1thStudent` | ❌ | Should not start with a number |
+| `welcomeMessage` | ✔️ | Describes that it contains a welcome message |
+| `user-name` | ❌ | Don't use special characters in variable names |
+| `new` | ❌ | Keyword of C# |
+| `ListOfNames` | ❌ | Starts with a capital. Local variables should start with a lowercase letter. |
+| `email address` | ❌ | Variable names should not contain spaces |
+| `descriptionOfTheApplication` | ✔️ | A bit long but not a problem. |
+| `usrTxtMsg` | ❌ | Don't use abbreviations. |
+| `userTextMessage` | ✔️ | Good descriptive name |
+
+Also keep in mind that C# and many other programming languages are case-sensitive. That means that `hippyCounter` is not the same as `HippyCounter`.
+
 ## Declaring a Variable
 
 Before a variable can be used inside an application, it needs be **declared**. Declaring a variable can be thought of as stating to the C# compiler that is needs to request memory for data and make it accessible using a symbolic **variable name**. Because the C# compiler needs to know how much memory to set aside, you as a programmer need to specify what **type of data** the variable will hold.
