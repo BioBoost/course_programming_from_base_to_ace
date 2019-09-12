@@ -59,11 +59,13 @@ Take a look at some examples:
 | `welcomeMessage` | ✔️ | Describes that it contains a welcome message |
 | `user-name` | ❌ | Don't use special characters in variable names |
 | `new` | ❌ | Keyword of C# |
+| `newUser` | ✔️ | Perfectly legal if part of the name is keyword |
 | `ListOfNames` | ❌ | Starts with a capital. Local variables should start with a lowercase letter. |
 | `email address` | ❌ | Variable names should not contain spaces |
 | `descriptionOfTheApplication` | ✔️ | A bit long but not a problem. |
 | `usrTxtMsg` | ❌ | Don't use abbreviations. |
 | `userTextMessage` | ✔️ | Good descriptive name |
+| `thingyThatCountsTheUserPeoples` | ❌ | Be serious, don't use silly names. After a while it starts to annoy. |
 
 Also keep in mind that C# and many other programming languages are case-sensitive. That means that `hippyCounter` is not the same as `HippyCounter`.
 
