@@ -161,7 +161,7 @@ Most operators (even non-arithmetical) have a shorter compound-operator represen
 
 ## Operator Precedence
 
-While the precedence (order) in which mathematical operations are performed is defined in C#, most programmers do not know all of them by heart. It is much more clear and simpler to use round brackets `()` to enforce the precedence of calculations.
+While the precedence (order) in which mathematical operations are performed is defined in C#, most programmers do not know all of them by heart. It is much more clear and simpler to use parentheses `()` to enforce the precedence of calculations.
 
 Consider the following code example:
 
@@ -176,7 +176,13 @@ int result = a * b + c - d * a / 5 - 3;     // result = 35
 Console.WriteLine("The result is " + result);
 ```
 
-The result of the code above is `35`. Would you have known? By using round brackets this becomes much clearer and the chance of making a mistake is a lot smaller.
+::: codeoutput
+<pre>
+The result is 35
+</pre>
+:::
+
+Would you have known that the result is `35`? By using parentheses this becomes much clearer and the chance of making a mistake is a lot smaller.
 
 ```csharp
 int a = 5;
@@ -188,6 +194,12 @@ int result = (a * b) + c - (d * a / 5) - 3;     // result = 35
 
 Console.WriteLine("The result is " + result);
 ```
+
+::: codeoutput
+<pre>
+The result is 35
+</pre>
+:::
 
 More info on operator precedence and associativity can be found at [https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/).
 
