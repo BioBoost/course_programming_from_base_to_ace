@@ -55,7 +55,7 @@ While this is certainly a useful exercise you can already feel that programming 
 As a future programmer you should never state that the computer is doing something wrong when your applications fails, crashes or does something unexpected. You should instead ask yourself, did I tell the computer how to do the job correctly? Did I forget something? Did I misinterpret the problem or do I have the solution wrong?
 :::
 
-Of course, computers don't understand recipes written on paper. Computers are machines, and at the most basic level, they are a collection of switches - where 1 represents "on" and 0 represents "off". Everything that a computer does is implemented in this most basic of all numbering systems - **binary**. If you really wanted to tell a computer what to do directly, you'd have to talk to it in binary, giving it coded sequences of 1s and 0s that tell it which instructions to execute - called **machine code**)**. However, this is nearly impossible. In practice, we use a programming language.
+Of course, computers don't understand recipes written on paper. Computers are machines, and at the most basic level, they are a collection of switches - where 1 represents "on" and 0 represents "off". Everything that a computer does is implemented in this most basic of all numbering systems - **binary**. If you really wanted to tell a computer what to do directly, you'd have to talk to it in binary, giving it coded sequences of 1s and 0s that tell it which instructions to execute - called **machine code**). However, this is nearly impossible. In practice, we use a programming language.
 
 ## A Programming Language
 
