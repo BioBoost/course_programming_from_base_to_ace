@@ -5,6 +5,8 @@ title: 01 - Introduction to Computer Programming
 
 # Chapter 01 - Introduction to Computer Programming
 
+![How does Computer Programming work](./img/how_does_it_work.png)
+
 Today, most people don't need to know how a computer works. Most people can simply turn on a computer or a mobile phone and point at some little graphical object on the display, click a button or swipe a finger or two, and the computer does something. How to interact with a computer program is all the average person needs to know.
 
 As a human it is **impossible to know how everything works**. While people may have a deep understanding of certain things, there will always be other things they don't know or understand. Do you know how a TV actually works? Or do you know the internal workings of a car? However that does not mean we cannot watch TV or drive a car.
@@ -49,7 +51,7 @@ While this is certainly a useful exercise you can already feel that programming 
 >
 > *Stephen Wolfram*
 
-::: warning Don't blame the Computer, blame the programmer
+::: warning 😱 Don't blame the Computer, blame the programmer
 As a future programmer you should never state that the computer is doing something wrong when your applications fails, crashes or does something unexpected. You should instead ask yourself, did I tell the computer how to do the job correctly? Did I forget something? Did I misinterpret the problem or do I have the solution wrong?
 :::
 
@@ -75,7 +77,7 @@ In much the same way, a computer program can be compiled (or "translated") into 
 
 ![The Compilation Process](./img/compilation_process.png)
 
-::: tip About a Compiler
+::: tip 🤹 About a Compiler
 A compiler is an application that actually transforms source code that was written in a specific programming language into another - not just into machine code. Some compilers transform the input source code into for example an intermediate language (IL) that is later interpreted or compiled into machine code.
 :::
 
@@ -112,7 +114,7 @@ The C\# compilation process consists of two different phases before the machine 
 
 ![C\# Compilation Process](./img/csharp_compilation_process.png)
 
-::: tip The .NET Compilation Process
+::: tip 📃 The .NET Compilation Process
 A nice article about this whole process can be found at [Understanding .NET Just-In-Time Compilation](https://www.telerik.com/blogs/understanding-net-just-in-time-compilation) or if you rather watch a small video fragment (first 10 minutes) about this process [.NET Framework - Compilation Process by Tutorials Point (India) Pvt. Ltd.](https://www.youtube.com/watch?v=6oYcZ-D8Fyw).
 :::
 
@@ -169,7 +171,7 @@ As the speed and ease-of-use of GUI (Graphical User Interface) applications have
 
 The ability to create console applications is kept as a feature of modern programming environments such as Visual Studio and the .NET Framework on Microsoft Windows because it greatly simplifies the learning process of a new programming language by removing the complexity of a graphical user interface.
 
-::: tip Task Automation
+::: tip 👨‍🏭 Task Automation
 Another huge advantage of working with console applications compared to a GUI application is the **ability to automate certain tasks**. Command line tools and applications can easily be automated and chained to other tasks. It is very easy to create a small script to automate certain processes. One could for example schedule a task that automatically backups our system every few days. Automating GUI applications is not always easy.
 :::
 
@@ -195,7 +197,7 @@ Learn to work with others in a **team** environment. People have different stren
 
 ### Multiple Choice
 
-1. When an application is being run, we often state that the application ...
+1. When an application is being run, one can state that the application ...
 
     * compiles
     * describes
@@ -237,7 +239,7 @@ Learn to work with others in a **team** environment. People have different stren
     * Low Level Language
     * Natural Language
 
-7. What is true about the Visual Studio Code application ?
+7. What is true about the Visual Studio application ?
 
     * It's a GUI application
     * It's a console application
@@ -274,7 +276,7 @@ Learn to work with others in a **team** environment. People have different stren
     * Machine code
     * Low level code
 
-12. What is a big advantage of programming language that is interpreted instead of compiled?
+12. What is a big advantage of a programming language that is interpreted instead of compiled?
 
     * Faster execution
     * Faster development
