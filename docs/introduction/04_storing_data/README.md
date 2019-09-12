@@ -38,7 +38,13 @@ Both the datatype and the name of variable are specified when the variable is **
 
 ## Naming a Variable
 
-Choosing a name for a variable is a big decision. Bad names will make your code less readable and maintainable. Keep in mind that other people might need to study or change your code. Below are some best practices:
+Choosing a name for a variable is a big decision. Bad names will make your code less readable and maintainable. Keep in mind that other people might need to study or change your code.
+
+::: tip 🤡 Code Readability
+Always code as if the guy/girl who ends up maintaining your code will be a violent psychopath who knows where you live.
+:::
+
+Below are some best practices:
 
 * use English variable names
 * use descriptive names
