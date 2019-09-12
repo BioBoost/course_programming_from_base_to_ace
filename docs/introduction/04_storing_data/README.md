@@ -62,6 +62,13 @@ static void Main(string[] args)
 }
 ```
 
+::: codeoutput
+<pre>
+I am 33 years old
+and I am a teacher at VIVES University
+</pre>
+:::
+
 The data referred to by the variable can be changed using the **assignment operator** `=`. This is basically the same as in math. On the left hand side you have the variable which you want to assign and on the right hand side the value.
 
 When you wish to use the content of the variable, all you need to do is state the symbolic name where you would otherwise use a value.
@@ -82,6 +89,12 @@ static void Main(string[] args)
     + numberOfEmailAddresses + " email addresses");
 }
 ```
+
+::: codeoutput
+<pre>
+We have 36 students meaning we also have 36 email addresses
+</pre>
+:::
 
 ::: tip 🪓 Splitting Lines of Text
 Note how the long string can be split up by concatenating it using the `+` operator. The same could of been achieved using multiple `Console.Write()` statements, but it would of been more work to type.
