@@ -79,7 +79,7 @@ Console.WriteLine("How interesting that you are " + age + " years young.");
 Do note that when entering an invalid number such as `a` or `123.23` will cause the application to crash with a `FormatException`. Feel free to test this. For the moment, fixing this is too complex. This course will return to this later.
 :::
 
-![FormatExpception](./img/format_exception.png)
+![Format Exception](./img/format_exception.png)
 
 Make sure you understand the previous code example before continuing. If not, read it a couple of times or execute it in debug in Visual Studio.
 
@@ -100,4 +100,48 @@ Please enter your height in meters: 1.86
 You are quitte tall with a height of 1.86m.
 </pre>
 :::
+
+### Generating Random Numbers
+
+An other approach to get data is to generate it randomly. The `Random` class of C# also provides the tools to generate all sorts of random numbers.
+
+The code snippet belows contains the necessary code to generate integral numbers between a minimum value (inclusive) and the provided maximum (exclusive) bound. If you only provide a single number it will take this as the exclusive maximum and provide a number between `0` and this maximum.
+
+```csharp
+// Object of the Random class that allows us to
+// generate numbers
+Random random = new Random();
+
+// [1, 7[
+int die = random.Next(1, 7);        // Value 1 to 6
+
+// [0, 12[
+int month = random.Next(0, 12);     // Value 0 to 11
+
+// [0, 21[
+int examScore = random.Next(21);    // Value 0 to 20
+```
+
+Don't worry too much about the `new` keyword and such just yet.
+
+#### Floating Point Values
+
+The `Random` class can also generate random floating point values between `0.0` and `1.0`. This can be achieved by calling the `NextDouble()` method. No upper limit can be provided here. You need to do this yourself.
+
+```csharp
+// Object of the Random class that allows us to
+// generate numbers
+Random random = new Random();
+
+// [0.0, 1.0[
+double real = random.NextDouble();
+```
+
+## Train Yourself
+
+### Multiple Choice
+
+### Exercises and Challenges
+
+Checkout the exercises and challenges which can be found at [https://github.com/BioBoost/csharp_practical](https://github.com/BioBoost/csharp_practical).
 
