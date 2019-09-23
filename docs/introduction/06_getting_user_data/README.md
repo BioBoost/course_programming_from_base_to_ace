@@ -45,14 +45,14 @@ Some remarks are needed about this code example:
 
 ## Requesting an Integer
 
-When requesting an other type of data from the user, the input first needs to be parsed to the correct data type. Csharp cannot know from itself what kind of data the user provided.
+When requesting an other type of data from the user, the input first needs to be parsed to the correct data type. C# cannot know from itself what kind of data the user provided.
 
-Below is a code snippet that shows how to use the `Int32` struct to **parse the input from the user as an integer** by using the `Parse()` method to parse the provided string as an integer. Do take note that if the user inputted anything else than an integer, the application will crash. Feel free to test this. For the moment, fixing this is too complex. This course will return to this later.
+Below is a code snippet that shows how to use the `Convert` class to **parse the input from the user as an integer** by using the `ToInt32()` method to parse the provided string as an integer.
 
 ```csharp
 Console.Write("Please enter your age: ");
 string ageText = Console.ReadLine();
-int age = Int32.Parse(ageText);
+int age = Convert.ToInt32(ageText);
 
 Console.WriteLine("How interesting that you are " + age + " years young.");
 ```
@@ -64,37 +64,84 @@ How interesting that you are 33 years young.
 </pre>
 :::
 
-Take note on how the `ageText` variable is passed to the `Parse()` method. Again the `Parse()` method returns a resulting value. If we wish to save this for later processing, it needs to be stored in a variable (`age` in this case).
+Take note on how the `ageText` variable is passed to the `ToInt32()` method. Again the `ToInt32()` method returns a resulting value. If we wish to save this for later processing, it needs to be stored in a variable (`age` in this case).
 
-This example can actually be written a bit more compact. The value that is returned by the `Console.ReadLine()` can actually be passed to the `Int32.Parse()` method directly. This makes the code shorter and it is perfectly possible as the string value is not required anymore after the conversion.
+This example can actually be written a bit more compact. The value that is returned by the `Console.ReadLine()` can actually be passed to the `Convert.ToInt32()` method directly. This makes the code shorter and it is perfectly possible as the string value is not required anymore after the conversion.
 
 ```csharp{2}
 Console.Write("Please enter your age: ");
-int age = Int32.Parse(Console.ReadLine());
+int age = Convert.ToInt32(Console.ReadLine());
 
 Console.WriteLine("How interesting that you are " + age + " years young.");
 ```
 
-Make sure you understand the previous code example before continueing. If not, read it a couple of times or execute it in debug in Visual Studio.
+::: danger ⚡ FormatException
+Do note that when entering an invalid number such as `a` or `123.23` will cause the application to crash with a `FormatException`. Feel free to test this. For the moment, fixing this is too complex. This course will return to this later.
+:::
+
+![Format Exception](./img/format_exception.png)
+
+Make sure you understand the previous code example before continuing. If not, read it a couple of times or execute it in debug in Visual Studio.
 
 ## Requesting a Double
 
-Requesting floating-point numbers from the user is very similar to requesting integral values. Instead of using the `Parse` method of `Int32`, one can use the `Parse` method of `Double`.
+Requesting floating-point numbers from the user is very similar to requesting integral values. Instead of using the `ToInt32()` method of `Convert`, one can use the `ToDouble()` method of `Convert`.
 
 ```csharp
 Console.Write("Please enter your height in meters: ");
-double height = Double.Parse(Console.ReadLine());
+double height = Convert.ToDouble(Console.ReadLine());
 
-Console.WriteLine("You are quitte tall with a height of " + height + "m.");
+Console.WriteLine("You are quite tall with a height of " + height + "m.");
 ```
 
 ::: codeoutput
 <pre>
 Please enter your height in meters: 1.86
-You are quitte tall with a height of 1.86m.
+You are quite tall with a height of 1.86m.
 </pre>
 :::
 
-::: warning 🚫 Double and double
-Note that `double` is the syntax for a simple data type that is used to declare variables of a floating-point type. `Double` (actually `System.Double`) is a complexer struct type. However, `double` is actually an alias for `System.Double`, so it would actually be legal to use `double.Parse()` but almost no developer does this. More on this later.
-:::
+### Generating Random Numbers
+
+An other approach to get data is to generate it randomly. The `Random` class of C# also provides the tools to generate all sorts of random numbers.
+
+The code snippet belows contains the necessary code to generate integral numbers between a minimum value (inclusive) and the provided maximum (exclusive) bound. If you only provide a single number it will take this as the exclusive maximum and provide a number between `0` and this maximum.
+
+```csharp
+// Object of the Random class that allows us to
+// generate numbers
+Random random = new Random();
+
+// [1, 7[
+int die = random.Next(1, 7);        // Value 1 to 6
+
+// [0, 12[
+int month = random.Next(0, 12);     // Value 0 to 11
+
+// [0, 21[
+int examScore = random.Next(21);    // Value 0 to 20
+```
+
+Don't worry too much about the `new` keyword and such just yet.
+
+#### Floating Point Values
+
+The `Random` class can also generate random floating point values between `0.0` and `1.0`. This can be achieved by calling the `NextDouble()` method. No upper limit can be provided here. You need to do this yourself.
+
+```csharp
+// Object of the Random class that allows us to
+// generate numbers
+Random random = new Random();
+
+// [0.0, 1.0[
+double real = random.NextDouble();
+```
+
+## Train Yourself
+
+### Multiple Choice
+
+### Exercises and Challenges
+
+Checkout the exercises and challenges which can be found at [https://github.com/BioBoost/csharp_practical](https://github.com/BioBoost/csharp_practical).
+
