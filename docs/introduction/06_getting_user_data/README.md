@@ -91,13 +91,13 @@ Requesting floating-point numbers from the user is very similar to requesting in
 Console.Write("Please enter your height in meters: ");
 double height = Convert.ToDouble(Console.ReadLine());
 
-Console.WriteLine("You are quitte tall with a height of " + height + "m.");
+Console.WriteLine("You are quite tall with a height of " + height + "m.");
 ```
 
 ::: codeoutput
 <pre>
 Please enter your height in meters: 1.86
-You are quitte tall with a height of 1.86m.
+You are quite tall with a height of 1.86m.
 </pre>
 :::
 
