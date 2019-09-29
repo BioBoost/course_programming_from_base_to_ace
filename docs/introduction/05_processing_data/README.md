@@ -205,6 +205,15 @@ More info on operator precedence and associativity can be found at [https://docs
 
 ## Train Yourself
 
+### Open Questions
+
+Explain the difference in output between the following two statements:
+
+```csharp
+Console.WriteLine("Calculation: " + 12 + 88);
+Console.WriteLine("Calculation: " + (12 + 88));
+```
+
 ### Multiple Choice
 
 1. What has the same result as `counter++`?
@@ -244,7 +253,7 @@ More info on operator precedence and associativity can be found at [https://docs
 
 6. What is the resulting value in `q`?
 
-    ```java
+    ```csharp
     int x = 5;
     int y = 2;
     double q = (double) x / y;
