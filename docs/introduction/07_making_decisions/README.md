@@ -575,15 +575,30 @@ No general rule exists for when to use which construct. Some programmers don't l
 
 ### Open Questions
 
-Explain each of the following concepts. If possible give an example.
+1. Explain each of the following concepts. If possible give an example.
 
-* Condition
-* Comparison operator
-* Conditional operator
-* Lazy evaluation
-* Branch statements
-* Body of an if statement
-* Default case of a switch statement
+   * Condition
+   * Comparison operator
+   * Conditional operator
+   * Lazy evaluation
+   * Branch statements
+   * Body of an if statement
+   * Default case of a switch statement
+
+2. Fill in the table below with the correct outcomes of the boolean expressions.
+
+| A | B | C | Expression | Outcome of Expression |
+| --- | --- | --- | --- | --- |
+| `false` | `false` | `false` | `A && B` | |
+| `true` | `true` | `false` | `(!A) && B` | |
+| `true` | `true` | `true` | `(!A) && (!B) && C` | |
+| `false` | `false` | `false` | `A || B` | |
+| `false` | `true` | `false` | `!(B && C)` | |
+| `false` | `true` | `false` | `C || (!C)` | |
+| `false` | `false` | `false` | `!(B || C)` | |
+| `false` | `false` | `true` | `!((!B) || (!C))` | |
+| `false` | `true` | `true` | `A && (!A)` | |
+| `true` | `true` | `false` | `((!A) || (!B) && C) && !C` | |
 
 ### Exercises and Challenges
 
