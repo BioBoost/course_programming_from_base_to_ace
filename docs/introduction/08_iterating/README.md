@@ -175,17 +175,52 @@ The sum of all these numbers is 177.
 </pre>
 :::
 
-<!-- If the user inputs `0` as a first number, the body of the while loop is never executed (as the condition evaluates to `false` in that case) and execution jumps directly after the while loop.
+The following code example generates random numbers, simulating dice throws. It asks the user how many numbers to generate and the outputs the requested quantity.
+
+```csharp
+static void Main(string[] args)
+{
+  Console.WriteLine("Welcome to the super duper dice throw simulator.");
+
+  Console.Write("\nHow many times would you like to throw the dice? ");
+  int diceThrowCounter = Convert.ToInt32(Console.ReadLine());
+
+  Random generator = new Random();
+  while (diceThrowCounter > 0)
+  {
+    Console.WriteLine("Throwing " + generator.Next(1, 7));
+    diceThrowCounter--;
+  }
+
+  Console.WriteLine("\nThanks for throwing");
+}
+```
 
 :::codeoutput
 <pre>
-Welcome to summator - the place for all your summings.
+Welcome to the super duper dice throw simulator.
 
-Please enter a number to add to sum (0 to quit): 0
+How many times would you like to throw the dice? 4
+Throwing 3
+Throwing 4
+Throwing 1
+Throwing 3
 
-The sum of all these numbers is 0.
+Thanks for throwing
 </pre>
-::: -->
+:::
+
+Now notice that if the user inputs `0` (or a negative number for that fact) as the number of times to throw the dice, the body of the while loop is never executed (as the condition evaluates to `false` in that case) and execution jumps directly after the while loop.
+
+:::codeoutput
+<pre>
+Welcome to the super duper dice throw simulator.
+
+How many times would you like to throw the dice? 0
+
+Thanks for throwing
+</pre>
+:::
 
 ## The do while loop
 
