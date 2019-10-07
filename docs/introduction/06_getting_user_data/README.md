@@ -40,7 +40,7 @@ Hello Nico. Very nice to meet you.
 Some remarks are needed about this code example:
 
 * Instead of `Console.WriteLine()` the snippet makes use of `Console.Write()`, allowing the user to type after the question. Nothing wrong if `Console.WriteLine()` would of been used, it just feels more natural this way.
-* The variable `name` is declared when needed, not beforehand. Some people that come from the world of C-programming may have the habit to declare all variables at the top of `main()`, but this is not needed and even discouraged.
+* The variable `name` is declared when needed, not beforehand. Some people that come from the world of C-programming may have the habit to declare all variables at the top of `Main()`, but this is not needed and even discouraged.
 * The method `Console.ReadLine()` is called and it returns a result (a string with the text that the user typed). By assigning the result to the variable `name` of the type `string`, it can be used later in the code.
 
 ## Requesting an Integer
@@ -110,16 +110,16 @@ The code snippet belows contains the necessary code to generate integral numbers
 ```csharp
 // Object of the Random class that allows us to
 // generate numbers
-Random random = new Random();
+Random generator = new Random();
 
 // [1, 7[
-int die = random.Next(1, 7);        // Value 1 to 6
+int die = generator.Next(1, 7);        // Value 1 to 6
 
 // [0, 12[
-int month = random.Next(0, 12);     // Value 0 to 11
+int month = generator.Next(0, 12);     // Value 0 to 11
 
 // [0, 21[
-int examScore = random.Next(21);    // Value 0 to 20
+int examScore = generator.Next(21);    // Value 0 to 20
 ```
 
 Don't worry too much about the `new` keyword and such just yet.
@@ -131,10 +131,10 @@ The `Random` class can also generate random floating point values between `0.0` 
 ```csharp
 // Object of the Random class that allows us to
 // generate numbers
-Random random = new Random();
+Random generator = new Random();
 
 // [0.0, 1.0[
-double real = random.NextDouble();
+double real = generator.NextDouble();
 ```
 
 ## Train Yourself
