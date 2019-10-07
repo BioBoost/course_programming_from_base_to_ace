@@ -557,22 +557,6 @@ No general rule exists for when to use which construct. Some programmers don't l
     * `null`
     * `undefined`
 
-8. What condition is required (in place of `<condition_here>`) to get a list of all even numbers between 0 (inclusive) and 100 (exclusive)?
-
-    ```csharp
-    Console.WriteLine("All even numbers between 0 and 100: ");
-    for (int i = 0; i < 100; i++) {
-        if (<condition_here>) {
-            Console.WriteLine(i + " ");
-        }
-    }
-    ```
-
-    * `i / 2 == 0`
-    * `i * 2 == 0`
-    * `i - 2 == i + 2`
-    * `i % 2 == 0`
-
 ### Open Questions
 
 1. Explain each of the following concepts. If possible give an example.
