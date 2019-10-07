@@ -175,7 +175,7 @@ The sum of all these numbers is 177.
 </pre>
 :::
 
-If the user inputs `0` as a first number, the body of the while loop is never executed (as the condition evaluates to `false` in that case) and execution jumps directly after the while loop.
+<!-- If the user inputs `0` as a first number, the body of the while loop is never executed (as the condition evaluates to `false` in that case) and execution jumps directly after the while loop.
 
 :::codeoutput
 <pre>
@@ -185,7 +185,7 @@ Please enter a number to add to sum (0 to quit): 0
 
 The sum of all these numbers is 0.
 </pre>
-:::
+::: -->
 
 ## The do while loop
 
