@@ -19,7 +19,7 @@ This chapter will introduce the arithmetic operators. The other operators will b
 
 ## Arithmetic Operators
 
-The C# programming language has quitte an extensive list of operators. Two operators have already been discussed, namely the assignment operator `=` and the string concatenation operator `+`.
+The C# programming language has quite an extensive list of operators. Two operators have already been discussed, namely the assignment operator `=` and the string concatenation operator `+`.
 
 The most basic operators are the arithmetic operators. They are easy to understand because they have the same functionality as in math. The following operators are available to do basic math operations:
 
@@ -33,13 +33,13 @@ The most basic operators are the arithmetic operators. They are easy to understa
 Take note that the additive operator uses the same symbol as the string concatenation operator. The symbol is interpreted by the compiler based on the context in which it is used. If either of the operands is a string, concatenation will be performed.
 :::
 
-The mathematical operators are part of the **binary operators** because they take **two operands**, namely a left and a right operator. For example in the summation below `L` is the left operand and `R` is the right operand. The result of the operation is stored in the variable `sum`.
+The mathematical operators are part of the **binary operators** because they take **two operands**, namely a left and a right operator. For example in the summation below `left` is the left operand and `right` is the right operand. The result of the operation is stored in the variable `sum`.
 
 ```csharp
-int R = 14;
-int L = 12;
+int left = 12;
+int right = 14;
 
-int result = L + R;     // result is now 26
+int result = left + right;     // result is now 26
 ```
 
 The `+`, `-` and `*` operators function the same as in math. Their use can be seen in the following code example.
@@ -58,7 +58,7 @@ Feel free to run all the code examples in debug mode. This allows you to inspect
 
 The division `/` and remainder `%` operators deserve some special attention.
 
-### The Devision Operator
+### The Division Operator
 
 The division operator `/` has a different result based on the types of its left and right operand. If both are of an integral type (`short`, `int`, `byte`) then a whole division will be performed. Meaning that `3 / 2` will result in `1`. If either operand is a floating point operand (`float` or `double`) than the division operator will perform a real division: `3.0 / 2` will result in `1.5`.
 
@@ -70,7 +70,10 @@ int y = 2;
 
 int z = x / y;              // z = 2 (whole division)
 double w = x / y;           // w = 2.0 (still whole division)
-double q = 1.0 * x / y;     // w = 2.5 (real division)
+double q = 1.0 * x / y;     // q = 2.5 (real division)
+double r = (1.0 * x) / y;   // r = 2.5 (real division)
+double o = 1.0 * (x / y);   // o = 2.0 (whole division) !!
+double v = (double) x / y;  // v = 2.5 (real division) - casting
 
 double a = 3.0;
 double b = 2;       // 2 will actually be converted to 2.0
@@ -127,7 +130,7 @@ i--;    // Same as writing i = i - 1;
 
 There is however a caveat to keep in mind. Both operators come in a **suffix** (e.g. `i++`) and a **prefix** (e.g. `++i`) version. The end result of both versions is exactly the same, but there is a difference if you assign their value to another variable while using the increment or decrement operator.
 
-Let us take a look at two examples. First we take a look at the prefix version. In this case the value of `i` will be incremented to `6` before its value is assigned to the variable `b`. Meaning at the end of this code both `i` and `b` will have a value of `6`.
+Take a look at the following examples. First we take a look at the prefix version. In this case the value of `i` will be incremented to `6` before its value is assigned to the variable `b`. Meaning at the end of this code both `i` and `b` will have a value of `6`.
 
 ```csharp
 int i = 5;

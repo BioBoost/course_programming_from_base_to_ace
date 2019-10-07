@@ -504,8 +504,8 @@ No general rule exists for when to use which construct. Some programmers don't l
 4. What is the output of the following code snippet?
 
     ```csharp
-    boolean x = false;
-    boolean y = true;
+    bool x = false;
+    bool y = true;
     int z = 13;
 
     if (z > 10 || (x != true && y == false)) {
@@ -545,11 +545,11 @@ No general rule exists for when to use which construct. Some programmers don't l
 7. What is the resulting value in `E`?
 
     ```csharp
-    boolean A = true;
-    boolean B = false;
-    boolean C = true;
-    boolean D = (A && B ) || C;
-    boolean E = (!D) || (!A);
+    bool A = true;
+    bool B = false;
+    bool C = true;
+    bool D = (A && B ) || C;
+    bool E = (!D) || (!A);
     ```
 
     * `true`
