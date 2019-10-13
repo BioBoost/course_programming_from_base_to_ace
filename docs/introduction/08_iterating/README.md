@@ -11,7 +11,7 @@ In general, **statements are executed sequentially**: The first statement in a b
 
 Programming languages provide various structures that allow you to **loop a block of statements**. The C# programming language provides the following types of loops to handle looping requirements:
 
-* a **for loop**: Execute a code block multiple times and simplify the code that manages the loop variable. Typically used of the **number of iterations is fixed**.
+* a **for loop**: Execute a code block multiple times and simplify the code that manages the loop variable. Typically used if the **number of iterations is fixed**.
 * a **while loop**: Repeats a code block while a given condition is `true`. It **tests the condition before executing the body of the loop**, meaning that it **may never execute** if the condition is not satisfied from the beginning.
 * a **do-while loop**: Like a while loop, except that it **tests the condition at the end of the loop body**. This effectively means that the body of the loop will **execute at least once**.
 
@@ -38,7 +38,7 @@ for (initialization ; condition ; increment)
 * The **condition** is checked before each iteration and will determine if the code block is executed (in case the condition resolves to `true`) or not (in case the condition resolves to `false`).
 * The **increment** statement is invoked after each iteration through the loop. Most often this statement is used to increment or decrement a condition variable.
 
-Below is a flowchart model of a for loop.
+The next flowchart models the basic structure of a for loop.
 
 ![Flowchart of a for loop](./img/for_loop.png)
 
@@ -224,7 +224,7 @@ Thanks for throwing
 
 ## The do while loop
 
-A do while loop is used when the code block (body of the loop) needs to be **executed at least once**. **After the first iteration a condition is checked** which determines if the code block should be executed again or not.
+A do while loop is used when the code block (body of the loop) needs to be **executed at least once**. **After the first iteration the condition is checked** which determines if the code block should be executed again or not.
 
 The do-while loop adheres to the following construction template:
 
@@ -235,7 +235,7 @@ do
 } while (condition);
 ```
 
-After the closing parentheses `)` a **semicolon** `;` is required.
+Note that after the closing parentheses `)` of a condition, a **semicolon** `;` is required.
 
 The matching representation for a do while is shown in the next flowchart.
 
@@ -272,9 +272,9 @@ For the `number` variable to be accessible inside the condition (between the par
 
 ## Nesting control structures
 
-Each of the control structures (if, for, while, do-while, switch, ...) discussed in the previous sections can actually be nested. This means that we can place a loop inside an if code block, or an if inside another if.
+Each of the control structures (if, for, while, do-while, switch, ...) discussed in the previous sections can actually be nested. This means that we can place a loop inside an if code block, an if inside another if or a loop inside another loop.
 
-Let us for example take a look at the code below where we ask the user to input positive and negative integers. By setting the condition of the do-while loop to `number != 0`, we keep asking for more numbers until the user enters `0`. Each number is then added to a `totalPositive` or `totalNegative` based on whether it's greater or less than zero. If the condition for the do while is not met anymore (user enters `0`), the loop finishes and the results are shown to the user.
+Take a close look at the code below where the user is asked to input positive and negative integers. By setting the condition of the do-while loop to `number != 0`, the loop iterates until the user enters `0`. Each retrieved number is then added to a `totalPositive` or `totalNegative` based on whether it's greater or less than zero. If the condition for the do while is not met anymore (user enters `0`), the loop finishes and the results are shown to the user.
 
 ```csharp
 static void Main(string[] args)
@@ -327,7 +327,7 @@ The previous example shows how an if-else construct can be nested inside a while
 
 ## Which to use when
 
-All for loops can be written as while loops, and vice-versa. Just use whichever loop seems more appropriate to the task at hand. In general, you should use a for loop when you know how many times the loop should run. If you want the loop to break based on a condition other than the number of times it runs, you should use a while loop.
+All for loops can be written as while loops, and vice-versa. Just use whichever loop seems more appropriate to the task at hand. In general, you should use a for loop when you know how many times the loop should run. If you want the loop to break based on a condition other than the number of times it runs, you should use a while or a do-while loop.
 
 ## Train Yourself
 
@@ -438,14 +438,7 @@ All for loops can be written as while loops, and vice-versa. Just use whichever 
     * `88`
     * `90`
 
-9. In which of the situations below could you use a for-each loop?
-
-    * When you want to print each element from an array to the terminal
-    * When you wish to print each element from an array together with it's index
-    * When you wish to manipulate the values inside an array
-    * When you wish to iterate over multiple arrays
-
-10. Which construct is preferred in the following situation?
+9. Which construct is preferred in the following situation?
 
     > I wish to read a file line by line and stop at the first line that starts with the word `"The"`.
 
@@ -454,7 +447,7 @@ All for loops can be written as while loops, and vice-versa. Just use whichever 
     * A foreach loop (enhanced for loop)
     * A switch case
 
-11. What is the output of the following piece of code?
+10. What is the output of the following piece of code?
 
     ```csharp
     int i = 0;
@@ -499,7 +492,7 @@ All for loops can be written as while loops, and vice-versa. Just use whichever 
 
     * None of the above
 
-12. What is the problem with the code below?
+11. What is the problem with the code below?
 
     ```csharp
     static void Main(string[] args)
@@ -520,7 +513,7 @@ All for loops can be written as while loops, and vice-versa. Just use whichever 
     * An uninitialized variable
     * An incorrect datatype for the variable
 
-13. What construction is depicted below?
+12. What construction is depicted below?
 
     ![Unknown Construct](./img/unknown_construct.png)
 
@@ -529,7 +522,7 @@ All for loops can be written as while loops, and vice-versa. Just use whichever 
     * An if statement
     * An if-else statement
 
-14. Take the code construct below as a reference. In what order are the different parts of a for-loop executed/evaluated?
+13. Take the code construct below as a reference. In what order are the different parts of a for-loop executed/evaluated?
 
     ```csharp
     for (<Initialization>; <Condition>; <Increment>)
@@ -574,7 +567,7 @@ All for loops can be written as while loops, and vice-versa. Just use whichever 
     (4) Condition
     ```
 
-15. What condition is required (in place of `<condition_here>`) to get a list of all even numbers between 0 (inclusive) and 100 (exclusive)?
+14. What condition is required (in place of `<condition_here>`) to get a list of all even numbers between 0 (inclusive) and 100 (exclusive)?
 
     ```csharp
     Console.WriteLine("All even numbers between 0 and 100: ");
