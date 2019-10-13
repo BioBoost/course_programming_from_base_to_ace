@@ -15,6 +15,10 @@ Programming languages provide various structures that allow you to **loop a bloc
 * a **while loop**: Repeats a code block while a given condition is `true`. It **tests the condition before executing the body of the loop**, meaning that it **may never execute** if the condition is not satisfied from the beginning.
 * a **do-while loop**: Like a while loop, except that it **tests the condition at the end of the loop body**. This effectively means that the body of the loop will **execute at least once**.
 
+:::tip Iteration
+A single execution of the loop body is called an iteration.
+:::
+
 ## The for loop
 
 Basically a for loop is most often used when the number of **iterations is pre-determined**.
@@ -138,87 +142,57 @@ This can also be translated into the next flow chart.
 
 ![Flow Chart of a While Loop](./img/while_loop.png)
 
-Below is an example application that makes the sum of all the integral values the user inputs. The application stops requesting numbers from the user if a `0` is inputted.
+Below is an example application that rolls a die (randomly generated number) and adds it to a total sum. This is repeated as long as the sum is lower than the requested total from the user.
 
 ```csharp
 static void Main(string[] args)
 {
-  Console.WriteLine("Welcome to summator - the place for all your summings.\n");
+  Console.WriteLine("Welcome to the die thrower app.");
 
-  Console.Write("Please enter a number to add to sum (0 to quit): ");
-  int number = Convert.ToInt32(Console.ReadLine());
+  Console.Write("What is the total number you are looking for? ");
+  int total = Convert.ToInt32(Console.ReadLine());
 
-  int sum = number;   // Initialize sum with the first number
-  while (number != 0)
-  {
-    Console.Write("Please enter a number to add to sum (0 to quit): ");
-    number = Convert.ToInt32(Console.ReadLine());
-    sum += number;      // Add number to sum
-  }
-
-  Console.WriteLine("\nThe sum of all these numbers is " + sum + ".");
-}
-```
-
-:::codeoutput
-<pre>
-Welcome to summator - the place for all your summings.
-
-Please enter a number to add to sum (0 to quit): 12
-Please enter a number to add to sum (0 to quit): 33
-Please enter a number to add to sum (0 to quit): -12
-Please enter a number to add to sum (0 to quit): 45
-Please enter a number to add to sum (0 to quit): 99
-Please enter a number to add to sum (0 to quit): 0
-
-The sum of all these numbers is 177.
-</pre>
-:::
-
-The following code example generates random numbers, simulating dice throws. It asks the user how many numbers to generate and the outputs the requested quantity.
-
-```csharp
-static void Main(string[] args)
-{
-  Console.WriteLine("Welcome to the super duper dice throw simulator.");
-
-  Console.Write("\nHow many times would you like to throw the dice? ");
-  int diceThrowCounter = Convert.ToInt32(Console.ReadLine());
-
+  // Generate random die throws
   Random generator = new Random();
-  while (diceThrowCounter > 0)
+  int thrownTotal = 0;
+  while (thrownTotal < total)
   {
-    Console.WriteLine("Throwing " + generator.Next(1, 7));
-    diceThrowCounter--;
+    int dieThrow = generator.Next(1, 4);    // [1,3]
+    Console.WriteLine($"Throwing {dieThrow}");
+    thrownTotal += dieThrow;
   }
 
-  Console.WriteLine("\nThanks for throwing");
+  // Check if total is reached or too much
+  if (thrownTotal == total)
+  {
+    Console.WriteLine("Perfect match");
+  } else
+  {
+    Console.WriteLine($"Sorry, overshot it, total = {thrownTotal}");
+  }
 }
 ```
 
 :::codeoutput
 <pre>
-Welcome to the super duper dice throw simulator.
-
-How many times would you like to throw the dice? 4
+Welcome to the die thrower app.
+What is the total number you are looking for? 9
 Throwing 3
-Throwing 4
+Throwing 1
+Throwing 1
 Throwing 1
 Throwing 3
-
-Thanks for throwing
+Perfect match
 </pre>
 :::
 
-Now notice that if the user inputs `0` (or a negative number for that fact) as the number of times to throw the dice, the body of the while loop is never executed (as the condition evaluates to `false` in that case) and execution jumps directly after the while loop.
+Now notice that if the user inputs `0` (or a negative number for that fact) as the total number, the body of the while loop is never executed (as the condition evaluates to `false` in that case) and execution jumps directly after the while loop.
 
 :::codeoutput
 <pre>
-Welcome to the super duper dice throw simulator.
-
-How many times would you like to throw the dice? 0
-
-Thanks for throwing
+Welcome to the die thrower app.
+What is the total number you are looking for? 0
+Perfect match
 </pre>
 :::
 
@@ -269,6 +243,42 @@ You entered the value 112
 :::
 
 For the `number` variable to be accessible inside the condition (between the parentheses `()`) and also after the loop construct, it must be declared before the loop construct.
+
+Consider another example where the user is asked to enter values that are added to a total sum. The summing process continues as long as the user keeps entering values different from `0`.
+
+```csharp
+static void Main(string[] args)
+{
+  Console.WriteLine("Welcome to summator - the place for all your summings.\n");
+
+  int sum = 0;   // Initialize sum 0 !
+  int number = 0;
+
+  do
+  {
+    Console.Write("Please enter a number to add to sum (0 to quit): ");
+    number = Convert.ToInt32(Console.ReadLine());
+    sum += number;      // Add number to sum
+  } while (number != 0);
+
+  Console.WriteLine("\nThe sum of all these numbers is " + sum + ".");
+}
+```
+
+:::codeoutput
+<pre>
+Welcome to summator - the place for all your summings.
+
+Please enter a number to add to sum (0 to quit): 12
+Please enter a number to add to sum (0 to quit): 33
+Please enter a number to add to sum (0 to quit): -12
+Please enter a number to add to sum (0 to quit): 45
+Please enter a number to add to sum (0 to quit): 99
+Please enter a number to add to sum (0 to quit): 0
+
+The sum of all these numbers is 177.
+</pre>
+:::
 
 ## Nesting control structures
 
