@@ -16,7 +16,8 @@ module.exports = {
         '05_processing_data/',
         '06_getting_user_data/',
         '07_making_decisions/',
-        '08_iterating/',
+        '08_iterating/',,
+        '09_strings/',
       ],
 
       '/oop/': [
