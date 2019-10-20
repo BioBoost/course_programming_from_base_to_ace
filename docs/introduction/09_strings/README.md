@@ -52,26 +52,15 @@ When C# encounters a string literal in our code (`"Hello there. What a fascinati
 
 Escape characters are special characters than can be used inside a string. They always are prefixed with a backslash `\`. Most programming languages have them. The code below shows examples of all these techniques.
 
-```java
+```csharp
 Console.WriteLine("There\tis\ta\ttab\tbetween\teach\tword");
 Console.WriteLine("You can also use quotes here but they need to be escaped:");
 Console.WriteLine("--------------------------------------------------------");
-Console.WriteLine("\"C makes it easy to shoot yourself in the foot; C++ makes it harder,\nbut when you do it blows your whole leg off.\"");
-Console.WriteLine("by Bjarne Stroustrup");
+Console.WriteLine("\"C makes it easy to shoot yourself in the foot;");
+Console.WriteLine("C++ makes it harder,\nbut when you do it blows your whole leg off.\"");
+Console.WriteLine("\t\t\t\t- by Bjarne Stroustrup");
 Console.WriteLine("--------------------------------------------------------");
 ```
-
-::: codeoutput
-<pre>
-There	is	a	tab	between	each	word
-You can also use quotes here but the need to be escaped:
---------------------------------------------------------
-"C makes it easy to shoot yourself in the foot; C++ makes it harder,
-but when you do it blows your whole leg off."
-by Bjarne Stroustrup
-.............
-</pre>
-:::
 
 The table below lists the most used escape sequences.
 
