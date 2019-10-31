@@ -18,6 +18,7 @@ module.exports = {
         '07_making_decisions/',
         '08_iterating/',
         '09_strings/',
+        '10_arrays/',
       ],
 
       '/oop/': [
