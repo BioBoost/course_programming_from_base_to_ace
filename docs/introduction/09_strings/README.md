@@ -339,7 +339,7 @@ Note how the length of the string can be accessed by using the property `helloWo
     string world = " World";
     string bye = "Bye";
     string greeting = hello + world;
-    string goodbey = bye + world;
+    string goodbye = bye + world;
     ```
 
     * 3
