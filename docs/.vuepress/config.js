@@ -23,6 +23,8 @@ module.exports = {
 
       '/oop/': [
         '',
+        '01_abstraction/',
+        '02_all_about_objects/',
       ],
 
       // fallback
