@@ -15,10 +15,11 @@ module.exports = {
         '04_storing_data/',
         '05_processing_data/',
         '06_getting_user_data/',
-        '07_making_decisions/',
-        '08_iterating/',
-        '09_strings/',
-        '10_arrays/',
+        '07_methods/',
+        '08_making_decisions/',
+        '09_iterating/',
+        '10_strings/',
+        '11_arrays/',
       ],
 
       '/oop/': [
