@@ -325,3 +325,6 @@ Literals are the values that are literally used inside source code. Examples are
 ### Exercises and Challenges
 
 Checkout the exercises and challenges which can be found at [https://github.com/BioBoost/csharp_practical](https://github.com/BioBoost/csharp_practical).
+
+<!-- Left Overs -->
+<!-- https://www.youtube.com/watch?v=PZRI1IfStY0&t=3s -->
