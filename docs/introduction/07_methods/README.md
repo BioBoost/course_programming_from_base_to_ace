@@ -145,7 +145,7 @@ A method should be kept **as small as possible** to **do a single task**. Often 
 
 A method will most often use some sort of input data, do some processing on it and return a result based on it's findings. The input data is often supplied using arguments passed to the method when it is called.
 
-![Methods](./img/method_processing.png)1
+![Methods](./img/method_processing.png)
 
 As stated before, arguments are very similar to a variable you create inside your main. They require both a **type** and a **name**. If you wish your method to take multiple arguments, you can separate them using a comma `,`. Important to note is that every argument needs a type, even if multiple arguments have the same type.
 
@@ -243,11 +243,89 @@ There are some rules that are followed by all C# programmers concerning naming t
 
 Some good examples are (each is preceded with a variable containing a reference to an object):
 
-* Sum()
-* IsPlayerAlive()
-* OutputResults()
-* RequestUserName()
-* DetermineCircleRadius()
+* `Sum()`
+* `IsPlayerAlive()`
+* `OutputResults()`
+* `RequestUserName()`
+* `DetermineCircleRadius()`
 * ...
 
 Method names should also **reflect the result that they generate**. For example `IsPlayerAlive()` suggests that it returns a `boolean`, `DetermineCircleRadius()` suggests that it returns a `double`. That does however not mean that you should name methods as `GetRadiusAsDouble()`. Bad idea.
+
+## Methods without arguments or return value
+
+The perfect example of a method that does not return a value and takes no input is a method that prints something to to the terminal. For example a welcome message or instructions on how to use the application.
+
+```csharp
+using System;
+
+namespace MessageOfTheDay
+{
+  class Program
+  {
+    // Method without return value and no arguments
+    static void PrintWelcome()
+    {
+      Console.WriteLine("Hello and Welcome to Message of the Day.");
+      Console.WriteLine("Everytime you run this program");
+      Console.WriteLine("I will output a funny message to the terminal.");
+      Console.WriteLine("Ready? Here we go ...");
+    }
+
+    static void Main(string[] args)
+    {
+      PrintWelcome();
+    }
+  }
+}
+```
+
+Notice that the return type is set to `void` - because the method actually does not return anything. It just prints some text to the terminal. Also notice that no arguments are required as the method does not need any data from outside of the method.
+
+Calling this method is as simple as stating its name followed by empty parenthese `()`.
+
+## Methods without arguments that return a value
+
+Most methods will have some sort of result that they want to share with the code that made the call to the method. It is stated that the method **returns a value**. This is achieved using the `return` keyword in C# followed by a value or the name of a variable or even attribute.
+
+Methods can return a value without taking arguments. A simple example might be a method that requests input from the user, for example his/her age.
+
+::: tip Why put this inside a method
+There are several reasons why we would put even these two lines of code in a method. First of all is the fact that it makes our Main() code cleaner and more understandable. Second of all is the fact that this will probable expand with some checks for validity. This will turn the method into a nice piece of code that has a single responsibility: *Request the age of the user*.
+:::
+
+There are three things that need to be taken into here:
+
+1. The method should return the age of the user. For this it can use the `return` keyword.
+2. The return type in the signature of the method needs to be `int` and not `void` since the method is returning a value of type `int`.
+3. When the method is called, the return value can be caught by the calling code for further processing. In this case it can be stored inside a new variable (called `userAge` in case of the following code example).
+
+```csharp{9,15,20}
+using System;
+
+namespace AgeApp
+{
+    class Program
+    {
+        // Method without arguments
+        // Method does return int - age of user
+        static int RequestAgeFromUser()
+        {
+            Console.Write("Please enter your age: ");
+            int age = Convert.ToInt32(Console.ReadLine());
+
+            // Return the age of the user
+            return age;
+        }
+
+        static void Main(string[] args)
+        {
+            int userAge = RequestAgeFromUser();
+
+            // ....
+        }
+    }
+}
+```
+
+If the method is called, the code inside of is executed. Once the return statement in a method is encountered, the result is returned from the method and control jumps back to the place where the method is originally called.
