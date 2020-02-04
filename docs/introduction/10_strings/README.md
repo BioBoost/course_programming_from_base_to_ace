@@ -1,9 +1,9 @@
 ---
 description: The data processed by a application often consists of text. To store this type of data we need strings and the possibility to manipulate them.
-title: 09 - Strings
+title: 10 - Strings
 ---
 
-# Chapter 09 - Strings
+# Chapter 10 - Strings
 
 The data type `string` is probably the most commonly used data type for variables in C#. It is so popular that you actually already have been using strings since the beginning of this course. Remember your first statement?
 
