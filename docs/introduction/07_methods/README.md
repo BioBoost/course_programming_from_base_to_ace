@@ -341,7 +341,7 @@ Take for example the method `CalculateSum()` in the following code snippet that 
 ```csharp
 using System;
 
-namespace HelloExam
+namespace SumApp
 {
   class Program
   {
@@ -377,3 +377,48 @@ The sum of 55 and 66 is 121.
 :::
 
 As can be seen from the source code, one can pass both literal values as well as other variables to a method. Do note that you have to pass them in the **correct order** and make sure they are of the **correct type**, otherwise your program will not run.
+
+### Methods that take arguments and return a result
+
+Last but not least methods can take arguments and return a value. The example snippet that follows shows a method `Square()` that calculates the square of a number. The input data is a number of type `int` and the return value would be `number * number` also of type `int`.
+
+```csharp
+using System;
+
+namespace MathApp
+{
+    class Program
+    {
+        // Method squares the given number
+        // and returns the result
+        static int Square(int value)
+        {
+            return value * value;
+        }
+
+        static void Main(string[] args)
+        {
+            // Call the method Square to square the number
+            int number = 12;
+            int square = Square(number);
+
+            Console.WriteLine($"The result of {number} squared is {square}");
+        }
+    }
+}
+
+```
+
+Notice that no variable is created to hold the value of `number * number` inside the method. Instead, the value is immediately returned. While it would not have been wrong to create a temporary variable to hold the result, it would make the code longer than needed.
+
+::: output
+<pre>
+The result of 12 squared is 144
+</pre>
+:::
+
+## Train Yourself
+
+### Challenges
+
+Checkout the challenges which can be found at [https://github.com/BioBoost/csharp_practical](https://github.com/BioBoost/csharp_practical).
