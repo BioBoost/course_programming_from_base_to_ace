@@ -1,9 +1,9 @@
 ---
 description: Applications often have to process lists of data. To store this information arrays are a basic necessity.
-title: 10 - Arrays
+title: 11 - Arrays
 ---
 
-# Chapter 10 - Arrays
+# Chapter 11 - Arrays
 
 An array is a **data structure** consisting of a **collection of elements**, each identified by an **index** or a **key**. An array is stored so that the **position of each element can be computed from its index**. The simplest type of data structure is a linear array, also called a **one-dimensional array**.
 
