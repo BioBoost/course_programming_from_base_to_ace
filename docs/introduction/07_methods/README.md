@@ -5,10 +5,16 @@ title: 07 - Methods
 
 # Chapter 07 - Methods
 
+A method (or function in that matter) is a **named block of code** that **performs a single specific task**.
+
 Methods allow us to **group blocks of code** together and **separate** them from the rest of our code. Using the name of the method we can then ask the compiler/interpreter to execute the code inside of it. This is also known as **calling the method**. Why would we want to do this? Several reasons:
 
-* Methods allow us to split up complex tasks in simpler tasks. It **makes our code more clear** to the reader/developer of it, if we name the methods correctly and clearly.
+* Abstract away functionality inside of a named construct. This makes code more readable and maintainable, that is if we name the methods correctly and clearly. Methods also allow us to split up complex tasks in simpler tasks.
 * Methods also allow us to group blocks of code together as a single entity and name it so we can use from anywhere inside of our code. This also counteracts **code duplication** which is bad because it easily leads to bugs and what is called spaghetti code (a mess of code).
+
+::: tip Method
+A method (or function in that matter) is a **named block of code** that **performs a single specific task**.
+:::
 
 Ideally a method should **do only one thing** (it has  a **single responsibility**), for example:
 
@@ -27,6 +33,12 @@ A method can be though of as a building block of your application that performs 
 * It can produce an output value which the caller of the method can use
 
 ![Method as a Building Block](./img/method_processing.png)
+
+::: tip Functions, Procedures and Methods
+Some programmers also talk about functions and procedures. Functions are blocks of named code that can be called on their own, without an object. Functions and procedures are part of functional programming languages such as C. In those languages a procedure is a function that does not return a result value. In object oriented programming this distinction is not made and they are all called methods. Of course some object oriented languages allow you to define methods that are not part of a class, in which case the name function can be considered correct.
+:::
+
+Almost every programming language out there has built-in methods and functions provided by the language itself. Luckily as a programmer, one can also write their own methods.
 
 ## Calling methods
 
