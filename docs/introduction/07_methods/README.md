@@ -369,7 +369,7 @@ namespace SumApp
 }
 ```
 
-::: output
+::: codeoutput
 <pre>
 The sum of 5 and 12 is 17.
 The sum of 55 and 66 is 121.
@@ -411,7 +411,7 @@ namespace MathApp
 
 Notice that no variable is created to hold the value of `number * number` inside the method. Instead, the value is immediately returned. While it would not have been wrong to create a temporary variable to hold the result, it would make the code longer than needed.
 
-::: output
+::: codeoutput
 <pre>
 The result of 12 squared is 144
 </pre>
