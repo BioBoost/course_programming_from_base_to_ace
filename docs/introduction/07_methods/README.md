@@ -38,7 +38,7 @@ A method can be though of as a building block of your application that performs 
 Some programmers also talk about functions and procedures. Functions are blocks of named code that can be called on their own, without an object. Functions and procedures are part of functional programming languages such as C. In those languages a procedure is a function that does not return a result value. In object oriented programming this distinction is not made and they are all called methods. Of course some object oriented languages allow you to define methods that are not part of a class, in which case the name function can be considered correct.
 :::
 
-Almost every programming language out there has built-in methods and functions provided by the language itself. Luckily as a programmer, one can also write their own methods.
+Almost every programming language out there has built-in methods and functions provided by the language itself. Luckily as a programmer, one can also write their own methods. This chapter will introduce the basics for creating your own methods. Later on in this course we'll come back to the subject in more detail.
 
 ## Calling methods
 
@@ -79,3 +79,60 @@ An example of a method that combines both input data via arguments and outputtin
 string ageText = "12";
 int age = Convert.ToInt32(ageText);
 ```
+
+## General Form of a Method
+
+Before one can create custom methods, its required to know the syntax of a method definition. The general structure of a method in C# looks as follows
+
+```csharp
+<access_modifier> [static] <return_data_type> NameOfTheMethod(<list_of_parameters>) {
+   // Code inside method (this is called the body)
+   // return <value> or do not return a value in which case the <return_data_type> is void
+}
+```
+
+* **access_modifier** - The access modifier defines from where the method is visible and therefore from what parts of your code it can be called.
+  
+  * `public`: a public method can be called from anywhere in your application
+  * `private`: a private method can only be called in the class where it is defined. Later we'll come back to the subject of classes. For the moment you can keep in mind that a private method is only available in the file you defined it in.
+  * If no access modifier is specified, C# defaults to `private`.
+
+* `[static]`: a method can be defined as being `static` or not. In case it is defined as being `static`, it can be called without the need for creating an object from the class it belongs to. For the moment you should make your methods `static`, otherwise you will not be able to call them from your `Main()` method.
+
+::: warning Main()
+Note that the `Main()`method also has the `static` keyword applied to itself.
+:::
+
+* **return_data_type** - A method **may or may not return a value** (a single result value of the method). This can be any of the data types used for variables (`int`, `double`, `char`, string and any other type available). If no value is returned, the *return_data_type* should be set to `void`.
+
+* **nameOfTheMethod** - This is the name of the method. Make it **clear and informative**. In C# methods are always named using **Pascal case** - each word always starts with an uppercase letter.
+
+* **list_of_parameters** - Arguments (also called parameters) are **similar to the variables** we have been using.
+  * They allow the code that is calling the method to pass data to the method. The arguments can then be used as variables and their usage is **contained to the method itself**.
+  * The different arguments in the parameter list are separated from each other using a comma `,`. Both a type and a name need to be specified **for every parameter**.
+  * Arguments are optional, methods may require zero arguments.
+  * The argument variables only exist within the scope of the method itself (between the curly braces of the method).
+
+* The parenthesis `()` **are mandatory** even if no arguments are defined.
+
+* **The method body** - The part from the starting curly brace `{` till the closing curly brace `}` is called the body of the method. You should place the code statements that execute the task of the method between these two curly braces.
+
+* The name of the method and the parameter list are together called the **signature** of the method.
+
+Remember the `Main()` method where most of our code is placed. Let us take a look at it.
+
+```csharp
+class Program
+{
+  static void Main(string[] args)
+  {
+    Console.WriteLine("Hello World!");
+  }
+}
+```
+
+First of all note the placement of the method inside of the curly braces of the class `Program`.
+
+The name of this method is `Main` and it is `private` (because it is not explicitly set as `public`). It also takes an array of strings named `args` as argument - but more on arrays later. These are actually parameters that you can pass to the method when you start your application. Notice that the main method does not return a value and therefore has its return type set to `void`. The main method is also declared `static`.
+
+The main method is what is called the **entry point** of your application. It is the first method that is executed when you start your application.
