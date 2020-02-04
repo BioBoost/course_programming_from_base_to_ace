@@ -305,27 +305,75 @@ using System;
 
 namespace AgeApp
 {
-    class Program
+  class Program
+  {
+    // Method without arguments
+    // Method does return int - age of user
+    static int RequestAgeFromUser()
     {
-        // Method without arguments
-        // Method does return int - age of user
-        static int RequestAgeFromUser()
-        {
-            Console.Write("Please enter your age: ");
-            int age = Convert.ToInt32(Console.ReadLine());
+      Console.Write("Please enter your age: ");
+      int age = Convert.ToInt32(Console.ReadLine());
 
-            // Return the age of the user
-            return age;
-        }
-
-        static void Main(string[] args)
-        {
-            int userAge = RequestAgeFromUser();
-
-            // ....
-        }
+      // Return the age of the user
+      return age;
     }
+
+    static void Main(string[] args)
+    {
+      int userAge = RequestAgeFromUser();
+
+      // ....
+    }
+  }
 }
 ```
 
 If the method is called, the code inside of is executed. Once the return statement in a method is encountered, the result is returned from the method and control jumps back to the place where the method is originally called.
+
+### Methods that take arguments and return nothing
+
+Almost all methods do some sort of processing based on data. This data can come from different places as we'll see later in this course. One option is to provide a method with external data **by passing arguments/parameters to the method**. Arguments are variables that are initialized with values when the method is called from somewhere else. The data is passed inside these arguments and made available for use inside the method.
+
+Arguments can be defined between the parentheses of the method signature. For each required argument a datatype and name for the argument is required. Multiple arguments can be seperated by placing a comma between them.
+
+Take for example the method `CalculateSum()` in the following code snippet that calculates the sum of two values: `first` and `second`. Both are arguments and of the type `int`. The result in this case is printed to the terminal.
+
+```csharp
+using System;
+
+namespace HelloExam
+{
+  class Program
+  {
+    // Method prints sum to the terminal of two numbers
+    // Numbers are provided as arguments
+    // Nothing is returned
+    static void CalculateSum(int first, int second)
+    {
+      int sum = first + second;
+      Console.WriteLine($"The sum of {first} and" +
+        $" {second} is {sum}.");
+    }
+
+    static void Main(string[] args)
+    {
+      // Calculate sum of literals
+      CalculateSum(5, 12);
+
+      // Calculate sum of variables
+      int number1 = 55;
+      int number2 = 66;
+      CalculateSum(number1, number2);
+    }
+  }
+}
+```
+
+::: output
+<pre>
+The sum of 5 and 12 is 17.
+The sum of 55 and 66 is 121.
+</pre>
+:::
+
+As can be seen from the source code, one can pass both literal values as well as other variables to a method. Do note that you have to pass them in the **correct order** and make sure they are of the **correct type**, otherwise your program will not run.
