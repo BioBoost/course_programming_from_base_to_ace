@@ -330,7 +330,7 @@ namespace AgeApp
 
 If the method is called, the code inside of is executed. Once the return statement in a method is encountered, the result is returned from the method and control jumps back to the place where the method is originally called.
 
-### Methods that take arguments and return nothing
+## Methods that take arguments and return nothing
 
 Almost all methods do some sort of processing based on data. This data can come from different places as we'll see later in this course. One option is to provide a method with external data **by passing arguments/parameters to the method**. Arguments are variables that are initialized with values when the method is called from somewhere else. The data is passed inside these arguments and made available for use inside the method.
 
@@ -378,7 +378,7 @@ The sum of 55 and 66 is 121.
 
 As can be seen from the source code, one can pass both literal values as well as other variables to a method. Do note that you have to pass them in the **correct order** and make sure they are of the **correct type**, otherwise your program will not run.
 
-### Methods that take arguments and return a result
+## Methods that take arguments and return a result
 
 Last but not least methods can take arguments and return a value. The example snippet that follows shows a method `Square()` that calculates the square of a number. The input data is a number of type `int` and the return value would be `number * number` also of type `int`.
 
