@@ -82,12 +82,14 @@ int age = Convert.ToInt32(ageText);
 
 ## General Form of a Method
 
-Before one can create custom methods, its required to know the syntax of a method definition. The general structure of a method in C# looks as follows
+Before one can create custom methods, one needs to know the syntax of a method definition. The general structure of a method in C# looks as follows
 
 ```csharp
-<access_modifier> [static] <return_data_type> NameOfTheMethod(<list_of_parameters>) {
+<access_modifier> [static] <return_data_type> NameOfMethod(<parameters>) {
    // Code inside method (this is called the body)
-   // return <value> or do not return a value in which case the <return_data_type> is void
+
+   // return <value> or do not return a value
+   // in which case the <return_data_type> is void
 }
 ```
 
@@ -105,9 +107,9 @@ Note that the `Main()`method also has the `static` keyword applied to itself.
 
 * **return_data_type** - A method **may or may not return a value** (a single result value of the method). This can be any of the data types used for variables (`int`, `double`, `char`, string and any other type available). If no value is returned, the *return_data_type* should be set to `void`.
 
-* **nameOfTheMethod** - This is the name of the method. Make it **clear and informative**. In C# methods are always named using **Pascal case** - each word always starts with an uppercase letter.
+* **NameOfMethod** - This is the name of the method. Make it **clear and informative**. In C# methods are always named using **Pascal case** - each word always starts with an uppercase letter.
 
-* **list_of_parameters** - Arguments (also called parameters) are **similar to the variables** we have been using.
+* **parameters** - Arguments (also called parameters) are **similar to the variables** we have been using.
   * They allow the code that is calling the method to pass data to the method. The arguments can then be used as variables and their usage is **contained to the method itself**.
   * The different arguments in the parameter list are separated from each other using a comma `,`. Both a type and a name need to be specified **for every parameter**.
   * Arguments are optional, methods may require zero arguments.
@@ -136,3 +138,116 @@ First of all note the placement of the method inside of the curly braces of the 
 The name of this method is `Main` and it is `private` (because it is not explicitly set as `public`). It also takes an array of strings named `args` as argument - but more on arrays later. These are actually parameters that you can pass to the method when you start your application. Notice that the main method does not return a value and therefore has its return type set to `void`. The main method is also declared `static`.
 
 The main method is what is called the **entry point** of your application. It is the first method that is executed when you start your application.
+
+## Creating Custom Methods
+
+A method should be kept **as small as possible** to **do a single task**. Often it is stated that a perfect method has no more than 5 lines of code. The shorter the method, the easier it will be to understand what it is doing. However, as a beginning programmer this will be hard to achieve.
+
+A method will most often use some sort of input data, do some processing on it and return a result based on it's findings. The input data is often supplied using arguments passed to the method when it is called.
+
+![Methods](./img/method_processing.png)1
+
+As stated before, arguments are very similar to a variable you create inside your main. They require both a **type** and a **name**. If you wish your method to take multiple arguments, you can separate them using a comma `,`. Important to note is that every argument needs a type, even if multiple arguments have the same type.
+
+### Where to place your own methods
+
+For the moment there is only one place you can place custom methods and that is inside the class `Program`, where the `Main()` method is also defined.
+
+All methods need to be placed between the curly braces `{}` of the class itself, at the same level as the `Main()` method. Make sure not to place methods inside the body of other methods.
+
+The following code snippets show some examples of basic custom methods and how to call them.
+
+```csharp{8-11,15}
+using System;
+
+namespace HelloWorld
+{
+  class Program
+  {
+    // Our own custom method SayHello()
+    static void SayHello()
+    {
+      Console.WriteLine("Hello there.");
+    }
+
+    static void Main(string[] args)
+    {
+      SayHello();
+    }
+  }
+}
+```
+
+`SayHello()` is a simple method that prints a welcome text to the terminal. It can be called inside of the main by specifiying its name followed by empty parentheses `()`.
+
+Is does not matter if you place methods before or after the `Main()` method. The order of the methods has no influence. You can place them in any order inside the class body.
+
+Let's add another method to this that says farewell to the user.
+
+```csharp{16,20-23}
+using System;
+
+namespace HelloWorld
+{
+  class Program
+  {
+    // Our own custom method SayHello()
+    static void SayHello()
+    {
+      Console.WriteLine("Hello there.");
+    }
+
+    static void Main(string[] args)
+    {
+      SayHello();
+      SayBye();
+    }
+
+    // Another custom method SayBye()
+    static void SayBye()
+    {
+      Console.WriteLine("ByeBye. See u next time.");
+    }
+  }
+}
+```
+
+The next **example is wrong**, the method is inside the body of another method.
+
+```csharp{9-12}
+using System;
+
+namespace HelloWorld
+{
+  class Program
+  {
+    static void Main(string[] args)
+    {
+      static void WrongPlace()
+      {
+        Console.WriteLine("Where not to place methods ...");
+      }
+    }
+  }
+}
+```
+
+### Naming your Methods
+
+Giving your methods a **clear name** is very important. Methods that have names like *doSomething*, *process*, *count*, ... have no meaning at all. A method should always have a name that **says exactly what it is doing**. Do not be afraid of longer method names (do however be sensible about it).
+
+There are some rules that are followed by all C# programmers concerning naming things. For methods the **rules** are:
+
+* use **Pascal casing** - each word starts with an uppercase letter
+* don't place spaces, underscores or other special characters between words
+
+Some good examples are (each is preceded with a variable containing a reference to an object):
+
+* Sum()
+* IsPlayerAlive()
+* OutputResults()
+* RequestUserName()
+* DetermineCircleRadius()
+* ...
+
+Method names should also **reflect the result that they generate**. For example `IsPlayerAlive()` suggests that it returns a `boolean`, `DetermineCircleRadius()` suggests that it returns a `double`. That does however not mean that you should name methods as `GetRadiusAsDouble()`. Bad idea.
