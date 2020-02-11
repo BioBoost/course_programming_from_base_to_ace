@@ -25,15 +25,15 @@ module.exports = {
       '/oop/': [
         '',
         {
-          title: '01-object-oriented-thinking',   // required
-          // path: '/01-object-oriented-thinking/',      // optional, which should be a absolute path.
+          title: '21-object-oriented-thinking',   // required
+          // path: '/21-object-oriented-thinking/',      // optional, which should be a absolute path.
           children: [
-            '/oop/01-object-oriented-thinking/01-abstraction/',
-            '/oop/01-object-oriented-thinking/02-all-about-objects/',
+            '/oop/21-object-oriented-thinking/01-abstraction/',
+            '/oop/21-object-oriented-thinking/02-all-about-objects/',
           ]
         },
-        '03-defining-custom-classes/',
-        '04-constructors/',
+        '23-defining-custom-classes/',
+        '24-constructors/',
       ],
 
       // fallback
