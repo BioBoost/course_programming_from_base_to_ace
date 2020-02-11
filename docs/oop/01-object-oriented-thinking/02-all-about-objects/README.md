@@ -1,9 +1,9 @@
 ---
 description: Object oriented programming is the art of letting objects talk to each other.
-title: 02 - All About Objects
+title: All About Objects
 ---
 
-# Chapter 02 - All About Objects
+# All About Objects
 
 This chapter will give a detailed introduction in the concepts of object oriented thinking when using an object oriented programming (OOP) language such as C#, Java or C++. This chapter will not include any language specific examples. Everything will be language independent and supported using UML (Unified Modeling Language) class and object diagrams.
 

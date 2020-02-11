@@ -1,9 +1,9 @@
 ---
 description: Abstraction allows us to hide complex component behind a simple interface.
-title: 01 - Abstraction
+title: Abstraction
 ---
 
-# Chapter 01 - Abstraction
+# Abstraction
 
 Humans are curious in nature. However it is impossible for us to know every single thing that is going on.
 

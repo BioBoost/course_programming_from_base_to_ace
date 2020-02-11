@@ -24,8 +24,14 @@ module.exports = {
 
       '/oop/': [
         '',
-        '01_abstraction/',
-        '02_all_about_objects/',
+        {
+          title: '01-object-oriented-thinking',   // required
+          // path: '/01-object-oriented-thinking/',      // optional, which should be a absolute path.
+          children: [
+            '/oop/01-object-oriented-thinking/01-abstraction/',
+            '/oop/01-object-oriented-thinking/02-all-about-objects/',
+          ]
+        },
       ],
 
       // fallback
