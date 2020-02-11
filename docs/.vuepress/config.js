@@ -32,7 +32,8 @@ module.exports = {
             '/oop/01-object-oriented-thinking/02-all-about-objects/',
           ]
         },
-        '03-defining-custom-classes/'
+        '03-defining-custom-classes/',
+        '04-constructors/',
       ],
 
       // fallback
