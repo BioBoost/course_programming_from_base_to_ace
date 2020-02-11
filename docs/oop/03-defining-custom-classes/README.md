@@ -112,3 +112,118 @@ In its current state the `LightBulb` class can be visualized using the class dia
 ![Start of a class diagram of LightBulb](./img/light_bulb_class.png)
 
 The class shape in a class diagram consists of a rectangle with three rows. The top row contains the **name of the class**, the middle row contains the **attributes of the class** (the data of the objects), and the bottom section expresses the **methods and/or constructors** (the behavior) that the class has. In a class diagram, classes and subclasses are grouped together to show the relationship between objects of these classes.
+
+## Creating Objects
+
+To create objects from the `LightBulb` class one just needs to follow the object creation syntax:
+
+```csharp
+ClassName variableName = new ClassName(<arguments_if_needed>);
+```
+
+With this a new object will be created of the class and a reference to it will be stored inside of the variable.
+
+Consider the example shown below for the `LightBulb` class. Here a new instance of the class is requested using the `new` keyword and a reference to it is stored inside of a variable called `kitchen`.
+
+```csharp
+static void Main(string[] args)
+{
+  // Creating a LightBulb object and store its reference inside a variable
+  LightBulb kitchen = new LightBulb();
+}
+```
+
+Notice the similarity with creating an object of the class `Random`.
+
+For the moment this is all the functionality that LightBulb has. Not much use for us like this.
+
+## Adding Data
+
+Attributes hold the information and properties required by the object. They define the **data** that the object is holding or the state that it is in. Attributes are very similar to the variables that we already know. That is why attributes are also often referred to as **instance variables**, meaning variables of a class instance (aka object).
+
+Just as variables, attributes can be of any simple data type or they can contain references to other objects. They also need a name which allows them to be used inside the methods of the objects.
+
+Different from a normal local variable, an attribute also requires an **access modifier** to specify who can access the attribute. This can be any of the following:
+
+* `public`: anyone can access the attribute - depicted with a plus sign `+` in UML.
+* `private`: only the class itself can access the attribute - depicted with a minus sign `-` in UML.
+* `protected`: only the class itself or classes derived from this class can access the attributes - depicted with a hashtag `#` in UML. More on this later.
+
+<!-- Are there any other in C#? -->
+
+The default access modifier for attributes and methods in C# is `private`. This means that if one does not specify an access modifier for the member it will only be accessible from within the class itself.
+
+This leads to the following syntax template for adding attributes to a class:
+
+```csharp
+class ClassName {
+  // Attributes of the class
+  <access_modifier> <data_type> attributeName = <init_value>;
+}
+```
+
+Notice how the **access modifier is placed before the declaration** of the instance variable.
+
+Consider the example below of a class `Point` that holds the two coordinate values of a point in a 2D space. For now, the attributes are made accessible from the outside of the object declaring them `public`.
+
+```csharp
+class Point {
+  // Both x and y are attributes of the class Point
+  public double x = 0;
+  public double y = 0;
+}
+```
+
+The declaration of attributes is very similar to the declaration of local variables. They just need to be placed inside the curly braces of the class they belong to.
+
+It is also perfectly legal to initialize instance variables when declaring them by assigning them a value. This will make sure that when an object of the class is created, the attributes have a valid value.
+
+Instance variables are initialized by C# to default values:
+
+* whole numbers (`integer`, `long`, `char`, ...) default to `0`
+* real numbers (`float` and `double`) default to `0.0`
+* `boolean` values default to `false`
+* object references default to `null`
+
+:::warning Initialize Attributes
+While C# makes sure that all variables and instance variables are initialized, it is most of the time a good idea to do it yourself. That way you will always think about which is a sane default value for each attribute. On top of that, it is a good habit as not every programming language will initialize variables for you, take C++ for example. Do always at least make sure to **initialize object references** as calling methods on `null` will crash your application.
+:::
+
+Public attributes can be accessed from outside of the object using the member operator `.`. This means that one can create a `Point` object and access the `x` and `y` attributes as shown in the following code snippet.
+
+```csharp
+static void Main(string[] args)
+{
+  Point center = new Point();
+  Console.WriteLine($"[{ center.x}, { center.y}]");
+  center.x = 15.66;
+  center.y = -3.12;
+  Console.WriteLine($"[{ center.x}, { center.y}]");
+}
+```
+
+::: codeoutput
+<pre>
+[0, 0]
+[15.66, -3.12]
+</pre>
+:::
+
+The previous example shows that the values of attributes can both be retrieved and changed from outside of the class if they are `public`.
+
+The `LightBulb` class can also be extended by adding an attribute to it to keep its current state: on or off. The easiest choice here is to add an attribute called `state` of `boolean` type.
+
+```csharp
+class LightBulb {
+  // Attributes (instance variables) of the class
+  public bool state = false;
+}
+```
+
+### UML Class Diagrams of Point
+
+In its current state the `Point` class can be visualized using the class diagram shown below.
+
+![Class diagram of Point](./img/point_class.png)
+
+The second row of the class rectangle is this time populated with a list of attributes. Both attributes are `public` so they are preceded with a plus sign `+`.
