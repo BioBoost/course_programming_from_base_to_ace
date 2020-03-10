@@ -25,7 +25,7 @@ module.exports = {
       '/oop/': [
         '',
         {
-          title: '21-object-oriented-thinking',   // required
+          title: '21 - Object Oriented Thinking',   // required
           // path: '/21-object-oriented-thinking/',      // optional, which should be a absolute path.
           children: [
             '/oop/21-object-oriented-thinking/01-abstraction/',
