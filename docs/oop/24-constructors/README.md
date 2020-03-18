@@ -201,3 +201,5 @@ class Rectangle {
 ```
 
 Both constructors look the same for C#. They both take two arguments, each of type `int` and thats it.
+
+<!-- TODO: Call another constructor? -->
