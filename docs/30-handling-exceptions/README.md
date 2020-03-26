@@ -375,7 +375,7 @@ Good to know that you are 88 years old.
 
 A keen eye may have noticed that the `ToInt32()` method in the previous example actually throws more than one exception. Next to the `FormatException` it can also throw an `OverflowException`: [https://docs.microsoft.com/en-us/dotnet/api/system.convert.toint32?view=netframework-4.8#System_Convert_ToInt32_System_String_](https://docs.microsoft.com/en-us/dotnet/api/system.convert.toint32?view=netframework-4.8#System_Convert_ToInt32_System_String_).
 
-Basically if the user types something that cannot be converted to an numeric value the method throws a `FormatException`. If the value is numeric but to large to store in a 32-bit integer type, the methods throws an `OverflowException`.
+Basically if the user types something that cannot be converted to a numeric value the method throws a `FormatException`. If the value is numeric but to large to store in a 32-bit integer type, the methods throws an `OverflowException`.
 
 To catch multiple exceptions and handle each one accordingly (different problems often require different solutions), multiple `catch` blocks can be placed after each other as shown in the next syntax-example.
 
