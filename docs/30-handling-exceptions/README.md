@@ -187,7 +187,7 @@ Now what might happen if the configuration file is loaded and read successfully,
 2. The method `ParseGameConfigFile()` **throws** an exception of type `InvalidGameConfigException` (not a standard C# exception, this is a custom class) and thereby interrupts the normal flow of execution. It throws an exception because this method cannot solve the issue at this level. That is the responsibility of the `LoadGameConfiguration()` method.
 3. The exception bubbles up towards the `LoadGameConfiguration()` method which **catches** exceptions of type `InvalidGameConfigException` because it knows how to solve it. There are two options depending on the current situation:
   a. If the current file is the user config file, then the whole process needs to tried again but with the backup configuration file
-  b. If the current file the backup configuration file, then the game will use a default config defined in code
+  b. If the current file is the backup configuration file, then the game will use a default config defined in code
 
 ![Parse Config Fails](./img/parse-game-config.png)
 
