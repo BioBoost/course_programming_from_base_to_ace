@@ -195,8 +195,342 @@ Note that a method can catch different types of exceptions. In this example the 
 
 The next sections will demonstrate how to do this all.
 
+<!-- Refactor this next year. Approach is good I think but we should also close the file. -->
+<!-- We should also explain the finally keyword -->
+
+## Trying and Catching Exceptions
+
+Basically to catch exceptions three things are required:
+
+* code that *throws* an exception: this can be a library method or a custom method.
+* a `try` block: A try block is used to encapsulate a region of code. If any code throws an exception within that try block, the exception will be handled by the corresponding `catch`.
+* a `catch` block: When an exception occurs, the catch block of code is executed. This is where you are able to handle the exception, log it, or ignore it.
+
+The next code example requests the user's age and requires it to be an integer value between `0` and `120`. If execute the code and carefully type a number into the terminal all goes well. It also handles out of range values by requesting the user's age again.
+
+```csharp
+class Program
+{
+   public static int RequestUserAge()
+   {
+     int age = 0;
+     do
+     {
+        Console.Write("Please enter your age [0, 120]: ");
+        age = Convert.ToInt32(Console.ReadLine());
+     } while (age < 0 || age > 120);
+     return age;
+   }
+
+   static void Main(string[] args)
+   {
+     Console.WriteLine("Welcome to this Exception Demo\n");
+     int age = RequestUserAge();
+     Console.WriteLine($"\nGood to know that you are {age} years old.");
+   }
+}
+```
+
+::: codeoutput
+<pre>
+Welcome to this Exception Demo
+
+Please enter your age [0, 120]: 150
+Please enter your age [0, 120]: -3
+Please enter your age [0, 120]: 15
+
+Good to know that you are 15 years old.
+</pre>
+:::
+
+But what happens when the user enters for example `a` or `twelve`? Well in that cases an exception is thrown by the `ToInt32()` method of type `FormatException` as can be seen from the screenshot.
+
+![Format Exception](./img/format-exception.png)
+
+Now to catch this exception instead of letting the application crash, the code that throws the exception should be surrounded with a `try-catch` block. The syntax for a `try-catch` block is the following:
+
+```csharp
+try
+{
+  // Dangerous code goes here
+}
+catch (Exception e)
+{
+  // Solving the problem goes here
+}
+```
+
+So to catch exceptions one needs to
+
+* place a try-block with the code inside that may generate the exception
+* the type of the exception (name of the class) that will be thrown
+* a catch-block that needs to be executed in case the specific type of exception is thrown
+
+So, the previous example refactored with exceptions may look like:
+
+```csharp{9,13,17}
+class Program
+{
+   public static int RequestUserAge()
+   {
+     int age = 0;
+     do
+     {
+        Console.Write("Please enter your age [0, 120]: ");
+        try
+        {
+          age = Convert.ToInt32(Console.ReadLine());
+        }
+        catch (FormatException fe)
+        {
+          // By setting age to -1 we make sure that the while
+          // loop iterates again
+          age = -1;
+        }
+     } while (age < 0 || age > 120);
+     return age;
+   }
+
+   static void Main(string[] args)
+   {
+     Console.WriteLine("Welcome to this Exception Demo\n");
+     int age = RequestUserAge();
+     Console.WriteLine($"\nGood to know that you are {age} years old.");
+   }
+}
+```
+
+Note that the type of the exception is `FormatException`. This information can be found online at [https://docs.microsoft.com/en-us/dotnet/api/system.convert.toint32?view=netframework-4.8#System_Convert_ToInt32_System_String_](https://docs.microsoft.com/en-us/dotnet/api/system.convert.toint32?view=netframework-4.8#System_Convert_ToInt32_System_String_).
+
+Solving the problem here is actually quite easy. By setting the value of `age` to `-1` we ensure that the while-loop iterates again and thereby requests new input from the user.
+
+::: codeoutput
+<pre>
+Welcome to this Exception Demo
+
+Please enter your age [0, 120]: -5
+Please enter your age [0, 120]: -1
+Please enter your age [0, 120]: q
+Please enter your age [0, 120]: twelfe
+Please enter your age [0, 120]: 12
+
+Good to know that you are 12 years old.
+</pre>
+:::
+
+It is really important to understand that statements, inside the try-block, that follow after the method that has thrown an exception are not executed anymore. Execution jumps to a matching catch-block instead.
+
+```csharp{13-14}
+class Program
+{
+   public static int RequestUserAge()
+   {
+     int age = 0;
+     do
+     {
+        Console.Write("Please enter your age [0, 120]: ");
+        try
+        {
+          age = Convert.ToInt32(Console.ReadLine());
+
+          // This statement will not execute if ToInt32() throws an exception
+          Console.WriteLine("Thank you for providing your age");
+        }
+        catch (FormatException fe)
+        {
+          // By setting age to -1 we make sure that the while
+          // loop iterates again
+          age = -1;
+        }
+     } while (age < 0 || age > 120);
+     return age;
+   }
+
+   static void Main(string[] args)
+   {
+     Console.WriteLine("Welcome to this Exception Demo\n");
+     int age = RequestUserAge();
+     Console.WriteLine($"\nGood to know that you are {age} years old.");
+   }
+}
+```
+
+This can be seen in the output. Notice how the `Console.WriteLine("Thank you for providing your age");` statement is not executed when the user entered `twenty` and thereby triggered the exception.
+
+::: codeoutput
+<pre>
+Welcome to this Exception Demo
+
+Please enter your age [0, 120]: -12
+Thank you for providing your age
+Please enter your age [0, 120]: twenty
+Please enter your age [0, 120]: 88
+Thank you for providing your age
+
+Good to know that you are 88 years old.
+</pre>
+:::
+
+## Catching More Exceptions
+
+A keen eye may have noticed that the `ToInt32()` method in the previous example actually throws more than one exception. Next to the `FormatException` it can also throw an `OverflowException`: [https://docs.microsoft.com/en-us/dotnet/api/system.convert.toint32?view=netframework-4.8#System_Convert_ToInt32_System_String_](https://docs.microsoft.com/en-us/dotnet/api/system.convert.toint32?view=netframework-4.8#System_Convert_ToInt32_System_String_).
+
+Basically if the user types something that cannot be converted to an numeric value the method throws a `FormatException`. If the value is numeric but to large to store in a 32-bit integer type, the methods throws an `OverflowException`.
+
+To catch multiple exceptions and handle each one accordingly (different problems often require different solutions), multiple `catch` blocks can be placed after each other as shown in the next syntax-example.
+
+```csharp
+try
+{
+  // Dangerous code goes here
+}
+catch (ExceptionType1 e1)
+{
+  // Solving the problem goes here
+}
+catch (ExceptionType2 e2)
+{
+  // Solving the problem goes here
+}
+catch (ExceptionType3 e3)
+{
+  // Solving the problem goes here
+}
+```
+
+Important to know here is that the **first catch block that matches the thrown exception is executed** and the rest is skipped. This means that you can only have a single catch block for 1 type of exception.
+
+So to catch the `OverflowException` from the `ToInt32()` method, the code needs to be refactored.
+
+```csharp{9,16,22}
+class Program
+{
+   public static int RequestUserAge()
+   {
+     int age = 0;
+     do
+     {
+        Console.Write("Please enter your age [0, 120]: ");
+        try
+        {
+          age = Convert.ToInt32(Console.ReadLine());
+
+          // This statement will not execute if ToInt32() throws an exception
+          Console.WriteLine("Thank you for providing your age");
+        }
+        catch (FormatException fe)
+        {
+          // By setting age to -1 we make sure that the while
+          // loop iterates again
+          age = -1;
+        }
+        catch (OverflowException oe)
+        {
+          // By setting age to -1 we make sure that the while
+          // loop iterates again
+          age = -1;
+        }
+     } while (age < 0 || age > 120);
+     return age;
+   }
+
+   static void Main(string[] args)
+   {
+     Console.WriteLine("Welcome to this Exception Demo\n");
+     int age = RequestUserAge();
+     Console.WriteLine($"\nGood to know that you are {age} years old.");
+   }
+}
+```
+
+That a user-friendly and crash-proof application.
+
+::: codeoutput
+<pre>
+Welcome to this Exception Demo
+
+Please enter your age [0, 120]: -12
+Thank you for providing your age
+Please enter your age [0, 120]: a
+Please enter your age [0, 120]: 123123123123
+Please enter your age [0, 120]: 18
+Thank you for providing your age
+
+Good to know that you are 18 years old.
+</pre>
+:::
+
+## Build in Exceptions
+
+The build-in types of Exceptions in C# actually follow a hierarchical design using inheritance (more on this later). The more generic types are found at the top of the inheritance tree, while the more specific exception class are found at the bottom. Why is this important?
+
+![Exception Hierarchy](./img/exception-hierarchy.png)
+
+Looking back at the previous code syntax example. Remember that the **first catch block that matches the thrown exception is executed** and the rest is skipped. Now take a fictional method `DetermineResult()` that throws two exceptions: an `ArithmeticException` if it could not calculate its result or an `OverflowException` is the result could not fit an integer.
+
+If we were to require two catch-blocks to handle each situation differently, then the most specific catch block would need to placed first and the more generic catch block later. More specific types are lower in the hierarchical tree.
+
+```csharp
+try
+{
+  DetermineResult();    // throws two types of exceptions
+}
+catch (OverflowException oe)   // More specific type first
+{
+  // Solving the problem goes here
+}
+catch (ArithmeticException ae)   // More general type later
+{
+  // Solving the problem goes here
+}
+```
+
+If these two catch-block were to be switched, than the first one, `catch (ArithmeticException ae)`, would trigger for both the exceptions. That is because with inheritance one can actually state that that `OverflowException` is an `ArithmeticException`; and the first catch block that matches is executed.
+
+This actually allows the age-example to be refactored to a single catch-block. By catching the more generic `SystemException` all thrown exceptions are handled.
+
+```csharp{9,16,22}
+class Program
+{
+   public static int RequestUserAge()
+   {
+     int age = 0;
+     do
+     {
+        Console.Write("Please enter your age [0, 120]: ");
+        try
+        {
+          age = Convert.ToInt32(Console.ReadLine());
+
+          // This statement will not execute if ToInt32() throws an exception
+          Console.WriteLine("Thank you for providing your age");
+        }
+        catch (SystemException fe)
+        {
+          // By setting age to -1 we make sure that the while
+          // loop iterates again
+          age = -1;
+        }
+     } while (age < 0 || age > 120);
+     return age;
+   }
+
+   static void Main(string[] args)
+   {
+     Console.WriteLine("Welcome to this Exception Demo\n");
+     int age = RequestUserAge();
+     Console.WriteLine($"\nGood to know that you are {age} years old.");
+   }
+}
+```
+
+Than why not just catch `Exception`? Well in this case it would not be a mistake, and this is actually sometimes done in practice. However, one should only catch the exceptions that can be handled at that time. Exceptions that cannot be handled should bubble upwards the call stack to a level where they can be handled.
+
+
 ## Common Mistakes
 
 ### Solving Everything with Exceptions
 
 ### Logging Everything - Solving Nothing
+
+### Catching Exception
