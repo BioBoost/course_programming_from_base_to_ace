@@ -526,11 +526,86 @@ class Program
 
 Than why not just catch `Exception`? Well in this case it would not be a mistake, and this is actually sometimes done in practice. However, one should only catch the exceptions that can be handled at that time. Exceptions that cannot be handled should bubble upwards the call stack to a level where they can be handled.
 
+## The Exception Object
 
-## Common Mistakes
+The exception object that is thrown can provide additional information on what happened. The previous examples were actually quite straight-forward but sometimes a developer will encounter exceptions that are not that clear or less obvious what caused it.
 
-### Solving Everything with Exceptions
+All exceptions have some useful methods and properties that are particularly useful when logging the exceptions that have taken place.
 
-### Logging Everything - Solving Nothing
+```csharp{21}
+class Program
+{
+   public static int RequestUserAge()
+   {
+     int age = 0;
+     do
+     {
+        Console.Write("Please enter your age [0, 120]: ");
+        try
+        {
+          age = Convert.ToInt32(Console.ReadLine());
 
-### Catching Exception
+          // This statement will not execute if ToInt32() throws an exception
+          Console.WriteLine("Thank you for providing your age");
+        }
+        catch (SystemException fe)
+        {
+          // By setting age to -1 we make sure that the while
+          // loop iterates again
+          age = -1;
+          Console.WriteLine(se.Message);
+        }
+     } while (age < 0 || age > 120);
+     return age;
+   }
+
+   static void Main(string[] args)
+   {
+     Console.WriteLine("Welcome to this Exception Demo\n");
+     int age = RequestUserAge();
+     Console.WriteLine($"\nGood to know that you are {age} years old.");
+   }
+}
+```
+
+The `Message` property actually contains a *human-readable* description of the exception. This can often be useful when logging the exception or may even be passed to the user as extra information.
+
+::: codeoutput
+<pre>
+Welcome to this Exception Demo
+
+Please enter your age [0, 120]: dd
+Input string was not in a correct format.
+Please enter your age [0, 120]: 12
+Thank you for providing your age
+
+Good to know that you are 12 years old.
+</pre>
+:::
+
+The `StackTrace` property will display the stack-trace as is shown in Visual Studio when the application encounters an exception. For example
+
+```text
+   at System.Number.ThrowOverflowOrFormatException(ParsingStatus status, TypeCode type)
+   at System.Number.ParseInt32(ReadOnlySpan`1 value, NumberStyles styles, NumberFormatInfo info)
+   at System.Convert.ToInt32(String value)
+   at Exceptional.Program.RequestUserAge() in C:\Users\nicod\source\repos\Exceptional\Exceptional\Program.cs:line 16
+```
+
+<!-- ## To Catch or Not To Catch -->
+
+<!-- Example of divider method. Exceptions is thrown by `/` SHould not catch in divider but in main. -->
+
+<!-- ## Common Mistakes -->
+
+<!-- ### Solving Everything with Exceptions -->
+
+<!-- ### Logging Everything - Solving Nothing -->
+
+<!-- More complex systems should log exceptions that take place. This is a good idea to track down bugs or situations that were not yet foreseen. -->
+
+<!-- However, more than often, programmers will log all exceptions and considered this the same as handling the exception. That is a wrong assumption. Handling an exception means solving or taking care of the problem, not just logging what happened. -->
+
+<!-- ### Catching Exception -->
+
+<!-- Do not catch all exceptions in deeper nested methods because this  -->
