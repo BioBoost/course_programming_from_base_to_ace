@@ -166,11 +166,11 @@ And this is a shame since we could argue that software development is all about 
 
 Exceptions provide **a way to transfer control from one part of a program to another**. C# exception handling is built upon four keywords: `try`, `catch`, `finally`, and `throw`.
 
-Let us a closer look at a fictional example of a game that is started and needs to load a configuration file from the local filesystem. Methods/functions that are nested in other functions are indented towards the right.
+Let us take a closer look at a fictional example of a game that is started and needs to load a configuration file from the local filesystem. Methods that are nested in other methods are indented towards the right.
 
 ![Load Game Config](./img/read-game-config.png)
 
-What would happen if the `OpenFile()` method fails because the configuration file could not be found on the local filesystem?
+What might happen if the `OpenFile()` method fails because the configuration file could not be found on the local filesystem?
 
 1. The method `LoadGameConfiguration()` **tries** to load the game config file by called the method `LoadGameConfigFile().
 2. However the file could not be opened and the method `OpenFile()` indicates this by **throwing** an exception object of type `FileNotFoundException` (real C# exception class). If something goes wrong in the code, it can warn the higher methods by *throwing* a special object of an exception class.
@@ -180,3 +180,23 @@ What would happen if the `OpenFile()` method fails because the configuration fil
 6. All goes well and the rest of the application executes.
 
 ![Open File Fails](./img/open-file-fails.png)
+
+Now what might happen if the configuration file is loaded and read successfully, but the actual content is not a valid configuration?
+
+1. The configuration file has been loaded from the filesystem and the `ParseGameConfigFile()` is called from the method `LoadGameConfiguration()`. It validates the configuration file using the `ValidateConfig()` method and notices the file misses content and will be parsable.
+2. The method `ParseGameConfigFile()` **throws** an exception of type `InvalidGameConfigException` (not a standard C# exception, this is a custom class) and thereby interrupts the normal flow of execution. It throws an exception because this method cannot solve the issue at this level. That is the responsibility of the `LoadGameConfiguration()` method.
+3. The exception bubbles up towards the `LoadGameConfiguration()` method which **catches** exceptions of type `InvalidGameConfigException` because it knows how to solve it. There are two options depending on the current situation:
+  a. If the current file is the user config file, then the whole process needs to tried again but with the backup configuration file
+  b. If the current file the backup configuration file, then the game will use a default config defined in code
+
+![Parse Config Fails](./img/parse-game-config.png)
+
+Note that a method can catch different types of exceptions. In this example the method `LoadGameConfiguration()` can both catch `FileNotFoundException` exceptions as well as `InvalidGameConfigException`.
+
+The next sections will demonstrate how to do this all.
+
+## Common Mistakes
+
+### Solving Everything with Exceptions
+
+### Logging Everything - Solving Nothing
