@@ -592,9 +592,63 @@ The `StackTrace` property will display the stack-trace as is shown in Visual Stu
    at Exceptional.Program.RequestUserAge() in C:\Users\nicod\source\repos\Exceptional\Exceptional\Program.cs:line 16
 ```
 
-<!-- ## To Catch or Not To Catch -->
+## To Catch or Not To Catch
 
-<!-- Example of divider method. Exceptions is thrown by `/` SHould not catch in divider but in main. -->
+An important rule to remember is **only catch the exceptions you can handle**. Let the rest bubble up to higher methods where they can be handled.
+
+Below is an example of a demo application that divides two integer numbers, both coming from the user. There are two statements here that can generate exceptions.
+
+The first is the `Convert.ToInt32()` method which can throw a `FormatException` or `OverflowException` if the user enters invalid input. This exception can be caught in the `RequestIntegerFromUser()` method because that is the point where input can be requested again from the user.
+
+The statement `dividend / divisor` can generate a `DivideByZeroException` inside the `Divide()` method. However it cannot be properly handled there. There is nothing that can be done about it at that level. That is why, the exception is allowed to bubble upwards to the `Main()` method, where it can be caught and handled accordingly. The solution can be as simple as outputting an appropriate message to the user stating that the result is infinite.
+
+```csharp{12,25}
+class Program
+{
+  public static int RequestIntegerFromUser(string message)
+  {
+    int value = 0;
+    bool valid = false;
+    do
+    {
+      Console.Write(message);
+      try
+      {
+        value = Convert.ToInt32(Console.ReadLine());
+        valid = true;
+      }
+      catch (SystemException se)
+      {
+        // Don't need to do anything here, just catch exception
+      }
+    } while (!valid);
+    return value;
+  }
+
+  public static int Divide(int dividend, int divisor)
+  {
+    return dividend / divisor;
+  }
+
+  static void Main(string[] args)
+  {
+    Console.WriteLine("Welcome to this Division Demo\n");
+
+    int dividend = RequestIntegerFromUser("Please enter the dividend: ");
+    int divisor = RequestIntegerFromUser("Please enter the divisor: ");
+
+    try
+    {
+      int result = Divide(dividend, divisor);
+      Console.WriteLine($"The result of {dividend}/{divisor} = {result}");
+    }
+    catch (DivideByZeroException dbze)
+    {
+      Console.WriteLine($"The result of {dividend}/{divisor} = infinite");
+    }
+  }
+}
+```
 
 <!-- ## Common Mistakes -->
 
