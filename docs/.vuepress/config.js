@@ -50,6 +50,14 @@ module.exports = {
           '23-defining-custom-classes/',
           '24-constructors/',
         ]
+      },
+      {
+        title: 'Advanced Topics',
+        collapsable: false, // optional, defaults to true
+        sidebarDepth: 1,    // optional, defaults to 1
+        children: [
+          '30-exceptions/',
+        ]
       }
     ],
     sidebarDepth: 1,
