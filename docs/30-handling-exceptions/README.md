@@ -489,7 +489,7 @@ If these two catch-block were to be switched, than the first one, `catch (Arithm
 
 This actually allows the age-example to be refactored to a single catch-block. By catching the more generic `SystemException` all thrown exceptions are handled.
 
-```csharp{9,16,22}
+```csharp{9,16}
 class Program
 {
    public static int RequestUserAge()
