@@ -3,46 +3,55 @@ module.exports = {
   description: 'CSharp Programming Course for VIVES University of Applied Sciences (Bachelor Degree)',
   themeConfig: {
     nav: [
-      {text: 'Introduction to Programming', link: '/introduction/'},
-      {text: 'Object Oriented Programming', link: '/oop/'}
     ],
-    sidebar: {
-      '/introduction/': [
-        '',
-        '01_introduction_to_computer_programming/',
-        '02_basic_building_blocks/',
-        '03_starting_in_csharp/',
-        '04_storing_data/',
-        '05_processing_data/',
-        '06_getting_user_data/',
-        '07_methods/',
-        '08_making_decisions/',
-        '09_iterating/',
-        '10_strings/',
-        '11_arrays/',
-      ],
-
-      '/oop/': [
-        '',
-        {
-          title: '21 - Object Oriented Thinking',   // required
-          // path: '/21-object-oriented-thinking/',      // optional, which should be a absolute path.
-          children: [
-            '/oop/21-object-oriented-thinking/01-abstraction/',
-            '/oop/21-object-oriented-thinking/02-all-about-objects/',
-          ]
-        },
-        '23-defining-custom-classes/',
-        '24-constructors/',
-      ],
-
-      // fallback
-      '/': [
-        '',
-        '/introduction/',
-        '/oop/'
-      ]
-    },
+    sidebar: [
+      {
+        title: 'About this Course',   // required
+        // path: '/foo/',      // optional, which should be a absolute path.
+        collapsable: true, // optional, defaults to true
+        sidebarDepth: 1,    // optional, defaults to 1
+        children: [
+          ''
+        ]
+      },
+      {
+        title: 'Introduction to Programming',   // required
+        // path: '/foo/',      // optional, which should be a absolute path.
+        collapsable: false, // optional, defaults to true
+        sidebarDepth: 1,    // optional, defaults to 1
+        children: [
+          '01_introduction_to_computer_programming/',
+          '02_basic_building_blocks/',
+          '03_starting_in_csharp/',
+          '04_storing_data/',
+          '05_processing_data/',
+          '06_getting_user_data/',
+          '07_methods/',
+          '08_making_decisions/',
+          '09_iterating/',
+          '10_strings/',
+          '11_arrays/',
+        ]
+      },
+      {
+        title: 'Object Oriented Thinking',
+        collapsable: false, // optional, defaults to true
+        sidebarDepth: 1,    // optional, defaults to 1
+        children: [
+          ['/21-object-oriented-thinking/01-abstraction/', '20 - Abstraction'],
+          ['/21-object-oriented-thinking/02-all-about-objects/', '21 - All About Objects'],
+        ]
+      },
+      {
+        title: 'Object Oriented Programming',
+        collapsable: false, // optional, defaults to true
+        sidebarDepth: 1,    // optional, defaults to 1
+        children: [
+          '23-defining-custom-classes/',
+          '24-constructors/',
+        ]
+      }
+    ],
     sidebarDepth: 1,
     repo: 'BioBoost/course_programming_from_base_to_ace',
     docsDir: 'docs',
