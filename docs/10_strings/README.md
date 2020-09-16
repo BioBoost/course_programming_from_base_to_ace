@@ -76,7 +76,7 @@ You can also use quotes here but they need to be escaped:
 The table below lists the most used escape sequences.
 
 | Escape Sequence | Description |
-| --- | --- | --- |
+| --- | --- |
 | `\t` | Insert a tab in the text at this point. |
 | `\b` | Insert a backspace in the text at this point. |
 | `\n` | Insert a newline in the text at this point. |
