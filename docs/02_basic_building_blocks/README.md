@@ -73,11 +73,11 @@ Take a quick look at the examples below. They all ask the user for his/her age a
 
 ![Asking the age of the user](./img/flowchart_age_input.png)
 
-One is not more correct than the other. They are just written from a different view of the process and each developer will need to make this out for himself. There are only two requirements: it should be informative and understandable. There is no use in creating documentation that makes things less clear.
+One is not more correct than the other. They are just written from a different view of the process and each developer will need to make this out for him/herself. There are only two requirements: it should be informative and understandable. There is no use in creating documentation that makes things less clear.
 
 ## Variables
 
-The base of almost any computer program is the manipulation of data. Of course before a program can manipulate data it needs to be able to store it. For this it can use the computer memory. This computer memory is accessed via **variables**. Variables are used access the information stored in the computer memory and allow it to be referenced and manipulated in a computer program.
+The base of almost any computer program is the manipulation of data. Of course before a program can manipulate data it needs to be able to store it. For this it can use the computer memory. This computer memory is accessed via **variables**. Variables are used to access the information stored in the computer memory and allow it to be referenced and manipulated in a computer program.
 
 Variables also provide a way of labeling data with a descriptive name, so application code can be understood more clearly by the reader and other programmers. It is helpful to think of variables as containers that hold information. Their sole purpose is to label and store data in memory. This data can then be used throughout your program.
 
@@ -121,7 +121,7 @@ While not directly apparent, **an application typically handles a lot of informa
 
 ## Operators
 
-Most programs will performs all sorts of operations on data they have at their disposal. It is often stated that **applications process data**. For this processing, a programming language needs **operators**. Many of the operators you will already be familiar with from Math.
+Most programs will perform all sorts of operations on data they have at their disposal. It is often stated that **applications process data**. For this processing, a programming language needs **operators**. Many of the operators you will already be familiar with from Math.
 
 While different programming languages use different operators, the most basic math operators are most often available. These are easy to understand because they have the **same functionality as in math**. The following operators are the most common ones to do basic math operations:
 
@@ -139,7 +139,7 @@ Consider a small example application that calculates the BMI (Body Mass Index) o
 
 The BMI is defined as the weight divided by the square of the body height, and is universally expressed in units of `kg/m2`, resulting from mass in kilograms and height in meters.
 
-First one needs to identify the information required from the user:
+First, one needs to identify the information required from the user:
 
 * the weight of the person in kilograms
 * the height of the person in meters
@@ -204,7 +204,7 @@ Often loops are created using a counter mechanism. Take the next example, which 
 
 ## Functions
 
-Every programming language lets you create **named blocks of code that perform a specific task** called **functions**. Using the name of the function can be **called** from other parts of the application. Calling a function is asking the compiler/interpreter to execute the code inside of the function.
+Every programming language lets you create **named blocks of code that perform a specific task** called **functions**. Using the name of the function, it can be **called** from other parts of the application. Calling a function is asking the compiler/interpreter to execute the code inside of the function.
 
 Functions usually **take in data**, **process it**, and **return a result**. How the function does this is most of the time only important to the people that created the functions. Other programmers are often only interested in how to use the function and what the result will be. For this same reason, functions are often called **black-boxes**.
 

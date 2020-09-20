@@ -11,7 +11,7 @@ Today, most people don't need to know how a computer works. Most people can simp
 
 As a human it is **impossible to know how everything works**. While people may have a deep understanding of certain things, there will always be other things they don't know or understand. Do you know how a TV actually works? Or do you know the internal workings of a car? However that does not mean we cannot watch TV or drive a car.
 
-Since you are going to learn how to write computer programs, you will need to know a little bit about how a computer works. Your job will be try to instruct the computer to do things you want it to do.
+Since you are going to learn how to write computer programs, you will need to know a little bit about how a computer works. Your job will be trying to instruct the computer to do things you want it to do.
 
 Basically, writing software (computer programs, commonly called applications) involves **describing processes and procedures**; it involves the **authoring of algorithms**. Computer programming involves **developing lists of instructions** - the source code representation of software. The stuff that these instructions manipulate are different types of data, e.g., numbers, words, images, sounds, etc... It has been argued that in its current state, software development is less engineering and more of an art.
 
@@ -52,7 +52,7 @@ While this is certainly a useful exercise you can already feel that programming 
 > *Stephen Wolfram*
 
 ::: warning 😱 Don't blame the Computer, blame the programmer
-As a future programmer you should never state that the computer is doing something wrong when your applications fails, crashes or does something unexpected. You should instead ask yourself, did I tell the computer how to do the job correctly? Did I forget something? Did I misinterpret the problem or do I have the solution wrong?
+As a future programmer you should never state that the computer is doing something wrong when your application fails, crashes or does something unexpected. You should instead ask yourself, did I tell the computer how to do the job correctly? Did I forget something? Did I misinterpret the problem or do I have the solution wrong?
 :::
 
 Of course, computers don't understand recipes written on paper. Computers are machines, and at the most basic level, they are a collection of switches - where 1 represents "on" and 0 represents "off". Everything that a computer does is implemented in this most basic of all numbering systems - **binary**. If you really wanted to tell a computer what to do directly, you'd have to talk to it in binary, giving it coded sequences of 1s and 0s that tell it which instructions to execute - called **machine code**). However, this is nearly impossible. In practice, we use a programming language.
@@ -89,7 +89,7 @@ This is analogous to the role that a human interpreter performs. For example, ra
 
 The computer interpreter performs the same function: it reads an instruction in one programming language, translates it into machine code, and then executes the machine code version. Once that instruction is out of the way it moves along to the next, performing exactly the same task, in much the same way that the interpreter of the Harry Potter novel would move on to the next line once the first has been related. Unlike compiled programs, at no point is a complete, discrete, machine code version of the program produced: at any point in time only a small number of instructions exist as machine code versions, and these will be removed from the computer's memory when they are no longer required.
 
-There are advantages for both types of software development. As a generalization, **compiled programs are faster to run but slower to develop**. Compiled programs often run faster because the computer only needs to execute the previously translated instructions. In interpreted languages, every time the program is run the computer also needs to translate each of the instructions. This translation causes a delay, slowing the execution of the program. On the other hand, interpreted languages are often written in a smaller time frame, because the whole program does not need to be compiled each time a new feature is implemented.
+There are advantages for both types of software development. As a generalization, **compiled programs are faster to run but slower to develop**. Compiled programs often run faster because the computer only needs to execute the previously translated instructions. In interpreted languages, every time the program is run, the computer also needs to translate all of the instructions. This translation causes a delay, slowing the execution of the program. On the other hand, interpreted languages are often written in a smaller time frame, because the whole program does not need to be compiled each time a new feature is implemented.
 
 Below is an overview of the most important differences between a compiler and an interpreter.
 
@@ -187,9 +187,13 @@ The first prerequisite to becoming a programmer is to develop a strong backgroun
 
 The second prerequisite to becoming a programmer is **knowing a programming language** with which to express a particular solution to a problem. A programming language is a tool, which practice will help form into expertise. Learning multiple languages can often be helpful as the process will demonstrate the particular strengths of different approaches to solving particular classes of problems.
 
-In both these areas, **practice is essential**. Exposure to a wide variety of problems and tools to solve them will increase your understanding of the field as whole, to judge for yourself the relative merit of techniques in the field, as well as to discover unique, new approaches to addressing the problems of computer science. As with the practice of any new skill, do not be afraid to make mistakes, to redo earlier work, or to stumble along the way to expertise.
+In both these areas, **practice is essential**. Exposure to a wide variety of problems and tools to solve them will increase your understanding of the field as a whole, to judge for yourself the relative merit of techniques in the field, as well as to discover unique, new approaches to addressing the problems of computer science. As with the practice of any new skill, do not be afraid to make mistakes, to redo earlier work, or to stumble along the way to expertise.
 
 **Don't be afraid to make mistakes** because you will make them - constantly and for the rest of your career. Even the best programmers make mistakes regularly (if they try to say differently then they are either lying or deluded). Making mistakes is really part of the programming process. Someone said, to find a solution to a problem you must partly solve the problem. So you'll probably end up rewriting parts of your programs several times. Part of what distinguishes better programmers is their ability to catch at least some mistakes before they become a problem. Nobody can catch them all without help. Well, nobody can catch them all: there is no bug-free program.
+
+> An expert is a man who has made all the mistakes which can be made, in a narrow field.
+>
+> *Niels Bohr*
 
 Learn to work with others in a **team** environment. People have different strengths and weaknesses and a good team can bring together people whose strengths and weaknesses are complementary. The members of a team can teach each other. Most importantly, teams can tackle problems that would be too big for an individual. Beware, though, teams are not easy to lead and you can easily make a project a disaster by just gathering as many people as you can. If you want to work with a team, come with a solid design and a strong vision of what the project should look like when it's finished. If other members of the team suggest new ideas, take them with consideration but do not fall in the feature-greed pitfall, e.g. your project is never finished because the final goal grows beyond all proportions.
 

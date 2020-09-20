@@ -7,11 +7,11 @@ The material is split into two courses:
 * [Introduction to Programming](./introduction/README.md): learn about the core concepts of programming
 * [Object Oriented Programming](./oop/README.md): learn about using objects, classes and how to create them yourselves
 
-The GitHub repo of this course if available at [https://github.com/BioBoost/course_programming_from_base_to_ace](https://github.com/BioBoost/course_programming_from_base_to_ace). Feel free to contribute or report spelling errors, unclear explanations or others concerns/ideas.
+The GitHub repo of this course is available at [https://github.com/BioBoost/course_programming_from_base_to_ace](https://github.com/BioBoost/course_programming_from_base_to_ace). Feel free to contribute or report spelling errors, unclear explanations or others concerns/ideas.
 
 ## Requirements
 
-To follow along you will at least need to install Visual Studio (Community edition is fine) and git. You can find a tutorial for the installation of both in the [Software Installation Guide @ https://vives.gitbook.io/software-installation-guide/](https://vives.gitbook.io/software-installation-guide/).
+To follow along you will at least need to install Visual Studio (Community edition is fine) and git. You can find a tutorial for the installation of both in the [Software Installation Guide @ http://software-installation-guide.netlify.app/](http://software-installation-guide.netlify.app/).
 
 ## About this course
 
@@ -25,7 +25,7 @@ The main focus lies in learning to think in an object oriented way and in the me
 
 Most of the ideas, knowledge and understanding is achieved by reading books, tutorials and watching YouTube videos. It can only be encouraged to read books and broaden your horizon. Challenge yourself and others with your newly acquired knowledge.
 
-But don't only become book-smart. Also become do-smart. Make exercises, solve problems, create programs, beat challenges, test new things, ...
+But don't only become book-smart. Also become do-smart. Make exercises, solve problems, create programs, beat challenges, test new things, ... You cannot become a programmer without actually programming yourself.
 
 ### Theory
 
@@ -43,7 +43,7 @@ There may be occasions for tests but these will mostly be announced.
 
 ### ECTS
 
-For the exact details on the LABs, exams and tests you should take a look at the ECTS fiche of this course which can be found via [http://onderwijsaanbod.vives-noord.be/2019/syllabi/n/B3N001N.htm#activetab=doelstellingen_idp36336](http://onderwijsaanbod.vives-noord.be/2019/syllabi/n/B3N001N.htm#activetab=doelstellingen_idp36336) for Introduction to Programming and via [http://onderwijsaanbod.vives-noord.be/2019/syllabi/n/B3N005N.htm#activetab=doelstellingen_idp2410032](http://onderwijsaanbod.vives-noord.be/2019/syllabi/n/B3N005N.htm#activetab=doelstellingen_idp2410032) for Object Oriented Programming.
+For the exact details on the LABs, exams and tests you should take a look at the ECTS fiche of this course which can be found via [http://onderwijsaanbod.vives-noord.be/syllabi/n/B3N066N.htm#activetab=doelstellingen_idp13827904](http://onderwijsaanbod.vives-noord.be/syllabi/n/B3N066N.htm#activetab=doelstellingen_idp13827904) for Introduction to Programming and via [http://onderwijsaanbod.vives-noord.be/syllabi/n/B3N005N.htm#activetab=doelstellingen_idm2920400](http://onderwijsaanbod.vives-noord.be/syllabi/n/B3N005N.htm#activetab=doelstellingen_idm2920400) for Object Oriented Programming 1.
 
 ## Extra practice
 
