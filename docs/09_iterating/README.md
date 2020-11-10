@@ -142,33 +142,25 @@ This can also be translated into the next flow chart.
 
 ![Flow Chart of a While Loop](./img/while_loop.png)
 
-Below is an example application that rolls a die (randomly generated number) and adds it to a total sum. This is repeated as long as the sum is lower than the requested total from the user.
+Below is an example application that rolls a die (randomly generated number) and adds it to a total sum. This is repeated as long as the sum is lower than the requested minimum from the user.
 
 ```csharp
 static void Main(string[] args)
 {
   Console.WriteLine("Welcome to the die thrower app.");
 
-  Console.Write("What is the total number you are looking for? ");
-  int total = Convert.ToInt32(Console.ReadLine());
+  Console.Write("What is the minimum total number you are looking for? ");
+  int minimum = Convert.ToInt32(Console.ReadLine());
+  Console.WriteLine("");
 
   // Generate random die throws
   Random generator = new Random();
   int thrownTotal = 0;
-  while (thrownTotal < total)
+  while (thrownTotal < minimum)
   {
-    int dieThrow = generator.Next(1, 4);    // [1,3]
-    Console.WriteLine($"Throwing {dieThrow}");
+    int dieThrow = generator.Next(1, 7);    // [1,6]
     thrownTotal += dieThrow;
-  }
-
-  // Check if total is reached or too much
-  if (thrownTotal == total)
-  {
-    Console.WriteLine("Perfect match");
-  } else
-  {
-    Console.WriteLine($"Sorry, overshot it, total = {thrownTotal}");
+    Console.WriteLine($"Throwing {dieThrow} - Total = {thrownTotal}");
   }
 }
 ```
@@ -176,23 +168,23 @@ static void Main(string[] args)
 :::codeoutput
 <pre>
 Welcome to the die thrower app.
-What is the total number you are looking for? 9
-Throwing 3
-Throwing 1
-Throwing 1
-Throwing 1
-Throwing 3
-Perfect match
+What is the minimum total number you are looking for? 15
+
+Throwing 5 - Total = 5
+Throwing 3 - Total = 8
+Throwing 5 - Total = 13
+Throwing 1 - Total = 14
+Throwing 5 - Total = 19
 </pre>
 :::
 
-Now notice that if the user inputs `0` (or a negative number for that fact) as the total number, the body of the while loop is never executed (as the condition evaluates to `false` in that case) and execution jumps directly after the while loop.
+Now notice that if the user inputs `0` (or a negative number for that fact) as the minimum number, the body of the while loop is never executed (as the condition evaluates to `false` in that case) and execution jumps directly after the while loop.
 
 :::codeoutput
 <pre>
 Welcome to the die thrower app.
-What is the total number you are looking for? 0
-Perfect match
+What is the minimum total number you are looking for? 0
+
 </pre>
 :::
 
@@ -215,7 +207,7 @@ The matching representation for a do while is shown in the next flowchart.
 
 ![Flowchart of a do while loop](./img/do_while_loop.png)
 
-The next code example requests the user to input a strict positive integral value. If the user inputs a number equal or lower than 0, the question is asked again. If the user inputs a correct positive number, the loop is terminated. This construct can be used to check user input and make sure the user inputs a value in the requested range.
+The next code example requests the user to input a strict positive integral value. If the user inputs a number equal or lower than 0, the request to input a number is repeated. If the user inputs a correct positive number, the loop is terminated and the application continues on. This construct can be used to check user input and make sure the user inputs a value in the requested range.
 
 ```csharp
 static void Main(string[] args)
