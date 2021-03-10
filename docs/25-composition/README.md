@@ -65,10 +65,6 @@ In UML this is represented by a solid diamond followed by a line. The solid diam
 
 Advancing further with the `Database` example may introduce an `Application` that owns the different form classes and the `Database`. When the `Application` instance is destroyed, so will all the form objects and the `Database` instance.
 
-While maybe not yet apparent, but you have probable be using composition more than you imagine. Consider the `String` class which we use daily in our other classes. Everytime we add a `String` instance to our class, we are basically composing our custom class of `String` objects. Most of the time this will not be denoted in UML, as done below for educational purposes, but at its core this is composition. Delete the `User` object will also mean destroying the `String` instances `username`, `email` and `password`.
-
-![User String Composition](./img/composition-user-string.png)
-
 In schoolbooks, a composition relationship is often explained using the `School` and `Department` example. A `School` can consist of one or more `Departments`. Here a strong lifecycle dependency exist as the different `Department` instances cannot exist without the `School`. Closing the `School` means closing the `Departments`.
 
 ![School Department Composition](./img/composition-school-department.png)
@@ -79,4 +75,139 @@ While a clear distinction is made here between aggregation and composition, it i
 
 ::: tip Definition - Association, Composition and Aggregation
 To sum it up association is a very generic term used to represent when one class uses the functionalities provided by another class. It is sayed it's a composition if one parent class object owns another child class object and that child class object cannot meaningfully exist without the parent class object. If it can then it is called aggregation.
+:::
+
+## Creating new Classes through Composition
+
+While maybe not yet apparent, but you have probable been using composition more than you imagine. Consider the `String` class which we use daily in our other classes. Everytime we add a `String` instance as an attribute to our class, we are basically composing our custom class of `String` objects. Most of the time this will not be denoted in UML, as done below for educational purposes, but at its core this is composition. Deleting the `User` object will also mean destroying the `String` instances `username`, `email` and `password`.
+
+![User String Composition](./img/composition-user-string.png)
+
+When composing objects of other objects, the *sub objects* are generally made private. This hides implementation and allows the designer of the class to change the implementation if needed.
+
+![A Display Device](./img/display_device.png)
+
+By hiding the `PixelDisplay` object inside the `Canvas`, one hides the complexity of the hardware dependent class. This class may have methods for setting and resetting pixels, for changing hardware timings, for setting pixel to a specific RGB value, and so on. All that complexity is hidden; only the ability to show some text, through `Display(text:String)`, and display a bitmap, through `Display(image:Bitmap)` is made publicly available via the `Canvas`. This keeps the `Canvas` simple and very user friendly.
+
+Also if one ever wanted to switch from a backlit LCD pixel display to an OLED display, the classes that use the `Canvas` never even have to change, only the internal implementation of the `Canvas` class may have to be changed.
+
+## Example Composing a LineSegment of Points
+
+Let's apply all this knowledge on a class `LineSegment` that models a line from a start point to an end point.
+
+First a `Point` class will need to be modeled that represents both an `x` and `y` coordinate within 2D space.
+
+```csharp
+public class Point
+{
+  // Default constructor
+  // Point point = new Point();
+  public Point()
+  {
+    X = 0;
+    Y = 0;
+  }
+
+  // Constructor with arguments
+  // Point point = new Point(3, 12.5);
+  public Point(double x, double y)
+  {
+    X = x;
+    Y = y;
+  }
+
+  // String representation of a Point object
+  // Console.WriteLine(point);
+  public override string ToString()
+  {
+    return $"[{X}, {Y}]";
+  }
+
+  // Attributes through properties
+  public double X { get; set; }       // point.X = 12;          (set)
+  public double Y { get; set; }       // double y = point.Y;    (get)
+}
+```
+
+Next up is the `LineSegment` that is composed of two instances of class `Point`, both a `start` and `end`.
+
+```csharp
+public class LineSegment
+{
+  // We do not provide default constructor,
+  // only constructor with arguments
+  public LineSegment(Point start, Point end)
+  {
+    Start = start;
+    End = end;
+  }
+
+  // Don't want to work with Point but with coordinates
+  public LineSegment(double x1, double y1, double x2, double y2)
+  {
+    Start = new Point(x1, y1);
+    End = new Point(x2, y2);
+  }
+
+  // Determine the length of the line segment
+  public double Length()
+  {
+    return Math.Sqrt(
+      (Start.X - End.X) * (Start.X - End.X)
+      +
+      (Start.Y - End.Y) * (Start.Y - End.Y)
+    );
+  }
+
+  public override string ToString()
+  {
+    return $"{Start} => {End} with a length of {Length()}";
+  }
+
+  // Attributes through properties
+  public Point Start { get; set; }
+  public Point End { get; set; }
+}
+```
+
+Using a small demo application we see how the `LineSegment` is used.
+
+```csharp
+static void Main(string[] args)
+{
+  Console.WriteLine("Line Segment demo");
+
+  Point start = new Point(7, 11);
+  Point end = new Point(-1, 5);
+
+  LineSegment line0 = new LineSegment(start, end);
+  Console.WriteLine(line0);
+
+  LineSegment line1 = new LineSegment(1, 3, -2, 9);
+  Console.WriteLine(line1);
+}
+```
+
+::: codeoutput
+<pre>
+Line Segment demo
+[7, 11] => [-1, 5] with a length of 10
+[1, 3] => [-2, 9] with a length of 6.708203932499369
+</pre>
+:::
+
+Modeling this in UML would result in the class diagram shown next.
+
+![LineSegment - Composition](./img/line-segment-composition.png)
+
+For educational purposed the next UML class diagrams shows that both `LineSegment` as well as `Point` have an association with the `String` class. This is because both classes actually implement the `ToString()` method which creates a `String` object and returns it. Neither class has ownership of those instance, they just create the objects and pass them on to the instance requesting a `String` representation of the object in question. In reality, we would not draw these basic associations.
+
+![LineSegment - String Association](./img/line-segment-string-association.png)
+
+::: warning Not composition?
+One could argue that this is not 100% composition since the `Point` instances can actually be created inside `Main` and passed to a new `LineSegment`, while those same `Point` instances could than also be passed to for example a `Circle` object. That's true, but that would not be a good idea, because changing the coordinates of that single `Point` would result in moving both the `LineSegment` as well as the `Circle`. On top of that, `Point` should probable be immutable (not changeable).
+
+It's also a bit this way because of how the way C# uses references to objects. For example C++ would make shallow copies of the objects when passing or copying them.
+
+Basically this is the reason why in practice we almost always talk about composition and not aggregation, because in practice the distinction is much harder to make than in theory.
 :::

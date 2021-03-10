@@ -49,6 +49,7 @@ module.exports = {
         children: [
           '23-defining-custom-classes/',
           '24-constructors/',
+          '25-composition/',
         ]
       },
       {
