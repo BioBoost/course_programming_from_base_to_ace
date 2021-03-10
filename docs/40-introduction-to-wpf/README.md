@@ -486,3 +486,4 @@ This results in the following UI:
 <!-- Data Binding -->
 <!-- Margin and padding -->
 <!-- Other useful components? Span -->
+<!-- Good to Know: grid elements can be stacked upon each other -->

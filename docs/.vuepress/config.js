@@ -50,6 +50,7 @@ module.exports = {
           '23-defining-custom-classes/',
           '24-constructors/',
           '25-composition/',
+          '26-inheritance/',
         ]
       },
       {
