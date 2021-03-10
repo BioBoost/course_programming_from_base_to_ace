@@ -177,10 +177,7 @@ static void Main(string[] args)
 {
   Console.WriteLine("Line Segment demo");
 
-  Point start = new Point(7, 11);
-  Point end = new Point(-1, 5);
-
-  LineSegment line0 = new LineSegment(start, end);
+  LineSegment line0 = new LineSegment(new Point(7, 11), new Point(-1, 5));
   Console.WriteLine(line0);
 
   LineSegment line1 = new LineSegment(1, 3, -2, 9);
