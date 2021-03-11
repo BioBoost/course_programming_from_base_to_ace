@@ -63,7 +63,7 @@ In UML this is represented by a solid diamond followed by a line. The solid diam
 
 ![Database Composition](./img/composition-database.png)
 
-Advancing further with the `Database` example may introduce an `Application` that owns the different form classes and the `Database`. When the `Application` instance is destroyed, so will all the form objects and the `Database` instance.
+Advancing further with the `Database` example may introduce an `Application` that owns the different form instances and the `Database`. When the `Application` instance is destroyed, so will all the form objects and the `Database` instance.
 
 In schoolbooks, a composition relationship is often explained using the `School` and `Department` example. A `School` can consist of one or more `Departments`. Here a strong lifecycle dependency exist as the different `Department` instances cannot exist without the `School`. Closing the `School` means closing the `Departments`.
 
