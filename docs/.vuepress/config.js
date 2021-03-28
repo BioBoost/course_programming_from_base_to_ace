@@ -51,6 +51,8 @@ module.exports = {
           '24-constructors/',
           '25-composition/',
           '26-inheritance/',
+          // '27-abstract-classes/',
+          '28-interfaces/',
         ]
       },
       {
