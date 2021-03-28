@@ -5,6 +5,10 @@ title: 28 - Interfaces
 
 # Chapter 28 - Interfaces
 
+::: warning Early draft
+This chapter is an early draft.
+:::
+
 An interface **defines a contract**. Any class that implements that contract must provide an implementation of the members defined in the interface.
 
 An interface contains definitions for a **group of related functionalities that a non-abstract class must implement**.  An interface **may not declare instance data** such as attributes. An interface may also define static methods, which must have an implementation.
@@ -246,3 +250,19 @@ An interface has the following properties:
 * Optionally, an interface may define default implementations for some or all of its members.
 * An interface can't be instantiated directly. Its members are implemented by any class that implements the interface.
 * A class can implement multiple interfaces. A class can inherit a base class and also implement one or more interfaces.
+
+## Abstract Classes vs Interfaces - What to use When
+
+Abstract classes
+
+* An abstract class is a great choice if you are bringing into account the inheritance concept, because it provides the common base class implementation to the derived classes.
+* An abstract class is also good if you want to declare non-public members. In an interface, all methods must be public.
+* If you want to add new methods in the future, then it is great to go with the abstract class. Because if you add new methods to the interface, then all of the classes that are already implemented in the interface will have to be changed in order to implement these new methods.
+* An abstract class is used if you want to provide a common, implemented functionality among all the implementations of the component. Abstract classes will allow you to partially implement your class, whereas interfaces would have no implementation for any members whatsoever.
+
+Interfaces
+
+* If you are creating functionality that will be useful across a wide range of objects, then you must use an interface. Abstract classes, at the end of the day, should be used for objects that are closely related. But the interfaces are best suited for providing common functionality to the unrelated cases.
+* Interfaces are a great choice if you think that the API won’t be changing for a while.
+* Interfaces are also a great choice. If you want to have something similar to the multiple inheritances, then you can implement various interfaces.
+* If we are going to design the small, concise bits of functionality, then you must use interfaces. But if you are designing the large functional units, then you must use an abstract class.
