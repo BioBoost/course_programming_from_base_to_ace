@@ -257,3 +257,9 @@ If all went well, you should now have all tests succeed:
 ::: tip Circumference
 Try using a TDD approach to implement a `Circumference()` method.
 :::
+
+## Some Good information
+
+Eliotte Rusty Harold gives a nice presentation on why and how we should unit test.
+
+<YoutubeVideo videoId="fr1E9aVnBxw" />
