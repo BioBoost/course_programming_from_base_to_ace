@@ -61,6 +61,8 @@ module.exports = {
         sidebarDepth: 1,    // optional, defaults to 1
         children: [
           '30-handling-exceptions/',
+          // '31-http-requests/',
+          '35-unit-testing/',
         ]
       },
       {
