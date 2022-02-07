@@ -48,7 +48,7 @@ module.exports = {
         sidebarDepth: 1,    // optional, defaults to 1
         children: [
           '23-defining-custom-classes/',
-          // '24-getters-setters-properties/',
+          '24-getters-setters-properties/',
           '25-constructors/',
           '26-composition/',
           '27-inheritance/',
