@@ -553,7 +553,7 @@ class Program
           // By setting age to -1 we make sure that the while
           // loop iterates again
           age = -1;
-          Console.WriteLine(se.Message);
+          Console.WriteLine(fe.Message);
         }
      } while (age < 0 || age > 120);
      return age;
