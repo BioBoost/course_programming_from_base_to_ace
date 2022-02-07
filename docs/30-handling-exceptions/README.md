@@ -187,7 +187,7 @@ Now what might happen if the configuration file is loaded and read successfully,
 2. The method `ParseGameConfigFile()` **throws** an exception of type `InvalidGameConfigException` (not a standard C# exception, this is a custom class) and thereby interrupts the normal flow of execution. It throws an exception because this method cannot solve the issue at this level. That is the responsibility of the `LoadGameConfiguration()` method.
 3. The exception bubbles up towards the `LoadGameConfiguration()` method which **catches** exceptions of type `InvalidGameConfigException` because it knows how to solve it. There are two options depending on the current situation:
   a. If the current file is the user config file, then the whole process needs to tried again but with the backup configuration file
-  b. If the current file the backup configuration file, then the game will use a default config defined in code
+  b. If the current file is the backup configuration file, then the game will use a default config defined in code
 
 ![Parse Config Fails](./img/parse-game-config.png)
 
@@ -375,7 +375,7 @@ Good to know that you are 88 years old.
 
 A keen eye may have noticed that the `ToInt32()` method in the previous example actually throws more than one exception. Next to the `FormatException` it can also throw an `OverflowException`: [https://docs.microsoft.com/en-us/dotnet/api/system.convert.toint32?view=netframework-4.8#System_Convert_ToInt32_System_String_](https://docs.microsoft.com/en-us/dotnet/api/system.convert.toint32?view=netframework-4.8#System_Convert_ToInt32_System_String_).
 
-Basically if the user types something that cannot be converted to an numeric value the method throws a `FormatException`. If the value is numeric but to large to store in a 32-bit integer type, the methods throws an `OverflowException`.
+Basically if the user types something that cannot be converted to a numeric value the method throws a `FormatException`. If the value is numeric but to large to store in a 32-bit integer type, the methods throws an `OverflowException`.
 
 To catch multiple exceptions and handle each one accordingly (different problems often require different solutions), multiple `catch` blocks can be placed after each other as shown in the next syntax-example.
 
@@ -489,7 +489,7 @@ If these two catch-block were to be switched, than the first one, `catch (Arithm
 
 This actually allows the age-example to be refactored to a single catch-block. By catching the more generic `SystemException` all thrown exceptions are handled.
 
-```csharp{9,16,22}
+```csharp{9,16}
 class Program
 {
    public static int RequestUserAge()
