@@ -1,9 +1,9 @@
 ---
 description: Interfaces allow us to define contracts.
-title: 28 - Interfaces
+title: 29 - Interfaces
 ---
 
-# Chapter 28 - Interfaces
+# Chapter 29 - Interfaces
 
 ::: warning Early draft
 This chapter is an early draft.

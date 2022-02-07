@@ -1,9 +1,9 @@
 ---
 description: Constructors are responsible for the initialization of our objects.
-title: 24 - Constructors
+title: 25 - Constructors
 ---
 
-# Chapter 24 - Constructors
+# Chapter 25 - Constructors
 
 In object-oriented programming, a constructor is a special type of method called to create an object. It prepares the new object for use, often accepting arguments that the constructor uses to set required member variables. Constructors are special methods that belong to classes and **take care of the creation of objects of that class**. They are **responsible for the initialization** of the newly created objects and they make sure that the freshly created objects are left in a stable and readily usable state.
 

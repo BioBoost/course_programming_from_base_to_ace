@@ -48,11 +48,12 @@ module.exports = {
         sidebarDepth: 1,    // optional, defaults to 1
         children: [
           '23-defining-custom-classes/',
-          '24-constructors/',
-          '25-composition/',
-          '26-inheritance/',
-          // '27-abstract-classes/',
-          '28-interfaces/',
+          // '24-getters-setters-properties/',
+          '25-constructors/',
+          '26-composition/',
+          '27-inheritance/',
+          // '28-abstract-classes/',
+          '29-interfaces/',
         ]
       },
       {
