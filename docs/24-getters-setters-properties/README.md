@@ -3,6 +3,10 @@ description: This chapter introduces data hiding and the tools that support it
 title: 24 - Getters, Setters and Properties
 ---
 
+::: danger ☠️ First draft
+Please note that this chapter is a first draft and may still contain errors, typo's or irregularities.
+:::
+
 # Chapter 24 - Getters, Setters and Properties
 
 While perfectly legal, in most cases it is considered blasphemy to make attributes `public` unless they are `const`.
@@ -519,10 +523,82 @@ For **automatically implemented properties**, we place the property in the attri
 
 ## Internal usage
 
-TODO
+Just as with normal methods, properties, getters and setters should be used as much inside the class as on the outside. This is not always the first reflex of a beginning programmer, but it is considered good practice as you are DRYing out your internal code using them. This will also provide the extra protection of attributes if safe-guards are included in setters.
 
-<!-- Now that we
+Consider the following example of the class `Rectangle`:
 
-While some programmers swear against the use of getters and setters inside the class itself, its actually perfectly logical to use them. They are just methods so nothing special about them but some setters will implement certain safeguards. If we did not use them internally, we would have to implement those safe-guards in different places. Or even worst, forget to implement them.
+```csharp
+class Rectangle
+{
+  public double Area()
+  {
+    return width * height;
+  }
 
-A good example here is the move method. -->
+  public void Resize(double width, double height)
+  {
+    this.width = width;
+    this.height = height;
+  }
+
+  public double Width
+  {
+    get { return width; }
+    set { width = Math.Abs(value); }
+  }
+
+  public double Height
+  {
+    get { return height; }
+    set { height = Math.Abs(value); }
+  }
+
+  private double width = 0;
+  private double height = 0;
+}
+```
+
+The developer of this class has done a good effort to make sure neither the `width` or `height` can be set to a negative value by providing safe-guards for both attributes through properties. This would be illogical and could even result in a negative area value.
+
+However if you look closely, a common bug has snuck in the code. The method `Resize()` also provides a way to set the size of the rectangle. The only problem is that this method directly accesses the attribute instead of using the properties. It also does not provide any safe-guards. In other words we would be able to set either `width` or `height` to a negative value.
+
+We could add safe-guards here too, but that would result in code-duplication. A much better appraoch is to use also use the properties internally.
+
+::: warning 🏫 Small Educational Example
+While this may seem quitte obvious you should image this happening in a class of a few hundred lines of code. While here you can directly spot such a bug, it would not always be possible in larger projects.
+:::
+
+So let's fix the code and remove that bug:
+
+```csharp{5,10-11}
+class Rectangle
+{
+  public double Area()
+  {
+    return Width * Height;
+  }
+
+  public void Resize(double width, double height)
+  {
+    Width = width;
+    Height = height;
+  }
+
+  public double Width
+  {
+    get { return width; }
+    set { width = Math.Abs(value); }
+  }
+
+  public double Height
+  {
+    get { return height; }
+    set { height = Math.Abs(value); }
+  }
+
+  private double width = 0;
+  private double height = 0;
+}
+```
+
+Note that the `Area()` now also makes use of the `Width` and `Height` property as it should.
