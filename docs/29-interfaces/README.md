@@ -3,11 +3,11 @@ description: Interfaces allow us to define contracts.
 title: 29 - Interfaces
 ---
 
-# Chapter 29 - Interfaces
-
-::: warning Early draft
-This chapter is an early draft.
+::: danger ☠️ First draft
+Please note that this chapter is not finished yet. It may contain errors, typos, irregularities and even unfinished sections.
 :::
+
+# Chapter 29 - Interfaces
 
 An interface **defines a contract**. Any class that implements that contract must provide an implementation of the members defined in the interface.
 

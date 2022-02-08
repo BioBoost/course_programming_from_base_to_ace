@@ -3,6 +3,10 @@ description: Testing code is important to make sure no bugs are introduced
 title: 35 - Unit Testing
 ---
 
+::: danger ☠️ First draft
+Please note that this chapter is not finished yet. It may contain errors, typos, irregularities and even unfinished sections.
+:::
+
 # Chapter 35 - Unit Testing
 
 ::: warning Early draft

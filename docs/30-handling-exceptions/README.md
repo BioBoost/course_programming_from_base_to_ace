@@ -3,6 +3,10 @@ description: Exceptions are used to indicate exceptional situations that may fai
 title: 30 - Handling Exceptions
 ---
 
+::: danger ☠️ First draft
+Please note that this chapter is not finished yet. It may contain errors, typos, irregularities and even unfinished sections.
+:::
+
 # Chapter 30 - Handling Exceptions
 
 One of the main goals to keep in mind when developing software - being it an application for users or a library for developers - is to make it user-friendly. When software is not user-friendly, the clients of our software will not use it.
