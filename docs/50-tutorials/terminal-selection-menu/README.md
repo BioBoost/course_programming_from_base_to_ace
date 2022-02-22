@@ -1,6 +1,6 @@
 ---
 description: A tutorial on how to create a terminal selection menu
-title: Tuto - Terminal Selection Menu
+title: Terminal Selection Menu
 ---
 
 <!-- TODO: Turn it into a library that we can use in other apps -->
@@ -91,11 +91,135 @@ Let's throw some of this information into a UML class diagram. That will probabl
 
 How we will be controlling this menu using the arrow keys will be the next step. Let's first design this `Menu` class.
 
-
-
-
-
-
-## Start
+## Creating a Menu Class
 
 Start by creating a new .NET Core console application and give it an appropriate name.
+
+Next add a new class to the project called `Menu`:
+
+```csharp
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace TerminalSelectionMenu
+{
+    public class Menu
+    {
+    }
+}
+```
+
+Note that the access modifier is set to `public` here as we will create a library at the end of this toturial.
+
+### The Text
+
+The easiest thing to do first is to add a `text` to the menu. This can be implemented as an attribute of type `string`. At the moment it should not be changeable  after its been initialized or it should not be accessed from the outside, so we can basically just add an attribute without a property.
+
+```csharp{3}
+public class Menu
+{
+  private string text = "";
+}
+```
+
+To initialize the `text` attribute, we will provide a constructor that takes in this text when an object of the class `Menu` is instantiated.
+
+```csharp{3-9}
+public class Menu
+{
+  public Menu(string text)
+  {
+    if (text != null)
+    {
+      this.text = text;
+    }
+  }
+
+  private string text = "";
+}
+```
+
+Note that we added a safe-guard to make sure that the provided `text` is not `null`. If it is, the attribute is not altered and the `text` attribute will keep it's original value, an empty string `""`.
+
+Looking at this code, it is a bit ugly to place this safe-guard inside the constructor. A better solution is to add a `private` setter for the `text` attribute.
+
+```csharp{5,8-14}
+public class Menu
+{
+  public Menu(string text)
+  {
+    SetText(text);
+  }
+
+  private void SetText(string text)
+  {
+    if (text != null)
+    {
+      this.text = text;
+    }
+  }
+
+  private string text = "";
+}
+```
+
+Note that a property with private setter and getter would also have been an option. You can pick the solution you find cleanest.
+
+### ToString
+
+To be able to test the `Menu` class, we can add an initial implementation of the `ToString()` method. That way we can instantiate an object in our `Main` and print out the result to the terminal.
+
+```csharp{8-11}
+public class Menu
+{
+  public Menu(string text)
+  {
+    SetText(text);
+  }
+
+  public override string ToString()
+  {
+    return text;
+  }
+
+  private void SetText(string text)
+  {
+    if (text != null)
+    {
+      this.text = text;
+    }
+  }
+
+  private string text = "";
+}
+```
+
+At this moment, all the `ToString()` method is required to do it return the `text` of the `Menu`.
+
+Now we create a small application in `Main` to test if our class is up to its task:
+
+```csharp
+static void Main(string[] args)
+{
+  Console.WriteLine("Welcome to the Tutorial - Terminal Selection Menu\n");
+
+  // Let's create an instance of the class menu with a certain text
+  Menu menu = new Menu("Please select your favorite food from the options.");
+
+  // Let's print the result to the terminal
+  Console.WriteLine(menu);
+}
+```
+
+The result should be
+
+::: codeoutput
+<pre>
+Welcome to the Tutorial - Terminal Selection Menu
+
+Please select your favorite food from the options.
+</pre>
+:::
+
+Congratz. We are of to a good start.

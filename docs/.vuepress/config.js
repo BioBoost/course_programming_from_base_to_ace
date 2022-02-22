@@ -73,6 +73,14 @@ module.exports = {
         children: [
           '40-introduction-to-wpf/',
         ]
+      },
+      {
+        title: 'Tutorials',
+        collapsable: false, // optional, defaults to true
+        sidebarDepth: 1,    // optional, defaults to 1
+        children: [
+          '50-tutorials/terminal-selection-menu/',
+        ]
       }
     ],
     sidebarDepth: 1,
