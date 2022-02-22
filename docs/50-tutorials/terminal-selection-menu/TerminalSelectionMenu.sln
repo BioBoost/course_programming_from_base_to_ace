@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31019.35
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TerminalSelectionMenu", "TerminalSelectionMenu\TerminalSelectionMenu.csproj", "{59776D38-9C7D-447D-8409-FD2A1E7254DD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{59776D38-9C7D-447D-8409-FD2A1E7254DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{59776D38-9C7D-447D-8409-FD2A1E7254DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{59776D38-9C7D-447D-8409-FD2A1E7254DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{59776D38-9C7D-447D-8409-FD2A1E7254DD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {267596EC-8B22-4E4B-B999-2B2D7FB8055F}
+	EndGlobalSection
+EndGlobal
