@@ -19,6 +19,49 @@ namespace TerminalSelectionMenu
             }
 
             items.Add(item);
+
+            if (items.Count == 1)
+            {
+                iSelectedItem = 0;
+            }
+        }
+
+        public void Next()
+        {
+            if (iSelectedItem == -1)
+            {
+                return;
+            }
+
+            iSelectedItem++;
+            if (iSelectedItem >= items.Count)
+            {
+                iSelectedItem = 0;
+            }
+        }
+
+        public void Previous()
+        {
+            if (iSelectedItem == -1)
+            {
+                return;
+            }
+
+            iSelectedItem--;
+            if (iSelectedItem < 0)
+            {
+                iSelectedItem = items.Count - 1;
+            }
+        }
+
+        public string GetSelectedItem()
+        {
+            if (iSelectedItem == -1)
+            {
+                return "";
+            }
+
+            return items[iSelectedItem];
         }
 
         public override string ToString()
@@ -27,7 +70,14 @@ namespace TerminalSelectionMenu
 
             for (int i = 0; i < items.Count; i++)
             {
-                output += $"\n    {items[i]}";
+                if (i == iSelectedItem)
+                {
+                    output += $"\n  > {items[i]} <";
+                }
+                else
+                {
+                    output += $"\n    {items[i]}";
+                }
             }
 
             return output;
@@ -43,5 +93,6 @@ namespace TerminalSelectionMenu
 
         private string text = "";
         private List<string> items = new List<string>();
+        private int iSelectedItem = -1;
     }
 }
