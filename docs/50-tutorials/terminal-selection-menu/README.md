@@ -21,31 +21,31 @@ First of we'll need to think about what the application should do and how we wil
 
 * The idea is to show a menu to the user that consists of a couple of options and a title or question.
 * The user should be able to use the arrow keys to select one of the options and hit `ENTER` to confirm.
-* The currently selected option should be visually indicated as being currently select.
+* The currently selected option should be visually indicated as being currently selected.
 
 Let's take a look at some examples. First of the general menu idea:
 
 ```
 What option would you like to pick?
 
-  [X] The first option
-  [ ] The second option
-  [ ] The fourth option
-  [ ] The last option
+  > The first option <
+    The second option
+    The fourth option
+    The last option
 
 Press the up and down arrows to choose an option.
 Hit ENTER to confirm and continue.
 ```
 
-Pressing the down key should result in the `X` moving to the new option:
+Pressing the down key should result in the selection moving to the new option:
 
 ```
 What option would you like to pick?
 
-  [ ] The first option
-  [X] The second option
-  [ ] The fourth option
-  [ ] The last option
+    The first option
+  > The second option <
+    The fourth option
+    The last option
 
 Press the up and down arrows to choose an option.
 Hit ENTER to confirm and continue.
@@ -78,7 +78,7 @@ Let's try to identify what information the objects should hold and what function
   * This can be achieved by adding for example a `Next()` and `Previous()` method.
   * This also implies that the currently selected item should be tracked. An index attribute is probable most appropriate here.
 * It should allow the currently selected item to be retrieved
-  * By providing for example a methode `GetSelected()`, the currently selected item can easily be requested from the object.
+  * By providing for example a method `GetSelected()`, the currently selected item can easily be requested from the object.
 * The state of the menu should be representable as a `string`.
   * This allows for easy output to the terminal.
   * By adding a `ToString()` method to the class this can be easily achieved.
@@ -195,9 +195,9 @@ public class Menu
 }
 ```
 
-At this moment, all the `ToString()` method is required to do it return the `text` of the `Menu`.
+At this moment, all the `ToString()` method is required to do is return the `text` of the `Menu`.
 
-Now we create a small application in `Main` to test if our class is up to its task:
+To test if the `Menu` class is up to its task, a small application can be implemented in the `Main`:
 
 ```csharp
 static void Main(string[] args)
@@ -222,4 +222,262 @@ Please select your favorite food from the options.
 </pre>
 :::
 
-Congratz. We are of to a good start.
+Congratulations. We are of to a good start.
+
+## Tracking the Items
+
+To keep track of the menu items we need some sort of collection. Since we do not know beforehand how many items the menu will hold, it is not an option to use a plain array.
+
+A perfect candidate is the `List<T>` class of C# found in `System.Collection.Generic`. It's a dynamic collection that represents a strongly typed list of objects that can be accessed by index - just like an array. It also provides methods to search, sort, and manipulate the items in the list.
+
+::: hint List
+Find more info and examples of `List<T>` at [https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1?view=net-6.0](https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1?view=net-6.0).
+:::
+
+Creating an object of this generic container class requires us to also specify the type of the data we will be putting inside the container. That is what the `T` stands for. Basically, the `List` acts as a dynamic array, and just as with a plain array we need to specify the type of the elements, we also need to do this with a `List`.
+
+So to declare a variable and initialize it with a reference to a new object, we need to use the following statement:
+
+```csharp
+List<T> myList = new List<T>();
+```
+
+where `T` is the type of the objects/values we want to store. In the case of this menu application, it will be `string` objects.
+
+So let us add an attribute `items` to the `Menu` class to hold the menu items:
+
+```csharp{22}
+public class Menu
+{
+  public Menu(string text)
+  {
+    SetText(text);
+  }
+
+  public override string ToString()
+  {
+    return text;
+  }
+
+  private void SetText(string text)
+  {
+    if (text != null)
+    {
+      this.text = text;
+    }
+  }
+
+  private string text = "";
+  private List<string> items = new List<string>();
+}
+```
+
+## Adding Items to Menu
+
+The next step is to allow menu items to be added to a menu. This can be achieved my implementing the `AddItem()` method which takes in a `string` argument.
+
+All this method has to do is add the argument string to the list of `items` inside our `Menu`. Adding items to a `List` can be accomplished by calling the `Add()` method on the object and passing in the element.
+
+So basically our `AddItem()` method just needs to call the `Add()` method on `items` and pass the argument value.
+
+```csharp{8-11}
+public class Menu
+{
+  public Menu(string text)
+  {
+    SetText(text);
+  }
+
+  public void AddItem(string item)
+  {
+    items.Add(item);
+  }
+
+  public override string ToString()
+  {
+    return text;
+  }
+
+  private void SetText(string text)
+  {
+    if (text != null)
+    {
+      this.text = text;
+    }
+  }
+
+  private string text = "";
+  private List<string> items = new List<string>();
+}
+```
+
+To actually add items to our demo menu, we will also need to extend our `Main` and add some items to the menu:
+
+```csharp
+static void Main(string[] args)
+{
+  Console.WriteLine("Welcome to the Tutorial - Terminal Selection Menu\n");
+
+  // Let's create an instance of the class menu with a certain text
+  Menu menu = new Menu("Please select your favorite food from the options.");
+
+  // Add possible options to the menu
+  menu.AddItem("Spaghetti");
+  menu.AddItem("Hamburgers");
+  menu.AddItem("Fries");
+  menu.AddItem("Pizza");
+
+  // Let's print the result to the terminal
+  Console.WriteLine(menu);
+}
+```
+
+If you run the application in it's current state you will not see the items being printed to the terminal window. That is because we have not yet altered the `ToString()` method to take the list of items into account. That is our next step.
+
+The `ToString()` method needs to return the `text` and all the items currently held by the menu as a string representation. We can achieve this using a for-loop construct to iterate over the `List` of items we are holding. The number of items held by the `List` object, can be retrieved via the property `Count`. By creating a local variable `output`, we can append the items and even add some extra formatting. This way we can already add some indentation to the items.
+
+```csharp{15-22}
+public class Menu
+{
+  public Menu(string text)
+  {
+    SetText(text);
+  }
+
+  public void AddItem(string item)
+  {
+    items.Add(item);
+  }
+
+  public override string ToString()
+  {
+    string output = text + "\n";
+
+    for (int i = 0; i < items.Count; i++)
+    {
+      output += $"\n    {items[i]}";
+    }
+
+    return output;
+  }
+
+  private void SetText(string text)
+  {
+    if (text != null)
+    {
+      this.text = text;
+    }
+  }
+
+  private string text = "";
+  private List<string> items = new List<string>();
+}
+```
+
+Note how we can access the elements of the `List` just as it were a basic array using the square brackets `[]`. This makes `List` very intuitive.
+
+::: info Foreach
+Why not use a foreach-loop construct here ? At this point we actually could. But looking a bit forward, we will need to be able to identify the selected item later on. Since this item will be tracked using an index, we will also require the item index while adding the items to the output. The item index is not available with a foreach-loop, therefore we use a for-loop construct here.
+:::
+
+When we run this, we should get the following output in the terminal:
+
+::: codeoutput
+<pre>
+Welcome to the Tutorial - Terminal Selection Menu
+
+Please select your favorite food from the options.
+
+    Spaghetti
+    Hamburgers
+    Fries
+    Pizza
+</pre>
+:::
+
+One last thing to take into account is a safe-guard for the `AddItem()` method. Currently the method allows `null` references to be inserted into the menu, which might give problems later on. In the case of a menu, a `null` reference can be considered invalid, so we should handle this case and make sure no `null` references can be inserted into the `List`.
+
+By adding a safe-guard in the `AddItem()` method that checks if the incoming `item` is not `null` we can filter them out an not add them to the `List`:
+
+```csharp{10-13}
+public class Menu
+{
+  public Menu(string text)
+  {
+    SetText(text);
+  }
+
+  public void AddItem(string item)
+  {
+    if (item == null)
+    {
+      return;
+    }
+
+    items.Add(item);
+  }
+
+  public override string ToString()
+  {
+    string output = text + "\n";
+
+    for (int i = 0; i < items.Count; i++)
+    {
+      output += $"\n    {items[i]}";
+    }
+
+    return output;
+  }
+
+  private void SetText(string text)
+  {
+    if (text != null)
+    {
+      this.text = text;
+    }
+  }
+
+  private string text = "";
+  private List<string> items = new List<string>();
+}
+```
+
+In practice we often first check validity of the incoming data and if it is invalid we generate an error or ignore the value. Here we can implement this by checking if `item` is `null` and if it is, we return from the method call, basically doing nothing and ignoring the `null` reference. If the arguments passes the check, we can safely add it to the `List`.
+
+We can actually test this by adding some `null` references in `Main` and check if anything is outputted to the terminal. If the `null` references are still in the `List`, we should get extra empty lines in the item listing.
+
+```csharp
+static void Main(string[] args)
+{
+  Console.WriteLine("Welcome to the Tutorial - Terminal Selection Menu\n");
+
+  // Let's create an instance of the class menu with a certain text
+  Menu menu = new Menu("Please select your favorite food from the options.");
+
+  // Add possible options to the menu
+  menu.AddItem("Spaghetti");
+  menu.AddItem("Hamburgers");
+  menu.AddItem("Fries");
+  menu.AddItem("Pizza");
+  menu.AddItem(null);
+  menu.AddItem(null);
+
+  // Let's print the result to the terminal
+  Console.WriteLine(menu);
+}
+```
+
+It seems like everything is working as expected:
+
+::: codeoutput
+<pre>
+Welcome to the Tutorial - Terminal Selection Menu
+
+Please select your favorite food from the options.
+
+    Spaghetti
+    Hamburgers
+    Fries
+    Pizza
+</pre>
+:::

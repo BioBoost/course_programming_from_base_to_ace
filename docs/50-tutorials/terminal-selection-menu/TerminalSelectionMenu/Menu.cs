@@ -11,9 +11,26 @@ namespace TerminalSelectionMenu
             SetText(text);
         }
 
+        public void AddItem(string item)
+        {
+            if (item == null)
+            {
+                return;
+            }
+
+            items.Add(item);
+        }
+
         public override string ToString()
         {
-            return text;
+            string output = text + "\n";
+
+            for (int i = 0; i < items.Count; i++)
+            {
+                output += $"\n    {items[i]}";
+            }
+
+            return output;
         }
 
         private void SetText(string text)
@@ -25,5 +42,6 @@ namespace TerminalSelectionMenu
         }
 
         private string text = "";
+        private List<string> items = new List<string>();
     }
 }
