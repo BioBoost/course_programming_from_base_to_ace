@@ -78,11 +78,11 @@ When creating a new WPF application, the first thing you encounter is the `<Wind
 
 Some important things about Window:
 
-* `x:Class="WpfTest.MainWindow"` contains the fully qualified name of the class in the code behind file. If you chance the name of the Window make sure sure to change the name of the class as well and match it up in the XAML file.
+* `x:Class="WpfTest.MainWindow"` contains the fully qualified name of the class in the code behind file. If you change the name of the Window make sure sure to change the name of the class as well and match it up in the XAML file.
 * `Title="MainWindow"` allows you to change the title of the Window
 * `Height="450"` and `Width="800"` set the dimensions of the Window
 * By default VS will populate the Window with a `Grid` component, a popular layout container element.
-* A Window can have only 1 child element inside. So a layout control, which in turn can contain multiple child controls, is usually a good choice.
+* A `Window` can have only 1 child element inside. So a layout control, which in turn can contain multiple child controls, is usually a good choice.
 
 The matching code behind file contains a partial class with a default constructor that initializes the visual components.
 
@@ -101,7 +101,7 @@ namespace WpfTest
 
 ## Finding your way
 
-When first starting out with WPF it might be a bit overwhelming. There are a lot of components, the XAML can be a bit of a mess if you allow it to be, the are hundruths of properties for the components and thats only the visible stuff.
+When first starting out with WPF it might be a bit overwhelming. There are a lot of components, the XAML can be a bit of a mess if you allow it to be, and there are hundruths of properties for the components and thats only the visible stuff.
 
 Below are some tips that will help along the way:
 
@@ -119,11 +119,19 @@ Below are some tips that will help along the way:
 <TextBlock x:Name="playerScore" Text="0" />
 ```
 
+::: hint `Name` versus `x:Name`
+There really is only one name in XAML, the `x:Name`. A framework, such as WPF, can optionally map one of its properties to XAML's `x:Name`.
+
+The reason this was done was to allow for frameworks that already have a concept of "Name" at runtime, such as WPF. 
+
+In general, a class does not need to store the name for `x:Name` to be useable. All `x:Name` means to XAML is generate a field to store the value in the code behind class. What the runtime does with that mapping is framework dependent.
+:::
+
 ## Basic Components
 
 ### TexBlock, Label and TextBox
 
-The `TextBlock` control is one of the most fundamental controls in WPF, yet it's very useful. It allows you to **put text on the screen**, much like a `Label` control does, but in a simpler and less resource demanding way. A common understanding is that a Label is for short, one-line texts (but may include e.g. an image), while the TextBlock works very well for multiline strings as well, but can only contain text (strings). Both the Label and the TextBlock offers their own unique advantages, so what you should use very much depends on the situation.
+The `TextBlock` control is one of the most fundamental controls in WPF, yet it's very useful. It allows you to **put text on the screen**, much like a `Label` control does, but in a simpler and less resource demanding way. A common understanding is that a `Label` is for short, one-line texts (but may include e.g. an image), while the `TextBlock` works very well for multiline strings as well, but can only contain text (strings). Both the `Label` and the `TextBlock` offer their own unique advantages, so what you should use very much depends on the situation.
 
 ::: warning TextBlock is not a control
 Even though `TextBlock` lives in the `System.Windows.Controls namespace`, it is not a control. It derives directly from `FrameworkElement`. `Label`, on the other hand, derives from `ContentControl`.
@@ -134,10 +142,9 @@ This means that Label can:
 * Display data other than just a string (via the Content property).
 * Apply a DataTemplate to its content (via the ContentTemplate property).
 * Do whatever else a `ContentControl` can do that a `FrameworkElement` cannot.
-
-Label text is grayed out when disabled
-Label supports access keys
-Label is much heavier than TextBlock
+* Label text is grayed out when disabled
+* Label supports access keys
+* Label is much heavier than TextBlock
 :::
 
 So basically, most of the time if we wish to display some sort of text to the user, we'll often just need a `TextBlock`.
@@ -155,7 +162,7 @@ Example of a TextBlock that has blue text and wraps the text in the control:
 
 <!-- Some fun example using icons: https://www.wpf-tutorial.com/basic-controls/the-label-control/ -->
 
-The `TextBox` control is the most **basic text-input** control found in WPF, allowing the end-user to write plain text, either on a single line, for dialog input, or in multiple lines, like an editor.
+The `TextBox` control is the most **basic text-input** control found in WPF, allowing the end-user to input plain text, either on a single line, for dialog input, or in multiple lines, like an editor.
 
 Single line TextBox:
 
@@ -163,7 +170,7 @@ Single line TextBox:
 <TextBox Text="Hello World from C#" />
 ```
 
-The `AcceptsReturn` makes the TextBox into a multi-line control by allowing the use of the Enter/Return key to go to the next line, and the `TextWrapping` property, which will make the text wrap automatically when the end of a line is reached.
+The `AcceptsReturn` makes the `TextBox` into a multi-line control by allowing the use of the Enter/Return key to go to the next line, and the `TextWrapping` property, which will make the text wrap automatically when the end of a line is reached.
 
 ```xml
 <TextBox AcceptsReturn="True" TextWrapping="Wrap" />
@@ -175,9 +182,9 @@ You can even enable spellchecking on the TextBox using the properties `SpellChec
 
 ### Button
 
-No GUI framework would be complete without a Button control, so of course WPF has a nice one included, and just like the rest of the framework controls, it's very flexible and will allow you to accomplish almost anything. But let's start out with some basic examples.
+No GUI framework would be complete without a `Button` control, so of course WPF has a nice one included, and just like the rest of the framework controls, it's very flexible and will allow you to accomplish almost anything. But let's start out with some basic examples.
 
-Just like many other WPF controls, a Button can be displayed simply by adding a Button tag to your Window. If you put text between the tags (or another control), it will act as the content of the Button:
+Just like many other WPF controls, a `Button` can be displayed simply by adding a `Button` tag to your Window. If you put text between the tags (or another control), it will act as the content of the `Button`:
 
 ```xml
 <Button>Hello There</Button>
@@ -185,7 +192,7 @@ Just like many other WPF controls, a Button can be displayed simply by adding a 
 
 ## Layout Containers aka Panels
 
-Panels are one of the most important control types of WPF. They act as containers for other controls and control the layout of your windows/pages. Since a window can only contain ONE child control, a panel is often used to divide up the space into areas, where each area can contain a control or another panel (which is also a control, of course).
+Panels are one of the most important control types of WPF. They **act as containers for other controls** and **control the layout of your windows/pages**. Since a window can only contain ONE child control, a panel is often used to divide up the space into areas, where each area can contain a control or another panel (which is also a control, of course).
 
 Panels come in several different flavors, with each of them having its own way of dealing with layout and child controls. Picking the right panel is therefore essential to getting the behavior and layout you want, and especially in the start of your WPF career, this can be a difficult job.
 
@@ -346,19 +353,19 @@ While when using the percentage indication, the child components take up the ful
 
 ## Event Handling
 
-When programming an application with a graphical UI, compared to a console application, we switch to event driven programming. Actions in our applications happen on the rhythm of events happening (user types something, hovers the mouse over a control, clicks something, ...).
+When programming an application with a graphical UI, compared to a console application, we switch to **event driven programming**. Actions in our applications happen on the rhythm of events happening (user types something, hovers the mouse over a control, clicks something, ...).
 
-Methods that respond/handle these events are called event handlers. We register event handlers on specific events, so when the events happen, the appropriate event handler is called.
+**Methods that respond/handle these events are called event handlers**. We register event handlers on specific events, so when the events happen, the appropriate event handler is called.
 
 ### Button Click Event
 
-As a beginnen WPF programmer the best way to learn event handling is to use buttons. Do something when the user clicks a button.
+As a beginning WPF programmer the best way to learn event handling is to use buttons. Do something when the user clicks a button.
 
 Let's create a small example application using a `Button` and `TextBlock`:
 
 ```xml
 <StackPanel Orientation="Vertical">
-  <Button Margin="10" Name="sayHello">Say Hello</Button>
+  <Button Margin="10" x:Name="sayHello">Say Hello</Button>
   <TextBlock x:Name="message"
     HorizontalAlignment="Center">
     Please hit the button
@@ -383,7 +390,7 @@ private void sayHello_Click(object sender, RoutedEventArgs e)
 }
 ```
 
-Named components will automatically become available inside your code as private attributes. This means that we can set the `Text` property of the `TextBlock` component as shown below:
+Named components will automatically become available inside your code as attributes. This means that we can set the `Text` property of the `TextBlock` component (named `message` here) as shown below:
 
 ```csharp
 private void sayHello_Click(object sender, RoutedEventArgs e)
@@ -491,3 +498,5 @@ This results in the following UI:
 <!-- Margin and padding -->
 <!-- Other useful components? Span -->
 <!-- Good to Know: grid elements can be stacked upon each other -->
+<!-- Some snippets: -->
+<!-- Rounding buttons for example -->
