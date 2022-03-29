@@ -63,6 +63,7 @@ module.exports = {
         children: [
           '30-handling-exceptions/',
           // '31-http-requests/',
+          '34-creating-libraries/',
           '35-unit-testing/',
         ]
       },
