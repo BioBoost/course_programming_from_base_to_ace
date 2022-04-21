@@ -509,7 +509,7 @@ The implementation of `Main` does not need to alter as both implementations beha
 
 ### UML Representation of Properties
 
-Since properties are not a standard available in all programming languages, there is also no real consencus on how to represent them in a UML class diagram. So you will different notations on the Internet.
+Since properties are not a standard available in all programming languages, there is also no real consensus on how to represent them in a UML class diagram. So you will different notations on the Internet.
 
 For this course we will agree on the notation where we use a **stereotype** indicator `<<get>>` or `<<set>>` prefixed with the access modifier.
 
@@ -562,10 +562,10 @@ The developer of this class has done a good effort to make sure neither the `wid
 
 However if you look closely, a common bug has snuck in the code. The method `Resize()` also provides a way to set the size of the rectangle. The only problem is that this method directly accesses the attribute instead of using the properties. It also does not provide any safe-guards. In other words we would be able to set either `width` or `height` to a negative value.
 
-We could add safe-guards here too, but that would result in code-duplication. A much better appraoch is to use also use the properties internally.
+We could add safe-guards here too, but that would result in code-duplication. A much better approach is to use also use the properties internally.
 
 ::: warning 🏫 Small Educational Example
-While this may seem quitte obvious you should image this happening in a class of a few hundred lines of code. While here you can directly spot such a bug, it would not always be possible in larger projects.
+While this may seem quite obvious you should image this happening in a class of a few hundred lines of code. While here you can directly spot such a bug, it would not always be possible in larger projects.
 :::
 
 So let's fix the code and remove that bug:
@@ -602,3 +602,104 @@ class Rectangle
 ```
 
 Note that the `Area()` now also makes use of the `Width` and `Height` property as it should.
+
+## Tightly Coupled Classes
+
+When a class depends on the implementation of another class it's said to be **tightly coupled** to that class. When classes are tightly coupled to one another, a change in one class will often require changes in the other classes. This can become a serious problem once the code-base starts te become larger.
+
+Our goal is to **decouple** classes from any particular implementation. When one module of code isn't directly connected to another module of code, that code is said to be **loosely coupled**. The more loosely coupled our modules are, the easier they can be changed without too much hassle.
+
+A first step into decoupling classes is to remove any access to internal data. Data hiding and providing the appropriate properties/getters/setters automatically contributes to the decoupling of classes.
+
+Let's take a look at the following code example where `Student` objects can be converted to a comma separated value (CSV) entry using a class `StudentCsvConverter`.
+
+::: tip CSV
+A comma-separated values (CSV) file is a delimited text file that uses a comma to separate values. Each line of the file is a data record. Each record consists of one or more fields, separated by commas. The use of the comma as a field separator is the source of the name for this file format. A CSV file typically stores tabular data (numbers and text) in plain text, in which case each line will have the same number of fields.
+:::
+
+```csharp
+class Student {
+  public string id = "d54382432";
+  public string name = "Nico De Witte";
+  // ...
+}
+
+class StudentCsvConverter {
+  // Convert student to a comma separated value entry
+  public string Convert(Student student) {
+    return $"{student.id},{student.name}";
+  }
+}
+```
+
+It is said that the `StudentCsvConverter` class is tightly coupled to the `Student` class because it is accessing the internal data of that class directly. Any changes to the internals of the `Student` class will also require changes to the `StudentCsvConverter` class.
+
+For example, what if we later decided the split the student's `name` into a `firstname` and `lastname`? Than we would also have to change the implementation of the `Convert` method to make use of the new attributes.
+
+```csharp{3,4,11}
+class Student {
+  public string id = "d54382432";
+  public string firstname = "Nico";
+  public string lastname = "De Witte";
+  // ...
+}
+
+class StudentCsvConverter {
+  // Convert student to a comma separated value entry
+  public string Convert(Student student) {
+    return $"{student.id},{student.firstname} {student.lastname}";
+  }
+}
+```
+
+While this change is small, imagine if you had to change 20 other classes all because of this small initial change.
+
+Now if we make the `Student` attribute private and provide properties or methods to access this data, we make our `StudentCsvConverter` less dependent on the implementation of `Student`. Let's backtrack again before the change of the `name`attribute.
+
+```csharp{3,4,16}
+class Student {
+  // Getters
+  public string GetId() { return id; }
+  public string GetName() { return name; }
+
+  // Private attributes
+  private string id = "d54382432";
+  private string name = "Nico De Witte";
+
+  // ...
+}
+
+class StudentCsvConverter {
+  // Convert student to a comma separated value entry
+  public string Convert(Student student) {
+    return $"{student.GetId()},{student.GetName()}";
+  }
+}
+```
+
+Again, we replace the internal `name` attribute with `firstname` and `lastname`.
+
+```csharp{4,8,9}
+class Student {
+  // Getters
+  public string GetId() { return id; }
+  public string GetName() { return $"{firstname} {lastname}"; }
+
+  // Private attributes
+  private string id = "d54382432";
+  private string firstname = "Nico";
+  private string lastname = "De Witte";
+
+  // ...
+}
+
+class StudentCsvConverter {
+  // Convert student to a comma separated value entry
+  public string Convert(Student student) {
+    return $"{student.GetId()},{student.GetName()}";
+  }
+}
+```
+
+Note that we had to change the implementation of the `GetName()` getter of the `Student` class so it would still return the full name of the student. But that is not a problem since this change is local to the `Student` class. The important thing to notice here is that we did not have to change the `Convert` method.
+
