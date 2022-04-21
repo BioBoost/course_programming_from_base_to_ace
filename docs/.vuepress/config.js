@@ -51,9 +51,9 @@ module.exports = {
           '24-getters-setters-properties/',
           '25-constructors/',
           '26-composition/',
-          '27-inheritance/',
-          // '28-abstract-classes/',
-          '29-interfaces/',
+          '27-interfaces/',
+          '28-inheritance/',
+          // '29-abstract-classes/',
         ]
       },
       {
