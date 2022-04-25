@@ -1,13 +1,13 @@
 ---
 description: Interfaces allow us to define contracts.
-title: 29 - Interfaces
+title: 27 - Interfaces
 ---
 
 ::: danger ☠️ First draft
 Please note that this chapter is not finished yet. It may contain errors, typos, irregularities and even unfinished sections.
 :::
 
-# Chapter 29 - Interfaces
+# Chapter 27 - Interfaces
 
 Interfaces are a tool that allow us to **decouple classes** from a particular implementation. When one module of code isn't directly connected to another module of code, that code is said to be **loosely coupled**.
 
@@ -19,7 +19,7 @@ In other words, decoupling is the process of limiting your dependencies to abstr
 
 Tight coupling means one class is dependent on another class. Loose coupling means one class is dependent on an interface rather than a class. In tight coupling, there are hard-coded dependency declared in methods. In loose coupling, we must pass dependency externally at runtime instead of hard-coding them.
 
-::: hint Class Interface
+::: tip Class Interface
 **The interface of a class** consists of the public methods and properties of that class. It defines what behavior that class provides and how it can be used from another class. It is not the same as the `interface` that can be implemented by a class - of course the methods defined in the `interface` will then become part of the interface of that class.
 :::
 

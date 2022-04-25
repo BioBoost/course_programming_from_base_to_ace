@@ -1,13 +1,13 @@
 ---
 description: Inheritance allows a class to inherit the properties and methods of other classes.
-title: 27 - Inheritance
+title: 28 - Inheritance
 ---
 
 ::: danger ☠️ First draft
 Please note that this chapter is not finished yet. It may contain errors, typos, irregularities and even unfinished sections.
 :::
 
-# Chapter 27 - Inheritance
+# Chapter 28 - Inheritance
 
 Inheritance is one of the main pillars of an object-oriented programming language and provides a clean way of reusing functionality. It allows a class to inherit both the attributes and methods of another class. Common data and functionality is structured inside a base class (also called superclass) from which the more specific classes inherit (called subclasses or derived classes) properties and behavior.
 
