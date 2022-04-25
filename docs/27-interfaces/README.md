@@ -42,7 +42,13 @@ An interface cannot contain:
 * instance fields (attributes)
 * instance constructors
 
-## Defining an Interface
+::: tip Definition
+**Interfaces are an abstract definition of functionality**.
+:::
+
+## Declaration of an Interface
+
+An interface declaration defines a set of properties and methods that you can use for a specific purpose. Interfaces declare and require no particular implementation for that purpose. They define what a class can do and limit the exposure of a class to only those things defined by the interface.
 
 Let's for example create an interface `IJsonRepresentable`, which will allow classes to implement this interface to provide a JSON representation of their objects.
 
@@ -68,6 +74,8 @@ In UML an interface is represented using a rectangle with the label `<<interface
 ![UML diagram of IJsonRepresentable interface](./img/interface_json_uml.png)
 
 ## Implementing Interfaces
+
+Of course, an interface must be implemented to be useful. And when you use an interface, you ultimately don't care about how it is implemented; you just know that you can call the methods and properties on the interface and the functionality you need will be provided.
 
 Any class that implements the `IJsonRepresentable` interface must contain a definition for an `AsJson()` method that matches the signature that the interface specifies. As a result, you can count on a class that implements `IJsonRepresentable` to contain an `AsJson()` method.
 
@@ -167,3 +175,99 @@ Console.WriteLine(user.AsJson());
 </pre>
 :::
 
+## Loosely Coupling using Interfaces
+
+When you use interfaces, you can decouple classes from any particular implementation. When one module of code isn't directly connected to another module of code, that code is said to be **loosely coupled**. The more loosely coupled your code is, the less likely it is that a change in one place will affect code in another.
+
+### Interfaces as a Type
+
+Before we can continue on our journey there is something important that you need to understand. The objects of the classes that implement an interface can also be seen as entities of that interface type.
+
+For example, the `Circle` class that implements the `IJsonRepresentable` interface, can also be stored in a reference of type `IJsonRepresentable`. The same goes for the `User` class.
+
+That means that the following code is perfectly legal and is actually very powerful for the continuation of our decoupling:
+
+```csharp
+IJsonRepresentable circle = new Circle(12.3);       // Reference of type IJsonRepresentable
+Console.WriteLine(circle.AsJson());
+
+IJsonRepresentable user = new User("Nico", "De Witte");
+Console.WriteLine(user.AsJson());                   // Reference of type IJsonRepresentable
+```
+
+:::codeoutput
+<pre>
+{ "radius": "12,3", "area": "475,2915525615999"}
+{ "firstname": "Nico", "lastname": "De Witte"}
+</pre>
+:::
+
+This code outputs exactly the same as the previous implementation. The big difference however here is that the reference `circle` can now only be used to access the methods and properties declared in the `IJsonRepresentable` interface. While the object itself is still of type `Circle`, the variable has a type of `IJsonRepresentable`.
+
+### Tightly Coupled MessageSender
+
+Let's take this a step further and consider a class called `MessageSender` that fakes sending a message across the internet containing a JSON representation of objects.
+
+We could provide two `Send()` methods, one for `User` and one for `Circle` and more if need be for other classes that can be represented as a JSON string.
+
+```csharp
+class MessageSender
+{
+  public void Send(User user)
+  {
+    // Let's fake it that we 
+    Console.Write("Beep Boop Ping Pong ... Sending message .... ");
+    Console.WriteLine(user.AsJson());
+  }
+
+  public void Send(Circle circle)
+  {
+    Console.Write("Beep Boop Ping Pong ... Sending message .... ");
+    Console.WriteLine(circle.AsJson());
+  }
+}
+```
+
+Now let's send both our objects into the scare Internet:
+
+```csharp
+Circle circle = new Circle(12.3);
+User user = new User("Nico", "De Witte");
+
+MessageSender internet = new MessageSender();
+internet.Send(circle);
+internet.Send(user);
+```
+
+:::codeoutput
+<pre>
+Beep Boop Ping Pong ... Sending message .... { "radius": "12,3", "area": "475,2915525615999"}
+Beep Boop Ping Pong ... Sending message .... { "firstname": "Nico", "lastname": "De Witte"}
+</pre>
+:::
+
+The big problem here is that the class `MessageSender` is tightly coupled with the classes `User` and `Circle`. Every class that we would want to able to send would require a separate method in the `MessageSender` class.
+
+In a real world situation, this class may even be provided by an external library which we do not control.
+
+### Loosely Coupled MessageSender
+
+How can we decouple this class from the specific implementation of `User` and `Circle`? Actually pretty simple, by making it dependent on the abstract interface `IJsonRepresentable` instead of the class implementation itself.
+
+Instead of a reference to a `User` object and a reference to a `Circle` object, we can just take in a reference to a `IJsonRepresentable` entity.
+
+```csharp
+class MessageSender
+{
+  public void Send(IJsonRepresentable target)
+  {
+    // Let's fake it that we 
+    Console.Write("Beep Boop Ping Pong ... Sending message .... ");
+    Console.WriteLine(target.AsJson());
+  }
+}
+```
+
+Note that we also need to remove the second `Send()` method.
+
+We have much cleaner design now. We can create new classes that implement the `IJsonRepresentable` interface and can then be transmitted as a message using the `MessageSender` class. On top of that, the `MessageSender` class does not need to know what *new* classes are created and only knows about the `IJsonRepresentable` interface.
