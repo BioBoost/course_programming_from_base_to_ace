@@ -38,7 +38,7 @@ public class Sum : ISolvable
 }
 ```
 
-![UML Diagram of Sum implementing ISolvable](./img/sum_implementing_solvable.png)
+<!-- ![UML Diagram of Sum implementing ISolvable](./img/sum_implementing_solvable.png) -->
 
 Now if we want to represent the `Sum` objects as JSON objects, we can simply implement the interface `IJsonRepresentable`:
 
@@ -73,7 +73,7 @@ public class Sum : ISolvable, IJsonRepresentable
 }
 ```
 
-![Sum class Implementing both ISolvable as well as IJsonRepresentable](./img/sum_implementing_two.png)
+<!-- ![Sum class Implementing both ISolvable as well as IJsonRepresentable](./img/sum_implementing_two.png) -->
 
 Using a simple demo program we can demonstrate the behavior of the `sum` object:
 
