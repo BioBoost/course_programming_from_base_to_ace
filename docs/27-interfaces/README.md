@@ -15,9 +15,9 @@ Code can be said to be decoupled when your classes are designed in such a way th
 
 Two classes are loosely coupled when they know as little about each other as possible, the dependencies between them are as thin as possible, and the communication lines between them are as simple as possible.
 
-In other words, decoupling is the process of limiting your dependencies to abstractions as much as possible. If you want to write good, clean code, you will try to couple only to abstractions - for example to interfaces. This is critical to writing good code that is easy to maintain.
+In other words, **decoupling is the process of limiting your dependencies to abstractions as much as possible**. If you want to write good, clean code, you will try to couple only to abstractions - for example to interfaces. This is critical to writing good code that is easy to maintain.
 
-Tight coupling means one class is dependent on another class. Loose coupling means one class is dependent on an interface rather than a class. In tight coupling, there are hard-coded dependency declared in methods. In loose coupling, we must pass dependency externally at runtime instead of hard-coding them.
+Tight coupling means one class is dependent on another class. Loose coupling means one class is dependent on an interface rather than a class. In tight coupling, there are hard-coded dependencies declared in methods. In loose coupling, we must pass a dependency externally at runtime instead of hard-coding them.
 
 ::: tip Class Interface
 **The interface of a class** consists of the public methods and properties of that class. It defines what behavior that class provides and how it can be used from another class. It is not the same as the `interface` that can be implemented by a class - of course the methods defined in the `interface` will then become part of the interface of that class.
@@ -27,9 +27,15 @@ Tight coupling means one class is dependent on another class. Loose coupling mea
 
 An interface **defines a contract**. Any class that implements that contract **must provide an implementation of the members defined in the interface.** Interfaces specify **what a class must do and not how**.
 
-An interface contains definitions for a **group of related functionalities that a non-abstract class must implement**.  An interface **may not declare instance data** such as attributes. An interface may also define static methods, which must have an implementation.
+::: tip Definition
+Interfaces are an abstract definition of functionality.
+:::
 
+An interface contains definitions for a **group of related functionalities that a non-abstract class must implement**.  An interface **may not declare instance data** such as attributes. An interface may however define static methods, which must have an implementation.
+
+::: warning Default Implementation
 These preceding member declarations typically do not contain a body. Beginning with C# 8.0, an interface member may declare a body. This is called a **default implementation**. Members with bodies permit the interface to provide a "default" implementation for classes that don't provide an overriding implementation.
+:::
 
 An interface may contain:
 
@@ -40,10 +46,10 @@ An interface may contain:
 An interface cannot contain:
 
 * instance fields (attributes)
-* instance constructors
+* instance constructor
 
-::: tip Definition
-**Interfaces are an abstract definition of functionality**.
+::: warning Auto-implemented Attributes
+Interface properties typically don't have a body. The accessors indicate whether the property is read-write, read-only, or write-only. Unlike in classes and structs, **declaring the accessors without a body doesn't declare an auto-implemented property**. Beginning with C# 8.0, an interface may define a default implementation for members, including properties. Defining a default implementation for a property in an interface is rare because interfaces may not define instance data fields.
 :::
 
 ## Declaration of an Interface
@@ -87,6 +93,8 @@ To implement an interface member, the corresponding member of the implementing c
 The following example shows an implementation of the `IJsonRepresentable` interface. The implementing class, `Circle`, must provide an implementation of the `AsJson()` method.
 
 ```csharp
+using System.Globalization;
+
 class Circle : IJsonRepresentable
 {
   public Circle(double radius)
@@ -108,11 +116,15 @@ class Circle : IJsonRepresentable
 
   public string AsJson()
   {
-    return $"{{ \"radius\": \"{Radius}\", "
-    + $"\"area\": \"{GetArea()}\"}}";
+    return "{ "
+      + $"\"radius\": {Radius.ToString(CultureInfo.InvariantCulture)}, "
+      + $"\"area\": {GetArea().ToString(CultureInfo.InvariantCulture)}"
+      + " }";
   }
 }
 ```
+
+<!-- `CultureInfo.InvariantCulture` outputs culture invariant decimal notation output. -->
 
 ::: warning Abstract Classes
 Actually it is possible to not or only partially implement an interface. However in that case the class is considered to be abstract (incomplete). Later on this course will go into more detail regarding abstract classes.
@@ -120,9 +132,9 @@ Actually it is possible to not or only partially implement an interface. However
 
 In UML, implementing an interface is represented by using an arrow notation connected using a striped line.
 
-![UML Interface Implementation](./img/implementing_interface_uml.png)
+![UML Interface Implementation](./img/circle_implementing_json.png)
 
-Let us take a look at a simple example program where we call both the `ToString()` method on a `User` as well as the `AsJson()` method.
+Let us take a look at a simple example program where we call the `AsJson()` method on a `Circle`object.
 
 ```csharp
 Circle circle = new Circle(12.3);
@@ -132,7 +144,7 @@ Console.WriteLine(circle.AsJson());     // JSON Representation
 
 ::: codeoutput
 <pre>
-{ "radius": "12,3", "area": "475,2915525615999"}
+{ "radius": 12.3, "area": 475.2915525615999 }
 </pre>
 :::
 
@@ -158,11 +170,13 @@ public class User : IJsonRepresentable
 }
 ```
 
+![UML User Interface Implementation](./img/user_implementing_json.png)
+
 Using the same `Main` but also including a `User` object we can represent both objects as JSON:
 
 ```csharp
 Circle circle = new Circle(12.3);
-Console.WriteLine(circle.AsJson());     // JSON Representation
+Console.WriteLine(circle.AsJson());
 
 User user = new User("Nico", "De Witte");
 Console.WriteLine(user.AsJson());
@@ -170,7 +184,7 @@ Console.WriteLine(user.AsJson());
 
 :::codeoutput
 <pre>
-{ "radius": "12,3", "area": "475,2915525615999"}
+{ "radius": 12.3, "area": 475.2915525615999 }
 { "firstname": "Nico", "lastname": "De Witte"}
 </pre>
 :::
@@ -188,16 +202,20 @@ For example, the `Circle` class that implements the `IJsonRepresentable` interfa
 That means that the following code is perfectly legal and is actually very powerful for the continuation of our decoupling:
 
 ```csharp
-IJsonRepresentable circle = new Circle(12.3);       // Reference of type IJsonRepresentable
+// Reference of type IJsonRepresentable
+// Instance of Circle
+IJsonRepresentable circle = new Circle(12.3);
 Console.WriteLine(circle.AsJson());
 
+// Reference of type IJsonRepresentable
+// Instance of User
 IJsonRepresentable user = new User("Nico", "De Witte");
-Console.WriteLine(user.AsJson());                   // Reference of type IJsonRepresentable
+Console.WriteLine(user.AsJson());
 ```
 
 :::codeoutput
 <pre>
-{ "radius": "12,3", "area": "475,2915525615999"}
+{ "radius": 12.3, "area": 475.2915525615999 }
 { "firstname": "Nico", "lastname": "De Witte"}
 </pre>
 :::
@@ -215,14 +233,13 @@ class MessageSender
 {
   public void Send(User user)
   {
-    // Let's fake it that we 
-    Console.Write("Beep Boop Ping Pong ... Sending message .... ");
+    Console.Write("Beep Boop Ping Pong ... ");
     Console.WriteLine(user.AsJson());
   }
 
   public void Send(Circle circle)
   {
-    Console.Write("Beep Boop Ping Pong ... Sending message .... ");
+    Console.Write("Beep Boop Ping Pong ... ");
     Console.WriteLine(circle.AsJson());
   }
 }
@@ -241,8 +258,8 @@ internet.Send(user);
 
 :::codeoutput
 <pre>
-Beep Boop Ping Pong ... Sending message .... { "radius": "12,3", "area": "475,2915525615999"}
-Beep Boop Ping Pong ... Sending message .... { "firstname": "Nico", "lastname": "De Witte"}
+Beep Boop Ping Pong ... { "radius": 12.3, "area": 475.2915525615999 }
+Beep Boop Ping Pong ... { "firstname": "Nico", "lastname": "De Witte"}
 </pre>
 :::
 
@@ -261,8 +278,7 @@ class MessageSender
 {
   public void Send(IJsonRepresentable target)
   {
-    // Let's fake it that we 
-    Console.Write("Beep Boop Ping Pong ... Sending message .... ");
+    Console.Write("Beep Boop Ping Pong ... ");
     Console.WriteLine(target.AsJson());
   }
 }
