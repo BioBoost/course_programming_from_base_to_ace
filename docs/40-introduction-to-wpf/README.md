@@ -119,7 +119,7 @@ Below are some tips that will help along the way:
 <TextBlock x:Name="playerScore" Text="0" />
 ```
 
-::: hint `Name` versus `x:Name`
+::: tip `Name` versus `x:Name`
 There really is only one name in XAML, the `x:Name`. A framework, such as WPF, can optionally map one of its properties to XAML's `x:Name`.
 
 The reason this was done was to allow for frameworks that already have a concept of "Name" at runtime, such as WPF. 
