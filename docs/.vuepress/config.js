@@ -1,118 +1,86 @@
+const { containerPlugin } = require('@vuepress/plugin-container')
+const { defaultTheme } = require('@vuepress/theme-default')
+
 module.exports = {
+  lang: 'en-US',
   title: 'Programming - From Base to Ace',
   description: 'CSharp Programming Course for VIVES University of Applied Sciences (Bachelor Degree)',
-  themeConfig: {
+
+  theme: defaultTheme({
     nav: [
     ],
     sidebar: [
       {
-        title: 'About this Course',   // required
-        // path: '/foo/',      // optional, which should be a absolute path.
-        collapsable: true, // optional, defaults to true
-        sidebarDepth: 1,    // optional, defaults to 1
+        text: 'About this Course',
+        link: '/',
+      },
+      {
+        text: 'Introduction to Programming',
         children: [
-          ''
+          '/01_introduction_to_computer_programming/README.md',
+          '/02_basic_building_blocks/README.md',
+          '/03_starting_in_csharp/README.md',
+          '/04_storing_data/README.md',
+          '/05_processing_data/README.md',
+          '/06_getting_user_data/README.md',
+          '/07_methods/README.md',
+          '/08_making_decisions/README.md',
+          '/09_iterating/README.md',
+          '/10_strings/README.md',
+          '/11_arrays/README.md',
         ]
       },
       {
-        title: 'Introduction to Programming',   // required
-        // path: '/foo/',      // optional, which should be a absolute path.
-        collapsable: false, // optional, defaults to true
-        sidebarDepth: 1,    // optional, defaults to 1
+        text: 'Object Oriented Thinking',
         children: [
-          '01_introduction_to_computer_programming/',
-          '02_basic_building_blocks/',
-          '03_starting_in_csharp/',
-          '04_storing_data/',
-          '05_processing_data/',
-          '06_getting_user_data/',
-          '07_methods/',
-          '08_making_decisions/',
-          '09_iterating/',
-          '10_strings/',
-          '11_arrays/',
+          '/21-object-oriented-thinking/01-abstraction/README.md',
+          '/21-object-oriented-thinking/02-all-about-objects/README.md',
         ]
       },
       {
-        title: 'Object Oriented Thinking',
-        collapsable: false, // optional, defaults to true
-        sidebarDepth: 1,    // optional, defaults to 1
+        text: 'Object Oriented Programming',
         children: [
-          ['/21-object-oriented-thinking/01-abstraction/', '20 - Abstraction'],
-          ['/21-object-oriented-thinking/02-all-about-objects/', '21 - All About Objects'],
+          '/23-defining-custom-classes/README.md',
+          '/24-getters-setters-properties/README.md',
+          '/25-constructors/README.md',
+          '/26-composition/README.md',
+          '/27-interfaces/README.md',
+          '/28-inheritance/README.md',
+          // '/29-abstract-classes/README.md',
         ]
       },
       {
-        title: 'Object Oriented Programming',
-        collapsable: false, // optional, defaults to true
-        sidebarDepth: 1,    // optional, defaults to 1
+        text: 'Advanced Topics',
         children: [
-          '23-defining-custom-classes/',
-          '24-getters-setters-properties/',
-          '25-constructors/',
-          '26-composition/',
-          '27-interfaces/',
-          '28-inheritance/',
-          // '29-abstract-classes/',
+          '/30-handling-exceptions/README.md',
+          // '/31-http-requests/README.md',
+          '/34-creating-libraries/README.md',
+          '/35-unit-testing/README.md',
         ]
       },
       {
-        title: 'Advanced Topics',
-        collapsable: false, // optional, defaults to true
-        sidebarDepth: 1,    // optional, defaults to 1
+        text: 'WPF',
         children: [
-          '30-handling-exceptions/',
-          // '31-http-requests/',
-          '34-creating-libraries/',
-          '35-unit-testing/',
+          '/40-introduction-to-wpf/README.md',
         ]
       },
       {
-        title: 'WPF',
-        collapsable: false, // optional, defaults to true
-        sidebarDepth: 1,    // optional, defaults to 1
+        text: 'Tutorials',
         children: [
-          '40-introduction-to-wpf/',
+          '/50-tutorials/terminal-selection-menu/README.md',
         ]
       },
-      {
-        title: 'Tutorials',
-        collapsable: false, // optional, defaults to true
-        sidebarDepth: 1,    // optional, defaults to 1
-        children: [
-          '50-tutorials/terminal-selection-menu/',
-        ]
-      }
     ],
     sidebarDepth: 1,
     repo: 'BioBoost/course_programming_from_base_to_ace',
     docsDir: 'docs',
     docsBranch: 'master'
-  },
-  markdown: {
-    lineNumbers: true,
-  },
+  }),
   serviceWorker: true,
   plugins: [
-    ['vuepress-plugin-zooming', {
-      // selector for images that you want to be zoomable
-      // default: '.content img'
-      selector: 'img',
-
-      // make images zoomable with delay after entering a page
-      // default: 500
-      // delay: 1000,
-
-      // options of zooming
-      // default: {}
-      options: {
-        bgColor: 'black',
-        zIndex: 10000,
-      },
-    }],
-    ['container', {
+    containerPlugin({
       type: 'codeoutput',
       defaultTitle: 'Output',
-    }]
+    }),
   ],
 }
