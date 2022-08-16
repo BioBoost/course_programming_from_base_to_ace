@@ -367,11 +367,11 @@ Console.WriteLine(thomas);
 ```
 
 ::: codeoutput
-<pre>
+```
 Ricky Rolly &lt;ricky.rolly@student.vives.be&gt;
 Piere Makkers &lt;piere.makkers@vives.be&gt;
 Thomas Ferenzy &lt;thomas.ferenzy@student.vives.be&gt;
-</pre>
+```
 :::
 
 So in the previous example, the `Student` object `thomas` is stored in a variable of type `Person`, but at object level, C# still knows that this object is actually an object of type `Student`.

@@ -65,13 +65,13 @@ for (int i = 0; i < 5; i++)
 ```
 
 :::codeoutput
-<pre>
+```
 Hello World
 Hello World
 Hello World
 Hello World
 Hello World
-</pre>
+```
 :::
 
 In the example above the initialization step is used to create a local variable `i` which serves as an **iteration counter**. Next the condition is checked and the text is outputted to the terminal. Next `i` is incremented (1 is added). Before the next iteration the value of `i` is checked in the condition and the loop continues.
@@ -92,13 +92,13 @@ for (int i = 0; i < 5; i++)
 ```
 
 :::codeoutput
-<pre>
+```
 0: Hello World
 1: Hello World
 2: Hello World
 3: Hello World
 4: Hello World
-</pre>
+```
 :::
 
 Important to note is that the variable `i` used here has what is called **local scope**. This means that it only exists in the for loop. If you wish to know the last value of `i` you can create a variable before the for loop and skip the initialization step in the for loop header. The code below shows an example of this. Do note that you still need to add a semicolon in the for loop header to separate the initialization from the condition part.
@@ -114,7 +114,7 @@ Console.WriteLine("i = " + i + " after for loop");
 ```
 
 :::codeoutput
-<pre>
+```
 i = 0 before for loop
 0: Hello World
 1: Hello World
@@ -122,7 +122,7 @@ i = 0 before for loop
 3: Hello World
 4: Hello World
 i = 5 after for loop
-</pre>
+```
 :::
 
 ## The while loop
@@ -166,7 +166,7 @@ static void Main(string[] args)
 ```
 
 :::codeoutput
-<pre>
+```
 Welcome to the die thrower app.
 What is the minimum total number you are looking for? 15
 
@@ -175,17 +175,17 @@ Throwing 3 - Total = 8
 Throwing 5 - Total = 13
 Throwing 1 - Total = 14
 Throwing 5 - Total = 19
-</pre>
+```
 :::
 
 Now notice that if the user inputs `0` (or a negative number for that fact) as the minimum number, the body of the while loop is never executed (as the condition evaluates to `false` in that case) and execution jumps directly after the while loop.
 
 :::codeoutput
-<pre>
+```
 Welcome to the die thrower app.
 What is the minimum total number you are looking for? 0
 
-</pre>
+```
 :::
 
 ## The do while loop
@@ -224,14 +224,14 @@ static void Main(string[] args)
 ```
 
 :::codeoutput
-<pre>
+```
 Please enter a positive number: -12
 Please enter a positive number: -554
 Please enter a positive number: 0
 Please enter a positive number: 112
 
 You entered the value 112
-</pre>
+```
 :::
 
 For the `number` variable to be accessible inside the condition (between the parentheses `()`) and also after the loop construct, it must be declared before the loop construct.
@@ -258,7 +258,7 @@ static void Main(string[] args)
 ```
 
 :::codeoutput
-<pre>
+```
 Welcome to summator - the place for all your summings.
 
 Please enter a number to add to sum (0 to quit): 12
@@ -269,7 +269,7 @@ Please enter a number to add to sum (0 to quit): 99
 Please enter a number to add to sum (0 to quit): 0
 
 The sum of all these numbers is 177.
-</pre>
+```
 :::
 
 ## Nesting control structures
@@ -309,7 +309,7 @@ static void Main(string[] args)
 ```
 
 :::codeoutput
-<pre>
+```
 Welcome to the app that can sum positive and negative numbers
 
 Please enter a positive or negative integer [0 to stop]: 12
@@ -322,7 +322,7 @@ Please enter a positive or negative integer [0 to stop]: 0
 
 Total Positive: 54
 Total Negative: -136
-</pre>
+```
 :::
 
 The previous example shows how an if-else construct can be nested inside a while loop. While the number of times you can nest a structure inside another is not directly limited it should be kept to a minimum. The deeper structures get nested the more complex your code starts to become.

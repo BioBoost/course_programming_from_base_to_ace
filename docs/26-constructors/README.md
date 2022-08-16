@@ -182,10 +182,10 @@ static void Main(string[] args)
 ```
 
 ::: codeoutput
-<pre>
+```
 Origin is @ [0,0]
 End is @ [13,45]
-</pre>
+```
 :::
 
 Do note that the names of the arguments have no meaning for the compiler to differentiate between different constructors, only the types and number of arguments count. This means that adding the following constructors to a class will fail:

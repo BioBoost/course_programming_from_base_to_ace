@@ -82,6 +82,7 @@ Let's try to identify what information the objects should hold and what function
 * The state of the menu should be representable as a `string`.
   * This allows for easy output to the terminal.
   * By adding a `ToString()` method to the class this can be easily achieved.
+
 ```csharp{10-13}
 public class Menu
 {
@@ -257,11 +258,11 @@ static void Main(string[] args)
 The result should be
 
 ::: codeoutput
-<pre>
+```
 Welcome to the Tutorial - Terminal Selection Menu
 
 Please select your favorite food from the options.
-</pre>
+```
 :::
 
 Congratulations. We are of to a good start.
@@ -425,7 +426,7 @@ Why not use a foreach-loop construct here ? At this point we actually could. But
 When we run this, we should get the following output in the terminal:
 
 ::: codeoutput
-<pre>
+```
 Welcome to the Tutorial - Terminal Selection Menu
 
 Please select your favorite food from the options.
@@ -434,7 +435,7 @@ Please select your favorite food from the options.
     Hamburgers
     Fries
     Pizza
-</pre>
+```
 :::
 
 One last thing to take into account is a safe-guard for the `AddItem()` method. Currently the method allows `null` references to be inserted into the menu, which might give problems later on. In the case of a menu, a `null` reference can be considered invalid, so we should handle this case and make sure no `null` references can be inserted into the `List`.
@@ -512,7 +513,7 @@ static void Main(string[] args)
 It seems like everything is working as expected:
 
 ::: codeoutput
-<pre>
+```
 Welcome to the Tutorial - Terminal Selection Menu
 
 Please select your favorite food from the options.
@@ -521,7 +522,7 @@ Please select your favorite food from the options.
     Hamburgers
     Fries
     Pizza
-</pre>
+```
 :::
 
 ## The Selected Item
@@ -692,7 +693,7 @@ public class Menu
 If we run the application again we should see the first item of the list as being highlighted as selected.
 
 ::: codeoutput
-<pre>
+```
 Welcome to the Tutorial - Terminal Selection Menu
 
 Please select your favorite food from the options.
@@ -701,7 +702,7 @@ Please select your favorite food from the options.
     Hamburgers
     Fries
     Pizza
-</pre>
+```
 :::
 
 ## Altering the Selection
@@ -889,7 +890,7 @@ static void Main(string[] args)
 ```
 
 ::: codeoutput
-<pre>
+```
 Please select your favorite food from the options.
 
 Please select your favorite food from the options.
@@ -912,7 +913,7 @@ Please select your favorite food from the options.
     Hamburgers
     Fries
     Pizza
-</pre>
+```
 :::
 
 Very nice.
@@ -1053,7 +1054,7 @@ static void Main(string[] args)
 ```
 
 ::: codeoutput
-<pre>
+```
 Welcome to the Tutorial - Terminal Selection Menu
 
 Please select your favorite food from the options.
@@ -1092,7 +1093,7 @@ Please select your favorite food from the options.
     Hamburgers
     Fries
     Pizza
-</pre>
+```
 :::
 
 ## Getting Selected Item
@@ -1247,7 +1248,7 @@ static void Main(string[] args)
 ANd it seems to work fine.
 
 ::: codeoutput
-<pre>
+```
 Welcome to the Tutorial - Terminal Selection Menu
 
 Please select your favorite food from the options.
@@ -1288,7 +1289,7 @@ Please select your favorite food from the options.
     Fries
     Pizza
 Selected Item: Spaghetti
-</pre>
+```
 :::
 
 ## Keyboard Input

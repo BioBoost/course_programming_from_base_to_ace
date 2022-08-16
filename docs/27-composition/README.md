@@ -195,11 +195,11 @@ static void Main(string[] args)
 ```
 
 ::: codeoutput
-<pre>
+```
 Line Segment demo
 [7, 11] => [-1, 5] with a length of 10
 [1, 3] => [-2, 9] with a length of 6.708203932499369
-</pre>
+```
 :::
 
 Modeling this in UML would result in the class diagram shown next.

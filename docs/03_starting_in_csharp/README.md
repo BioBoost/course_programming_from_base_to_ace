@@ -58,7 +58,7 @@ namespace HelloWorld
 Starting the application can be achieved by navigating to `Debug => Start Debugging` or by pressing `F5`. This will open a terminal windows and output the text `Hello World!` as shown below.
 
 ::: codeoutput
-<pre>
+```
 Hello World!
 
 C:\Program Files\dotnet\dotnet.exe (process 12088) exited with code 0.
@@ -66,7 +66,7 @@ To automatically close the console when debugging stops,
 enable Tools->Options->Debugging->Automatically close the
 console when debugging stops.
 Press any key to close this window . . .
-</pre>
+```
 :::
 
 Notice that the application terminates after outputting the text to the terminal. The window of the terminal stays open for our convenience, so the developer can see what was outputted to the terminal. The terminal can be closed by pressing a key on your keyboard.
@@ -259,11 +259,11 @@ static void Main(string[] args)
 ```
 
 ::: codeoutput
-<pre>
+```
 Hello World!
 My name is Nico De Witte
 I am a teacher at VIVES University College
-</pre>
+```
 :::
 
 Notice how every statement in the code is **terminated** (ended) with a semicolon `;`. Also note that `WriteLine()` ends with a new line every time it is called with a string to display. The string provided to `WriteLine()` is called an **argument**. It is a piece of information that is given to a method so it can be used inside that method - to be displayed, processed or handled in another way.
@@ -297,13 +297,13 @@ static void Main(string[] args)
 ```
 
 ::: codeoutput
-<pre>
+```
 It is now 7:44 PM
 My class counts 18 students
 I am currently about 980106323 seconds old
 Number of cats in my house: 1
 I am 1.86 meters tall
-</pre>
+```
 :::
 
 The previous code example shows both integer numbers and floating point numbers. Floating point numbers use a point `.` as a decimal separator when specifying floating point numbers.

@@ -213,12 +213,12 @@ static void Main(string[] args)
 ```
 
 ::: codeoutput
-<pre>
+```
 Start location of point [0,0]
 Moving the point to [15.66,-3.12]
 Moving the point to [12,10]
 Moving the point to [66,10]
-</pre>
+```
 :::
 
 ### UML Class Diagrams of Point
@@ -465,9 +465,9 @@ static void Main(string[] args)
 ```
 
 ::: codeoutput
-<pre>
+```
 The radius of the circle is 0
-</pre>
+```
 :::
 
 ### Automatically Implemented Properties

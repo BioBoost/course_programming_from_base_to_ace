@@ -98,11 +98,11 @@ if (studentScore < 70)
 ```
 
 ::: codeoutput
-<pre>
+```
 Your score is 30%
 Come on buddy, you will need to work a little harder.
 You can do it. Still got some time till the exams.
-</pre>
+```
 :::
 
 If the condition evaluates to `false` (meaning that the score is equal or above 70), control jumps to the end of the if statement.
@@ -159,10 +159,10 @@ else
 ```
 
 ::: codeoutput
-<pre>
+```
 Your score is 85%
 Good job. Keep up the good work.
-</pre>
+```
 :::
 
 ## Nesting if-else statements
@@ -193,11 +193,11 @@ else
 ```
 
 ::: codeoutput
-<pre>
+```
 Your score is 30%
 Come on miss, you will need to work a little harder.
 You can do it. Still got some time till the exams.
-</pre>
+```
 :::
 
 A nested if-else construct can also be used to create multiple branches (paths of execution) based on different conditions. Take for example the code below that display a more user-friendly message to the student.

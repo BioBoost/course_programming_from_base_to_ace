@@ -102,10 +102,10 @@ static void Main(string[] args)
 ```
 
 ::: codeoutput
-<pre>
+```
 I am 33 years old
 and I am a teacher at VIVES University
-</pre>
+```
 :::
 
 The data referred to by the variable can be changed using the **assignment operator** `=`. This is basically the same as in math. On the left hand side you have the variable which you want to assign and on the right hand side the value.
@@ -130,9 +130,9 @@ static void Main(string[] args)
 ```
 
 ::: codeoutput
-<pre>
+```
 We have 36 students meaning we also have 36 email addresses
-</pre>
+```
 :::
 
 ::: tip 🪓 Splitting Lines of Text

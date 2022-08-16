@@ -180,9 +180,9 @@ Console.WriteLine("The result is " + result);
 ```
 
 ::: codeoutput
-<pre>
+```
 The result is 35
-</pre>
+```
 :::
 
 Would you have known that the result is `35`? By using parentheses this becomes much clearer and the chance of making a mistake is a lot smaller.
@@ -199,9 +199,9 @@ Console.WriteLine("The result is " + result);
 ```
 
 ::: codeoutput
-<pre>
+```
 The result is 35
-</pre>
+```
 :::
 
 More info on operator precedence and associativity can be found at [https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/).

@@ -236,7 +236,7 @@ class Program
 ```
 
 ::: codeoutput
-<pre>
+```
 Welcome to this Exception Demo
 
 Please enter your age [0, 120]: 150
@@ -244,7 +244,7 @@ Please enter your age [0, 120]: -3
 Please enter your age [0, 120]: 15
 
 Good to know that you are 15 years old.
-</pre>
+```
 :::
 
 But what happens when the user enters for example `a` or `twelve`? Well in that cases an exception is thrown by the `ToInt32()` method of type `FormatException` as can be seen from the screenshot.
@@ -309,7 +309,7 @@ Note that the type of the exception is `FormatException`. This information can b
 Solving the problem here is actually quite easy. By setting the value of `age` to `-1` we ensure that the while-loop iterates again and thereby requests new input from the user.
 
 ::: codeoutput
-<pre>
+```
 Welcome to this Exception Demo
 
 Please enter your age [0, 120]: -5
@@ -319,7 +319,7 @@ Please enter your age [0, 120]: twelfe
 Please enter your age [0, 120]: 12
 
 Good to know that you are 12 years old.
-</pre>
+```
 :::
 
 It is really important to understand that statements, inside the try-block, that follow after the method that has thrown an exception are not executed anymore. Execution jumps to a matching catch-block instead.
@@ -362,7 +362,7 @@ class Program
 This can be seen in the output. Notice how the `Console.WriteLine("Thank you for providing your age");` statement is not executed when the user entered `twenty` and thereby triggered the exception.
 
 ::: codeoutput
-<pre>
+```
 Welcome to this Exception Demo
 
 Please enter your age [0, 120]: -12
@@ -372,7 +372,7 @@ Please enter your age [0, 120]: 88
 Thank you for providing your age
 
 Good to know that you are 88 years old.
-</pre>
+```
 :::
 
 ## Catching More Exceptions
@@ -450,7 +450,7 @@ class Program
 That a user-friendly and crash-proof application.
 
 ::: codeoutput
-<pre>
+```
 Welcome to this Exception Demo
 
 Please enter your age [0, 120]: -12
@@ -461,7 +461,7 @@ Please enter your age [0, 120]: 18
 Thank you for providing your age
 
 Good to know that you are 18 years old.
-</pre>
+```
 :::
 
 ## Build in Exceptions
@@ -575,7 +575,7 @@ class Program
 The `Message` property actually contains a *human-readable* description of the exception. This can often be useful when logging the exception or may even be passed to the user as extra information.
 
 ::: codeoutput
-<pre>
+```
 Welcome to this Exception Demo
 
 Please enter your age [0, 120]: dd
@@ -584,7 +584,7 @@ Please enter your age [0, 120]: 12
 Thank you for providing your age
 
 Good to know that you are 12 years old.
-</pre>
+```
 :::
 
 The `StackTrace` property will display the stack-trace as is shown in Visual Studio when the application encounters an exception. For example

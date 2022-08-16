@@ -61,7 +61,7 @@ Console.WriteLine("\t\t\t\t- by Bjarne Stroustrup");
 ```
 
 :::codeoutput
-<pre>
+```
 There   is      a       tab     between each    word
 
 You can also use quotes here but they need to be escaped:
@@ -70,7 +70,7 @@ You can also use quotes here but they need to be escaped:
         C++ makes it harder,
         but when you do it blows your whole leg off."
                                 - by Bjarne Stroustrup
-</pre>
+```
 :::
 
 The table below lists the most used escape sequences.
@@ -106,14 +106,14 @@ Console.WriteLine(multiLine);
 ```
 
 ::: codeoutput
-<pre>
+```
 C:\Users\nicod\Documents\
 My name is "HAL"
 This is a
     multiline string which
     also contains tab characters
     at the start.
-</pre>
+```
 :::
 
 ## Values versus References
@@ -277,9 +277,9 @@ Console.WriteLine($"{hello} converted to lowercase results in {helloLowerCase}")
 ```
 
 ::: codeoutput
-<pre>
+```
 Hello World converted to lowercase results in hello world
-</pre>
+```
 :::
 
 Take a look at the C# API documentation to find out more about the String class. It can be found at [https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/strings/](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/strings/).
@@ -300,9 +300,9 @@ for (int i = 0; i < helloWorld.Length; i++) {
 ```
 
 ::: codeoutput
-<pre>
+```
 H e l l o   W o r l d   f r o m   C # !
-</pre>
+```
 :::
 
 Note how the length of the string can be accessed by using the property `helloWorld.Length`. More on properties later.

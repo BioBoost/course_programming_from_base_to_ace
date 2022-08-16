@@ -16,6 +16,7 @@ module.exports = {
       },
       {
         text: 'Introduction to Programming',
+        collapsible: false,
         children: [
           '/01_introduction_to_computer_programming/README.md',
           '/02_basic_building_blocks/README.md',
@@ -32,40 +33,46 @@ module.exports = {
       },
       {
         text: 'Object Oriented Thinking',
+        collapsible: false,
         children: [
-          '/21-object-oriented-thinking/01-abstraction/README.md',
-          '/21-object-oriented-thinking/02-all-about-objects/README.md',
+          '/21-abstraction/README.md',
+          '/22-all-about-objects/README.md',
         ]
       },
       {
         text: 'Object Oriented Programming',
+        collapsible: false,
         children: [
-          '/23-defining-custom-classes/README.md',
-          '/24-getters-setters-properties/README.md',
-          '/25-constructors/README.md',
-          '/26-composition/README.md',
-          '/27-interfaces/README.md',
-          '/28-inheritance/README.md',
-          // '/29-abstract-classes/README.md',
+          // '/23-creating-and-using-objects/README.md',
+          '/24-defining-custom-classes/README.md',
+          '/25-getters-setters-properties/README.md',
+          '/26-constructors/README.md',
+          '/27-composition/README.md',
+          '/28-interfaces/README.md',
+          '/29-inheritance/README.md',
+          // '/30-abstract-classes/README.md',
         ]
       },
       {
         text: 'Advanced Topics',
+        collapsible: false,
         children: [
-          '/30-handling-exceptions/README.md',
-          // '/31-http-requests/README.md',
+          '/31-handling-exceptions/README.md',
+          // '/32-http-requests/README.md',
           '/34-creating-libraries/README.md',
           '/35-unit-testing/README.md',
         ]
       },
       {
         text: 'WPF',
+        collapsible: false,
         children: [
           '/40-introduction-to-wpf/README.md',
         ]
       },
       {
         text: 'Tutorials',
+        collapsible: false,
         children: [
           '/50-tutorials/terminal-selection-menu/README.md',
         ]
@@ -80,7 +87,11 @@ module.exports = {
   plugins: [
     containerPlugin({
       type: 'codeoutput',
-      defaultTitle: 'Output',
+      locales: {
+        '/': {
+          defaultInfo: 'Output',
+        },
+      },
     }),
   ],
 }
