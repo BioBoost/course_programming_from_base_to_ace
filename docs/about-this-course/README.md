@@ -1,4 +1,6 @@
-# Programming - From Base to Ace
+# About this Course
+
+<!-- TODO: Needs a good update -->
 
 Welcome to the course **Programming - From Base to Ace**. This course aims to guide you to become a good programmer by teaching you the core concepts required for object oriented programming. While the language used here is C#, any or most other OOP programming languages can be used in combination with this course.
 
