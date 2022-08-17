@@ -1,5 +1,7 @@
 const { containerPlugin } = require('@vuepress/plugin-container')
 const { defaultTheme } = require('@vuepress/theme-default')
+const { registerComponentsPlugin } = require('@vuepress/plugin-register-components')
+const { path } = require('@vuepress/utils')
 
 module.exports = {
   lang: 'en-US',
@@ -92,6 +94,9 @@ module.exports = {
           defaultInfo: 'Output',
         },
       },
+    }),
+    registerComponentsPlugin({
+      componentsDir: path.resolve(__dirname, './components'),
     }),
   ],
 }
