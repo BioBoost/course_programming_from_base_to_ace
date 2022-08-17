@@ -8,7 +8,8 @@
   },
   "scripts": {
     "docs:dev": "vuepress dev docs",
-    "docs:build": "vuepress build docs"
+    "docs:build": "vuepress build docs",
+    "slides:build": "find . -name \"slides*.md\" 2>/dev/null -exec npx @marp-team/marp-cli@latest '{}' --pdf --allow-local-files \\; && find . -name \"slides*.pdf\" 2>/dev/null -exec mv '{}' ./docs/.vuepress/public/slides \\;"
   },
   "repository": {
     "type": "git",
@@ -27,6 +28,7 @@
   },
   "homepage": "https://github.com/BioBoost/course_programming_from_base_to_ace#readme",
   "devDependencies": {
+    "@marp-team/marp-cli": "^2.1.2",
     "@vuepress/plugin-container": "^2.0.0-beta.49",
     "@vuepress/plugin-register-components": "^2.0.0-beta.49",
     "vuepress": "^2.0.0-beta.49"

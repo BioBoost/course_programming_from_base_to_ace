@@ -3,6 +3,8 @@ description: This chapter will sketch a scene for the reader what computer progr
 title: 01 - Introduction to Computer Programming
 ---
 
+<slides link="/slides/slides-chapter-01.pdf" />
+
 # Chapter 01 - Introduction to Computer Programming
 
 ![How does Computer Programming work](./img/how_does_it_work.png)

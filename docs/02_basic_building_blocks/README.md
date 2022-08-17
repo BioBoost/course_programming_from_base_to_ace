@@ -3,6 +3,8 @@ description: This chapter introduces the necessary buildings blocks of almost ev
 title: 02 - Basic Building Blocks
 ---
 
+<slides link="/slides/slides-chapter-01.pdf" />
+
 # Chapter 02 - Basic Building Blocks
 
 ![Basic Building Blocks of a Programming Language](./img/building_blocks.png)
