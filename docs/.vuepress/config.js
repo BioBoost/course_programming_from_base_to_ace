@@ -9,12 +9,16 @@ module.exports = {
   description: 'CSharp Programming Course for VIVES University of Applied Sciences (Bachelor Degree)',
 
   theme: defaultTheme({
-    nav: [
+    logo: '/images/logo.svg',
+    navbar: [
+      { text: 'Toledo', link: 'https://toledo.kuleuven.be/portal' },
+      { text: 'Report Issue', link: 'https://github.com/BioBoost/course_programming_from_base_to_ace/issues' },
+      { text: 'Organization', link: 'https://github.com/vives-introduction-to-programming-2021' }
     ],
     sidebar: [
       {
         text: 'About this Course',
-        link: '/',
+        link: '/about-this-course',
       },
       {
         text: 'Introduction to Programming',
