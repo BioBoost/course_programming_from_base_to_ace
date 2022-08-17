@@ -18,7 +18,8 @@ module.exports = {
     sidebar: [
       {
         text: 'About this Course',
-        link: '/about-this-course',
+        collapsible: false,
+        link: '/about-this-course/README.md',
       },
       {
         text: 'Introduction to Programming',
