@@ -9,7 +9,7 @@
   "scripts": {
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs",
-    "slides:build": "find . -name \"slides*.md\" 2>/dev/null -exec npx @marp-team/marp-cli@latest '{}' --pdf --allow-local-files \\; && find . -name \"slides*.pdf\" -exec mv '{}' ./docs/.vuepress/public/slides \\;"
+    "slides:build": "find . -name \"slides*.md\" -exec npx @marp-team/marp-cli@latest '{}' --pdf --allow-local-files \\; && find . -name \"slides*.pdf\" -exec mv '{}' ./docs/.vuepress/public/slides \\;"
   },
   "repository": {
     "type": "git",
