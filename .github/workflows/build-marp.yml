@@ -7,6 +7,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    timeout-minutes: 5
 
     steps:
       - name: Checkout code
@@ -31,19 +32,19 @@ jobs:
         env:
           MARP_USER: root:root
       
-    # Commit the report to the repo
-    - name: Commit files
-      if: ${{always()}}
-      run: |
-        git checkout -b dist
-        git config --local user.name "marp"
-        git add .
-        git commit -m "Update the MARP slides"
-    
-    # Push changes to the remote
-    - name: Push changes # push the output folder to your repo
-      uses: ad-m/github-push-action@master
-      if: ${{always()}}
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        # force: true
+      # Commit the report to the repo
+      - name: Commit files
+        if: ${{always()}}
+        run: |
+          git checkout -b dist
+          git config --local user.name "marp"
+          git add .
+          git commit -m "Update the MARP slides"
+      
+      # Push changes to the remote
+      - name: Push changes # push the output folder to your repo
+        uses: ad-m/github-push-action@master
+        if: ${{always()}}
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          # force: true
