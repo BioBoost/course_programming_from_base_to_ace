@@ -2,7 +2,7 @@ name: Build MARP Slides
 
 on:
   push:
-    branches: [ dev ]
+    branches: [ master ]
 
 jobs:
   build:
@@ -13,7 +13,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
         with:
-          ref: dev
+          ref: master
 
       - name: Copy markdown slides to single dir
         run: mkdir _slides && find docs -name "slides*.md" -exec cp '{}' _slides \;
