@@ -6,6 +6,10 @@ Welcome to the draft version of this Programming Course for VIVES University of 
 
 Comments and additions are more than welcome.
 
+## Deployment
+
+Currently the MARP slides are being build using a GitHub action and copied in the `docs/.vuepress/public/slides` directory. These are then committed to the `dist` branch which in turn triggers the Netlify build.
+
 ## Development
 
 Setup local dev server

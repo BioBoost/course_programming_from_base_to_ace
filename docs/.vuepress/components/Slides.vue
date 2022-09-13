@@ -1,10 +1,17 @@
 <template>
-  <a :href="link">Download Slides</a>
+  <a :href="`${link_without_extension}.pdf`">Download Slides</a> <a :href="`${link_without_extension}.html`" target="_blank">View Slides</a>
 </template>
 
 <script>
 export default {
   props: ["link"],
+
+  computed: {
+    link_without_extension() {
+      const lastDot = this.link.lastIndexOf('.');
+      return this.link.substring(0, (lastDot >= 0 ? lastDot : this.link.length));
+    }
+  }
 };
 </script>
 

@@ -3,7 +3,7 @@ description: This chapter will sketch a scene for the reader what computer progr
 title: 01 - Introduction to Computer Programming
 ---
 
-<slides link="/slides/slides-chapter-01.pdf" />
+<slides link="/slides/slides-chapter-01" />
 
 # Chapter 01 - Introduction to Computer Programming
 
