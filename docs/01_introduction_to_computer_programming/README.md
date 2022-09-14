@@ -25,7 +25,7 @@ Basically, writing software (computer programs, commonly called applications) in
 
 An important reason to consider learning about how to program a computer is that the concepts underlying this will be valuable to you, regardless of whether or not you go on to make a career out of it. One thing that you will learn quickly is that **a computer is very dumb, but obedient**. It does exactly what you tell it to do, which may not necessarily be what you wanted. **Programming will help you learn the importance of clarity of expression**.
 
-> It has often been said that a person does not really understand something until he teaches it to someone else. Actually a person does not really understand something until after teaching it to a computer, i.e., express it as an algorithm."
+> It has often been said that a person does not really understand something until he teaches it to someone else. Actually a person does not really understand something until after teaching it to a computer, i.e., express it as an algorithm.
 >
 > *(Donald Knuth, in "American Mathematical Monthly," 81)*
 
