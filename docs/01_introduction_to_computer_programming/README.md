@@ -104,6 +104,17 @@ Below is an overview of the most important differences between a compiler and an
 
 ![Main differences between compiler and interpreter](./img/compiled_versus_interpreted.png)
 
+#### Transpilers
+
+Transpilers of translate compilers are also known as source-to-source compilers. In essence they are a subset of compilers which take in a source code file and convert it to another source code file in some other language or a different version of the same language. The output is generally understandable by a human. This output still has to go through another compiler or interpreter to be able to run on a machine.
+
+**Transpiling** is a specific term for taking source code written in one language and transforming into another language that has a similar level of abstraction.
+
+Some examples of transpilers are:
+
+* `tsc` or TypeScript compiler, transpiles TypeScript into JavaScript
+* `babel`, Transpiles ES6+ code to ES5 (ES6 and ES5 are different versions or generations of the JavaScript language)
+
 #### What About Java
 
 Java implementations typically use a two-step compilation process. Java source code is compiled down to bytecode by the Java compiler. Originally the bytecode was then interpreted by a Java Virtual Machine (JVM). These days, the modern JVMs use a technique called **Just-in-Time** (JIT) compilation to compile the bytecode to native instructions understood by hardware CPU's on the fly at runtime.

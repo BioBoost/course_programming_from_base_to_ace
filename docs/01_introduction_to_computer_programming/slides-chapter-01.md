@@ -226,12 +226,31 @@ backgroundImage: url('https://marp.app/assets/hero-background.svg')
 
 ### Compile or Interpret
 
-- Not your choice
-- Depends on the programming language
+- Not always your choice
+- Depends on the programming language / tool you are using
 - Many are hybrid forms these days
 - General
   - Compiled programs are faster to run but slower to develop
 - Architecture dependency
+
+---
+
+#### Transpile
+
+- Transpiler = Translate compiler
+- Taking source code written in one language and transforming into another language that has a similar level of abstraction.
+  - Output still has to go through another compiler or interpreter to be able to run on a machine.
+- Some examples of transpilers are:
+  - `tsc` or TypeScript compiler, transpiles TypeScript into JavaScript
+  - `babel`, Transpiles ES6+ code to ES5 (ES6 and ES5 are different versions or generations of the JavaScript language)
+
+---
+
+### Let's See a Demo
+
+- Compiled: C++
+- Interpreted: JavaScript
+- Transpiled: TypeScript
 
 ---
 
