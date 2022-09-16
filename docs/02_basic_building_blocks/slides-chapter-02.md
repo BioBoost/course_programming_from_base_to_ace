@@ -13,6 +13,6 @@ backgroundImage: url('https://marp.app/assets/hero-background.svg')
 
 ### Basic Building Blocks
 
-![bg right:30% 90%](./img/how_does_it_work.png)
+![bg right:30% 90%](./img/building_blocks.png)
 
 ---
