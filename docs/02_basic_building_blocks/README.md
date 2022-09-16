@@ -237,18 +237,3 @@ Functions in flowcharts are actually called **sub-processes**. Each sub-process 
 Take a look at the example flowchart below. It is a more extended version of the guessing game example introduced previously. The game generates a random number between 0 and 1000. The user is asked to guess the number, while the game states if the user should guess higher or lower.
 
 ![Secret Number Guessing Game](./img/secret_number_guessing_game.png)
-
-## Train Yourself
-
-### Multiple Choice
-
-1. What is not a basic building block of a programming language?
-
-    * Variables
-    * Loops
-    * Strings
-    * Operators
-
-### Exercises and Challenges
-
-Checkout the exercises and challenges which can be found at [https://github.com/BioBoost/csharp_practical](https://github.com/BioBoost/csharp_practical).
