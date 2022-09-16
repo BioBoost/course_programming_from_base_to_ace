@@ -11,7 +11,45 @@ backgroundImage: url('https://marp.app/assets/hero-background.svg')
 
 ## Chapter 01
 
+### Introduction
+
 ![bg right:30% 90%](./img/how_does_it_work.png)
+
+---
+
+![bg](./img/tetris.png)
+
+---
+
+![bg](./img/console-terminal.jpg)
+
+---
+
+![bg](./img/embedded.png)
+
+---
+
+![bg](./img/web-development.png)
+
+---
+
+![bg](./img/windows-apps.jpg)
+
+---
+
+![bg](./img/android-app.jpg)
+
+---
+
+![bg](./img/minecraft.jpg)
+
+---
+
+## Common Factor?
+
+---
+
+![bg](./img/learn-to-code.png)
 
 ---
 
@@ -30,7 +68,7 @@ backgroundImage: url('https://marp.app/assets/hero-background.svg')
 
 ### Writing Software
 
-- As a programmer you will need to know how a computer works
+- As a programmer you will need to know a bit how a computer works
 - Writing software = 
   - **describing processes and procedures**
   - **authoring of algorithms**
