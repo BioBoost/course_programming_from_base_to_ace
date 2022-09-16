@@ -143,3 +143,236 @@ backgroundImage: url('https://marp.app/assets/hero-background.svg')
 
 ---
 
+## A Programming Language
+
+- A language developed to express programs
+- All computers have native programming language = **machine code**
+  - Tell the processor what to do
+  - Impractical for us humans
+  - Unique to a particular computer architecture (x86, ARM, PowerPC, ...)
+  - Processor instruction set
+
+![](./img/mips32.png)
+
+---
+
+### Abstraction is Key
+
+- Abstraction is the process of hiding complex things behind a simpler interface
+- **Higher level programming languages** do exactly this
+  - Assembly
+  - BASIC
+  - Java, C\#, C++
+  - ...
+- Easier for us to understand
+- Less dependent on actual hardware
+
+---
+
+### Abstraction is Key
+
+![bg fit](./img/programming_language.png)
+
+---
+
+### Abstraction is Key
+
+- These higher-level languages are said to abstract away the complexity of the underlying system.
+- Higher level programming languages still need to be **translated into machine code**.
+  - Compiled
+  - Interpreted
+  - (hybrid)
+
+---
+
+### Compilation
+
+- Tool = compiler
+- Translation of higher language in **architecture dependant machine code**
+- Input = full source code
+- Output = executable binary file that is permanently stored
+
+---
+
+### Compilation
+
+- Analogy: book in different languages
+- Compiler
+  - Transforms source code that was written in a specific programming language into another
+  - Not just machine code
+
+![height:200](./img/compilation_process.png)
+
+---
+
+### Interpretation
+
+- Tool = interpreter
+- Translation of higher language in **architecture dependant machine code** @ runtime
+- Input = partial source code
+- Output = machine code to be run at that moment
+
+---
+
+### Interpretation
+
+- Analogy: human interpreter
+- Interpreter
+  - At no point is a complete, discrete, machine code version of the program produced
+
+![height:200](./img/interpretation_process.png)
+
+---
+
+### Compile or Interpret
+
+- Not your choice
+- Depends on the programming language
+- Many are hybrid forms these days
+- General
+  - Compiled programs are faster to run but slower to develop
+- Architecture dependency
+
+---
+
+### What About C\#
+
+- @Compile Time
+  - Code is compiled to **Common Intermediate Language (CIL)**
+  - Language specific C\# compiler
+  - Result is executable binary: `.exe` (or `.dll` in case of a library)
+- @Runtime
+  - Binary can be run on system  with .NET runtime installed
+  - The Just-In-Time (JIT) compiler takes CIL code as input and **transforms it into the processor specific machine code**
+
+---
+
+![bg fit](./img/csharp_compilation_process.png)
+
+---
+
+## Levels of Programming Languages
+
+- Low level programming languages
+  - Closer to machine code
+- High level programming languages
+  - Closer to natural language
+
+---
+
+### Assembly Language
+
+- Most basic level
+- Direct translation of the binary instructions
+- Each assembly language instruction directly relates to one instruction in machine code
+- So each processor architecture has its own instruction set with accompanying assembly language
+
+---
+
+### An assembly example
+
+```asm
+LUI  R1, #1
+LUI  R2, #2
+DADD R3, R1, R2
+```
+
+- Calculation `1 + 2 = 3`
+- First two lines load the numbers "1" and "2" into the computer's memory
+- Third instruction tells the computer to add the values together and store the result
+
+---
+
+### High Level Languages
+
+- Assembly language is quite dissimilar to natural languages
+  - Ultimate flexibility and performance, at the expense of complexity and development time.
+- Higher level languages get closer to natural languages
+  - More efficient to express
+  - Look more like natural language with mathematical operations thrown in
+
+```csharp
+int x = 1 + 2;
+```
+
+---
+
+### Graphical Programming Languages
+
+- More than 15 years ago, Scratch was invented
+  - By Mitchel Resnick and friends at MIT
+  - New approach to teaching computer programming
+  - Graphical programming language
+  - Programs are constructed by connecting blocks
+- Fun way to get started in programming
+  - Not a way to create professional applications
+
+---
+
+![bg fit](./img/scratch_example.png)
+
+---
+
+## Applications
+
+- Applications come in many different kinds and flavors.
+  - **service in the background**: ex. webserver
+  - **in a terminal**: ex. git
+  - **graphical application**: ex. Visual Studio
+  - **inside a browser**: ex. Scratch editor
+
+---
+
+### Console Applications
+
+- Designed to be used via a **text-only computer interface**, such as
+  - a text terminal, the command line interface of some operating systems (Unix, DOS, etc.)
+  - or the text-based interface included with most Graphical User Interface (GUI) operating systems, such as the Win32 console in Microsoft Windows, the Terminal in Mac OS X, and xterm in Unix.
+  - **Interaction happens using keyboard**
+
+---
+
+![bg fit](./img/a_modern_terminal.png)
+
+---
+
+### Console Applications
+
+- Use of console applications has greatly diminished, but not disappeared
+- Some users simply prefer console based applications
+- Some organizations still rely on existing console applications to handle key data processing tasks.
+
+---
+
+### Console Applications
+
+- Another huge advantage of working with console applications compared to a GUI application is the **ability to automate certain tasks**.
+  - Can be chained
+  - Easily used in automation scripts
+- Still best te develop when learning to program
+
+---
+
+### GUI Applications
+
+- GUI or Graphical User Interface applications
+- Require interaction with mouse and keyboard
+- Not so easy to automate
+- Not best choice to learn to program
+
+---
+
+![bg fit](./img/advanced_gui_app.png)
+
+---
+
+## How to Become a Programmer
+
+- Understand the problem
+  - Define an appropriate solution
+  - Express that solution in a computer programming language
+- Practice is essential
+- Don't be afraid to make mistakes
+- Learn to work in team
+
+> An expert is a man who has made all the mistakes which can be made, in a narrow field.  - *Niels Bohr*

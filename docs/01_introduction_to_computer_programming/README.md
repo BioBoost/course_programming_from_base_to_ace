@@ -57,17 +57,24 @@ While this is certainly a useful exercise you can already feel that programming 
 As a future programmer you should never state that the computer is doing something wrong when your application fails, crashes or does something unexpected. You should instead ask yourself, did I tell the computer how to do the job correctly? Did I forget something? Did I misinterpret the problem or do I have the solution wrong?
 :::
 
-Of course, computers don't understand recipes written on paper. Computers are machines, and at the most basic level, they are a collection of switches - where 1 represents "on" and 0 represents "off". Everything that a computer does is implemented in this most basic of all numbering systems - **binary**. If you really wanted to tell a computer what to do directly, you'd have to talk to it in binary, giving it coded sequences of 1s and 0s that tell it which instructions to execute - called **machine code**). However, this is nearly impossible. In practice, we use a programming language.
+Of course, computers don't understand recipes written on paper. Computers are machines, and at the most basic level, they are a collection of switches - where 1 represents "on" and 0 represents "off". Everything that a computer does is implemented in this most basic of all numbering systems - **binary**. If you really wanted to tell a computer what to do directly, you'd have to talk to it in binary, giving it coded sequences of 1s and 0s that tell it which instructions to execute - called **machine code**).
+
+![Hex Editor](./img/hex-editor.png)
+
+However, this is nearly impossible. In practice, we use a programming language.
+
 
 ## A Programming Language
 
 A programming language is, as the name would suggest, **a language developed to express programs**. All computers have a native programming language that they understand, commonly referred to as **machine code**. However, machine code is a difficult language for us to follow: amongst a number of difficulties, it is typically expressed in the binary number system, and it is unique to a particular computer architecture (thus two different computers could potentially use two different versions of machine code).
 
-![Programming Language to Instruct Computer](./img/programming_language.png)
+![MIPS32 Instruction Set](./img/mips32.png)
 
 Machine code is not really easy to read is it? Machine codes tell the processor what to do, where to read and write data and what operations to perform on this data. Every instruction is represented by a number. To complicate things, the machine codes differ among processor architectures (x86, ARM, PowerPC, ...).
 
 To avoid all this complexity, some smart people started to create **abstractions** that allowed other programmers to write software in higher level languages.
+
+![Programming Language to Instruct Computer](./img/programming_language.png)
 
 Other programming languages, such as Assembly, BASIC, Java, C\# and C++ exist to provide a better interface between us, the programmers, and the computer. They allow programs to be expressed in a language that is easier for us to understand and potentially common to a number of computer architectures, but which can still be **translated into machine code**. These higher-level languages are said to abstract away the complexity of the underlying system. In order for this to happen, a computer must either **compile or interpret** programs written in one of these languages before they can be executed.
 
