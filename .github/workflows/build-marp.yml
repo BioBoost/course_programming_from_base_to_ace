@@ -26,7 +26,7 @@ jobs:
       - name: Marp Build PDF (temp directory _slides)
         uses: docker://marpteam/marp-cli:v1.7.0
         with:
-          args: --allow-local-files --pdf -I _slides/ -o docs/.vuepress/public/_slides
+          args: --allow-local-files --pdf -I docs/ -o docs/.vuepress/public/_slides
         env:
           MARP_USER: root:root
 
