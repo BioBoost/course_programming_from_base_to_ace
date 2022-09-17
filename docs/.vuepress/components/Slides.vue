@@ -1,5 +1,5 @@
 <template>
-  <a :href="`${link_without_extension}.pdf`">Download Slides</a> <a :href="`${link_without_extension}.html`" target="_blank">View Slides</a>
+  <a :href="`${link_without_extension}.pdf`">Download Slides</a>
 </template>
 
 <script>
