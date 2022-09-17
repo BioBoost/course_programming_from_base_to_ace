@@ -15,22 +15,23 @@ jobs:
         with:
           ref: master
 
-      - name: Copy markdown slides to single dir
-        run: mkdir _slides && find docs -name "slides*.md" -exec cp '{}' _slides \;
+      # Doesn't work as images are not copied
+      # - name: Marp Build HTML (_slides folder)
+      #   uses: docker://marpteam/marp-cli:v1.7.0
+      #   with:
+      #     args: --allow-local-files -I _slides/ -o docs/.vuepress/public/slides
+      #   env:
+      #     MARP_USER: root:root
 
-      - name: Marp Build HTML (_slides folder)
+      - name: Marp Build PDF (temp directory _slides)
         uses: docker://marpteam/marp-cli:v1.7.0
         with:
-          args: --allow-local-files -I _slides/ -o docs/.vuepress/public/slides
+          args: --allow-local-files --pdf -I _slides/ -o docs/.vuepress/public/_slides
         env:
           MARP_USER: root:root
 
-      - name: Marp Build PDF (_slides folder)
-        uses: docker://marpteam/marp-cli:v1.7.0
-        with:
-          args: --allow-local-files --pdf -I _slides/ -o docs/.vuepress/public/slides
-        env:
-          MARP_USER: root:root
+      - name: Copy markdown slides to public/slides dir
+        run: find docs/.vuepress/public/_slides -name "slides*.pdf" -exec mv '{}' docs/.vuepress/public/slides \;
 
       - name: Publish to dist branch
         uses: EndBug/add-and-commit@v9 # You can change this to use a specific version.
