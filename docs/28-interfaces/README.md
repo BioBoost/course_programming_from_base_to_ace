@@ -1,13 +1,13 @@
 ---
 description: Interfaces allow us to define contracts.
-title: 27 - Interfaces
+title: 28 - Interfaces
 ---
 
 ::: danger ☠️ First draft
 Please note that this chapter is not finished yet. It may contain errors, typos, irregularities and even unfinished sections.
 :::
 
-# Chapter 27 - Interfaces
+# Chapter 28 - Interfaces
 
 Interfaces are a tool that allow us to **decouple classes** from a particular implementation. When one module of code isn't directly connected to another module of code, that code is said to be **loosely coupled**.
 

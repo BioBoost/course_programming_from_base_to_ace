@@ -32,7 +32,7 @@ module.exports = {
           '/06_getting_user_data/README.md',
           '/07_methods/README.md',
           '/08_making_decisions/README.md',
-          '/09_iterating/README.md',
+          '/09_loops/README.md',
           '/10_strings/README.md',
           '/11_arrays/README.md',
         ]
@@ -63,24 +63,24 @@ module.exports = {
         text: 'Advanced Topics',
         collapsible: false,
         children: [
-          '/31-handling-exceptions/README.md',
-          // '/32-http-requests/README.md',
-          '/34-creating-libraries/README.md',
-          '/35-unit-testing/README.md',
+          '/41-handling-exceptions/README.md',
+          '/42-creating-libraries/README.md',
+          '/43-unit-testing/README.md',
+          // '/44-http-requests/README.md',
         ]
       },
       {
         text: 'WPF',
         collapsible: false,
         children: [
-          '/40-introduction-to-wpf/README.md',
+          '/50-introduction-to-wpf/README.md',
         ]
       },
       {
         text: 'Tutorials',
         collapsible: false,
         children: [
-          '/50-tutorials/terminal-selection-menu/README.md',
+          '/60-tutorials/terminal-selection-menu/README.md',
         ]
       },
     ],

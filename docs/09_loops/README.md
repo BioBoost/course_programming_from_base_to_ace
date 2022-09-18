@@ -1,9 +1,9 @@
 ---
 description: This chapter introduces the different loop constructs that allow us to repeat parts of our code.
-title: 09 - Iterating
+title: 09 - Loops
 ---
 
-# Chapter 09 - Iterating
+# Chapter 09 - Loops
 
 ![Loop Constructs in C#](./img/loops.png)
 

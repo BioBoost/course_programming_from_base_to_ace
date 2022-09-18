@@ -1,13 +1,13 @@
 ---
 description: Learn the basics of modern day C# GUI design using WPF
-title: 40 - Introduction to WPF
+title: 50 - Introduction to WPF
 ---
 
 ::: danger ☠️ First draft
 Please note that this chapter is not finished yet. It may contain errors, typos, irregularities and even unfinished sections.
 :::
 
-# Chapter 40 - Introduction to WPF
+# Chapter 50 - Introduction to WPF
 
 WPF or Windows Presentation Foundation is a microsoft GUI (Graphical User Interface) framework used with the .NET framework.
 

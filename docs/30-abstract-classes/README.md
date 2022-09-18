@@ -1,6 +1,6 @@
 ---
 description: todo
-title: 29 - Abstract Classes
+title: 30 - Abstract Classes
 ---
 
-# Chapter 29 - Abstract Classes
+# Chapter 30 - Abstract Classes

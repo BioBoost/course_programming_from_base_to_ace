@@ -1,6 +1,6 @@
 ---
 description: Composition allows an object to be composed of other objects.
-title: 26 - Composition
+title: 27 - Composition
 ---
 
 ::: danger ☠️ First draft
@@ -9,12 +9,11 @@ Please note that this chapter is not finished yet. It may contain errors, typos,
 
 <!-- Source: https://www.visual-paradigm.com/guide/uml-unified-modeling-language/uml-aggregation-vs-composition/ -->
 
-# Chapter 26 - Composition
+# Chapter 27 - Composition
 
 It's natural to think of **objects as collections of other objects**. Think about a television which contains a tuner, a screen, a power supply, an embedded system, ... We say that a television object is **composed** of these other objects.
 
 Luckily this same concept is available to us in an object oriented programming language. We can also create objects by bundling other objects. This has the big advantage that we can use objects from classes that someone else made or are part of the language libraries. This saves us a lot of time and effort and is considered one of the major advantages of object oriented languages.
-
 
 By using composition one builds **objects that consist of other objects**. Think of it as creating a new type of object by packaging together other objects.
 

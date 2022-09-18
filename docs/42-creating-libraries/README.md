@@ -1,13 +1,13 @@
 ---
 description: Libraries allow classes and logic to be shared among applications and projects
-title: 34 - Creating Libraries
+title: 42 - Creating Libraries
 ---
 
 ::: danger ☠️ First draft
 Please note that this chapter is not finished yet. It may contain errors, typos, irregularities and even unfinished sections.
 :::
 
-# Chapter 34 - Creating Libraries
+# Chapter 42 - Creating Libraries
 
 Sharing libraries between projects is a fundamental requirement in all but the most simple applications. This chapter looks at how to create a library that can be shared between applications.
 
