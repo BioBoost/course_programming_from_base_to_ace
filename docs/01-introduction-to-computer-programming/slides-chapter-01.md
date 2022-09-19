@@ -92,7 +92,7 @@ backgroundImage: url('https://marp.app/assets/hero-background.svg')
 
 - Learning to programming is valuable
   - Even if you don't make a career out of it
-  - Will help you to learn the importance of clarity of expression
+  - Will help you to learn the importance of **clarity of expression**
 - Why ?
   - **A computer is very dumb, but obedient**
 
@@ -198,7 +198,6 @@ backgroundImage: url('https://marp.app/assets/hero-background.svg')
 
 - Abstraction is the process of hiding complex things behind a simpler interface
 - **Higher level programming languages** do exactly this
-  - Assembly
   - BASIC
   - Java, C\#, C++
   - ...
