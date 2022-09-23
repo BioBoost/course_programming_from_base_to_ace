@@ -2,7 +2,7 @@
   // // brand colors
   // --c-brand: #3eaf7c;
   --c-brand: #E53F35;
-  --c-brand-light: #E53F35;
+  --c-brand-light: #e7938f;
   // --c-brand-light: #4abf8a;
 
   // // background colors
@@ -71,6 +71,9 @@
   // --sidebar-width-mobile: calc(var(--sidebar-width) * 0.82);
   // --content-width: 740px;
   // --homepage-width: 960px;
+
+  --sidebar-heading-bg: #002b36;
+  --sidebar-heading-color: #fdf6e3;
 }
 
 html.dark {
@@ -107,6 +110,8 @@ html.dark {
 
   // // code blocks vars
   // --code-hl-bg-color: #363b46;
+
+  --sidebar-heading-bg: var(--c-bg);
 }
 
 
@@ -175,4 +180,9 @@ html.dark {
   display: block;
   margin-left: auto;
   margin-right: auto;
+}
+
+.sidebar-heading {
+  color: var(--sidebar-heading-color);
+  background-color: var(--sidebar-heading-bg);
 }

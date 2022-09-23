@@ -13,7 +13,7 @@ module.exports = {
     navbar: [
       { text: 'Toledo', link: 'https://toledo.kuleuven.be/portal' },
       { text: 'Report Issue', link: 'https://github.com/BioBoost/course_programming_from_base_to_ace/issues' },
-      { text: 'Organization', link: 'https://github.com/vives-introduction-to-programming-2021' }
+      { text: 'Organization', link: 'https://github.com/vives-intro-to-programming-2022-2023' }
     ],
     sidebar: [
       {
@@ -22,7 +22,6 @@ module.exports = {
       },
       {
         text: 'Introduction to Programming',
-        collapsible: false,
         children: [
           '/01-introduction-to-computer-programming/README.md',
           '/02-basic-building-blocks/README.md',
@@ -39,7 +38,6 @@ module.exports = {
       },
       {
         text: 'Object Oriented Thinking',
-        collapsible: false,
         children: [
           '/21-abstraction/README.md',
           '/22-all-about-objects/README.md',
@@ -47,7 +45,6 @@ module.exports = {
       },
       {
         text: 'Object Oriented Programming',
-        collapsible: false,
         children: [
           // '/23-creating-and-using-objects/README.md',
           '/24-defining-custom-classes/README.md',
@@ -61,7 +58,6 @@ module.exports = {
       },
       {
         text: 'Advanced Topics',
-        collapsible: false,
         children: [
           '/41-handling-exceptions/README.md',
           '/42-creating-libraries/README.md',
@@ -71,14 +67,12 @@ module.exports = {
       },
       {
         text: 'WPF',
-        collapsible: false,
         children: [
           '/50-introduction-to-wpf/README.md',
         ]
       },
       {
         text: 'Tutorials',
-        collapsible: false,
         children: [
           '/60-tutorials/terminal-selection-menu/README.md',
         ]
