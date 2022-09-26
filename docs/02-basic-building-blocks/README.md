@@ -25,9 +25,9 @@ Flowcharts are **a structured graphical way to document process flow**. Flowchar
 
 Flowcharts allow developers to document algorithms, application logic, data flows, ... in a visual manner. Graphical representations have proven to be very useful in the software development world, even to people who don't know how to program.
 
-**Consider an example:** a disco bar which has a bouncer at the door that checks if the person who wants to enter is over 18. If that person is 18 or older, he/she is allowed to enter. If not, he/she is politely asked to leave. The bouncer's process of elimination can be easily represented using a flowchart as shown below.
+**Consider an example:** an autonomous vacuum robot can automatically create a map of a room so it can build a route to vacuum that room.
 
-![Logic of a Disco Bouncer](./img/flowchart_bouncer.png)
+![A Vacuum Robot](./img/flowchart_vacuum.png)
 
 Take the following computer guessing game as an example. You do not need to be a programmer to understand how it works.
 
