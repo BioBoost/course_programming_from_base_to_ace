@@ -3,7 +3,7 @@ description: This chapter introduces the necessary buildings blocks of almost ev
 title: 02 - Basic Building Blocks
 ---
 
-<slides link="/slides/slides-chapter-02" />
+<!-- <slides link="/slides/slides-chapter-02" /> -->
 
 # Chapter 02 - Basic Building Blocks
 
