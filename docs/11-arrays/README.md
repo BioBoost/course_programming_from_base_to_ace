@@ -354,27 +354,3 @@ The same principle goes for multidimensional arrays.
 ::: tip 📊 Jagged Arrays
 C# also supports arrays of arrays, called jagged arrays. This allows each subarray to be of different size. Basically the primary array holds a list of references to other arrays, which in term can hold references, and so on. With jagged arrays, one can store (efficiently) many rows of varying lengths. No space is wasted. Any type of data—reference or value—can be used.
 :::
-
-## Train Yourself
-
-### Multiple Choice
-
-1. What is not a property of arrays in C#?
-
-    * The first element is always placed at index `0`
-    * The size of an array is determined after instantiation and can be changed later
-    * Arrays can also be used to store references to objects
-    * The length of an array can be requested using the `Length` property
-
-2. Suppose you have the following array of integers in memory. How can you print the third element of the array?
-
-    ![Array of ints](./img/my_list.png)
-
-   * `Console.WriteLine($"The number = {myList(2)}");`
-   * `Console.WriteLine($"The number = {myList[3]}");`
-   * `Console.WriteLine($"The number = {myList[2]}");`
-   * `Console.WriteLine($"The number = {11662}");`
-
-### Exercises and Challenges
-
-Checkout the exercises and challenges which can be found at [https://github.com/BioBoost/csharp_practical](https://github.com/BioBoost/csharp_practical).

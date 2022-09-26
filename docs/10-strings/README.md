@@ -307,49 +307,5 @@ H e l l o   W o r l d   f r o m   C # !
 
 Note how the length of the string can be accessed by using the property `helloWorld.Length`. More on properties later.
 
-## Train Yourself
-
-### Multiple Choice
-
-1. Which of the statements below has no valid value for initializing a String variable?
-
-    * `string text = null;`
-    * `string text = "Hello World";`
-    * `string text = "There are " + 4 + " people waiting before you";`
-    * `string text = '\n';`
-
-2. How do we call the special characters in a string that are preceded with a backslash `\`?
-
-    * Insert characters
-    * Meta characters
-    * Terminators
-    * Escape characters
-
-3. What is an immutable object?
-
-    * An object that was instantiated without an existing class
-    * An object that was instantiated without the `new` keyword
-    * An object for which the reference cannot be saved into a variable
-    * An object whose internal state cannot be changed
-
-4. How many `String` objects will exist at the end of the following code block?
-
-    ```csharp
-    string hello = "Hello";
-    string world = " World";
-    string bye = "Bye";
-    string greeting = hello + world;
-    string goodbye = bye + world;
-    ```
-
-    * 3
-    * 5
-    * 7
-    * 9
-
-### Exercises and Challenges
-
-Checkout the exercises and challenges which can be found at [https://github.com/BioBoost/csharp_practical](https://github.com/BioBoost/csharp_practical).
-
 <!-- TODO: -->
 <!-- $ strings -->

@@ -297,34 +297,5 @@ A single character is placed between single quotes `'`, while strings are placed
 Literals are the values that are literally used inside source code. Examples are `"Hello World", 13, -154, 'X', 0x23`. They are mostly used for the initialization of variables. Note that the hexadecimal notation of literals can also be used when for example assigning integral values to variables.
 :::
 
-## Train Yourself
-
-### Multiple Choice
-
-1. What is a valid value for a `boolean`?
-
-    * `true`
-    * `undefined`
-    * `not`
-    * `nill`
-
-2. Suppose you want to store the age of your dog in a variable (the years). What would be the most obvious datatype for this?
-
-    * `double`
-    * `string`
-    * `char`
-    * `int`
-
-3. What is the most correct and complete definition of a variable?
-
-    * A variable is a symbolic name for a location in memory where the actual data resides.
-    * A variable is a symbolic name for a location in memory where the actual data resides with a size determined by the datatype of that variable.
-    * A variable is a symbolic name for a location in memory where the actual data resides with a size determined by the value with which the variable was initialized.
-    * A variable is a symbolic name for a location in memory where the actual data resides with a size that is not constant.
-
-### Exercises and Challenges
-
-Checkout the exercises and challenges which can be found at [https://github.com/BioBoost/csharp_practical](https://github.com/BioBoost/csharp_practical).
-
 <!-- Left Overs -->
 <!-- https://www.youtube.com/watch?v=PZRI1IfStY0&t=3s -->

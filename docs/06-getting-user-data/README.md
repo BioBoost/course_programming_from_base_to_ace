@@ -136,12 +136,3 @@ Random generator = new Random();
 // [0.0, 1.0[
 double real = generator.NextDouble();
 ```
-
-## Train Yourself
-
-### Multiple Choice
-
-### Exercises and Challenges
-
-Checkout the exercises and challenges which can be found at [https://github.com/BioBoost/csharp_practical](https://github.com/BioBoost/csharp_practical).
-

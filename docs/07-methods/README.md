@@ -416,9 +416,3 @@ Notice that no variable is created to hold the value of `number * number` inside
 The result of 12 squared is 144
 ```
 :::
-
-## Train Yourself
-
-### Challenges
-
-Checkout the challenges which can be found at [https://github.com/BioBoost/csharp_practical](https://github.com/BioBoost/csharp_practical).
