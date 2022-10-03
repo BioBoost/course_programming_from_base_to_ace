@@ -3,6 +3,8 @@ description: A computer program typically stores data. This chapter focusses on 
 title: 04 - Storing Data
 ---
 
+<slides link="/slides/slides-chapter-04" />
+
 # Chapter 04 - Storing Data
 
 ![Data versus Information](./img/data_vs_information.png)
@@ -73,7 +75,7 @@ Take a look at some examples:
 | `userTextMessage` | ✔️ | Good descriptive name |
 | `thingyThatCountsTheUserPeoples` | ❌ | Be serious, don't use silly names. After a while it starts to annoy. |
 
-Also keep in mind that C# and many other programming languages are case-sensitive. That means that `hippyCounter` is not the same as `HippyCounter`.
+Also keep in mind that C# and many other programming languages are case-sensitive. That means that `peopleCounter` is not the same as `PeopleCounter`.
 
 ## Declaring a Variable
 
