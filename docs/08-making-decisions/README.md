@@ -244,7 +244,7 @@ Now if one were to remove the curly brackets from the else-clauses (except for t
 
 ```csharp
 int studentScore = 30;      // Change this number to test the if-else statement
-                            //...
+                              //...
 Console.WriteLine("Your score is " + studentScore + "%");
 if (studentScore >= 90)
 {
@@ -312,14 +312,14 @@ The next table provides an overview of the available conditional operators in C#
 | Operator | Description |
 |---|---|
 | `&&` | AND |
-| `||` | OR |
+| `\|\|` | OR |
 | `!` | NOT |
 
 These work as you know them from the **Boolean algebra**. The `||` (**OR**) operator will return `true` if either of the operands evaluate to `true`. The `&&` (**AND**) operator will return `true` if both operands evaluate to `true`. A logical expression can be negated by placing the `!` (**NOT**) operator in front of it.
 
 Next is the **truth table** for all three conditional operators.
 
-| `A` | `B` | `||` | `A && B` | `!A` | `!B` |
+| `A` | `B` | `\|\|` | `A && B` | `!A` | `!B` |
 |---|---|---|---|---|---|
 | `false` | `false` | `false` | `false` | `true` | `true` |
 | `false` | `true` | `true` | `false` | `true` | `false` |
