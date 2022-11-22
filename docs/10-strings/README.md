@@ -1,5 +1,5 @@
 ---
-description: The data processed by a application often consists of text. To store this type of data we need strings and the possibility to manipulate them.
+description: The data processed by an application often consists of text. To store this type of data we need strings and the possibility to manipulate them.
 title: 10 - Strings
 ---
 

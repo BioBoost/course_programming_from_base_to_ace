@@ -19,38 +19,32 @@ Take for example the following array that stores 10 integers (4 bytes each). The
 
 ![Array of Integers](./img/array_of_integers.png)
 
-Arrays are often used to implement tables, especially lookup tables; the word **table** is sometimes used as a synonym of array.
-
-::: tip 🔍 Lookup Tables
-In computer science, a lookup table is an array that replaces runtime computation with a simpler array indexing operation. The savings in terms of processing time can be significant, since retrieving a value from memory is often faster than undergoing an "expensive" computation or input/output operation. The tables may be precalculated and stored in static program storage, calculated (or "pre-fetched") as part of a program's initialization phase.
-:::
-
 Because the mathematical concept of a matrix can be represented as a two-dimensional grid, two-dimensional arrays are also sometimes called matrices.
 
 ## One-Dimensional Arrays
 
-An array is a **container object** that holds a **fixed number of values** of a **single type** (all elements need to be the same size in memory). The length of an array is established when the array is created. After creation, its length is fixed.
+An array is a **container object** that holds a **fixed number of values** of a **single type** (all elements need to be the same size in memory). The length of an array is established when the array is created. **After creation, its length is fixed.**
 
 ## Creating 1D arrays
 
 A one-dimensional array is created using the following syntax template:
 
 ```csharp
-<type>[] <variable_name> = new <type>[<size>];
+type[] variable_name = new type[SIZE];
 ```
 
 where
 
-* `<type>` can be either a primitive (`int`, `double`, ...) or non-primitive datatype (class, such as `String` for example).
-* `<variable_name>` is the name of the variable that represents the array.
-* `<size>` is a positive integral value indicating how many elements the array consists of.
+* `type` can be either a primitive (`int`, `double`, ...) or non-primitive datatype (class, such as `String` for example).
+* `variable_name` is the name of the variable that represents the array.
+* `SIZE` is a positive integral value indicating how many elements the array consists of.
 
 Notice the square brackets `[]` that declare this variable to be an array of elements of the given type.
 
 The example code below shows how to declare and create an array of `10` integers:
 
 ```csharp
-// Creating an array numbers with 10 elements of type integer.
+// Creating an array numbers with 10 elements of type int.
 int[] numbers = new int[10];
 ```
 
@@ -72,17 +66,21 @@ numbers = new int[10];  // Creating an array of 10 elements
   // numbers actually contains a reference to an object
 ```
 
+::: warning ➡️ Referencing null
+Do note that if you do not initialize the variable with a reference to an object (either through `new` or by copying another variable reference into it), the variable will not reference an object and contain `null`. Indexing `null` will result in a program crash.
+:::
+
 ## Accessing Elements
 
 Array elements can be accessed using the **index operator** `[]`, the element index and the array variable. The syntax is shown in the following code snippet:
 
 ```csharp
-<variable_name>[<index>];
+variable_name[index];
 ```
 
 This syntax can both be used for **assigning a value** to it as **accessing its current value**.
 
-Take the code example that follows. It creates an array `numbers` of 10 integers, where the elements are assigned the iterator value of the for loop.
+Take the code example that follows. It creates an array `numbers` of 10 integers, where the elements are assigned the iterator value of the `for` loop.
 
 ```csharp
 // Creating an array numbers with 10 elements of type integer.
@@ -133,11 +131,11 @@ From the code above it can be seen that the array elements can be accessed by us
 
 ## Initialization
 
-While its perfectly legal to initialize an array using a for loop, it can also be accomplished using the following syntax:
+While its perfectly legal to initialize an array using a `for` loop, it can also be accomplished using the following syntax:
 
 ```csharp
-<type>[] <variable_name> = {
-  <comma_separated_list_of_values>
+type[] variable_name = {
+  comma_separated_list_of_values
 };
 ```
 
@@ -153,11 +151,11 @@ int[] anArray = {
 };
 ```
 
-Here the length of the array is determined by the number of values provided between the curly braces `{}`. Note that it is also not needed to create an actual array object using the `new` operator. This is done automatically by the CLR for you.
+Here the length of the array is determined by the number of values provided between the curly braces `{}`. Note that it is also not necessary to create an actual array object using the `new` operator. This is done automatically by the CLR for you.
 
 ## The length of an Array
 
-As mentioned before, the arrays created in C# are no primitive types. While an array can hold primitive types, the array itself is an object. Objects have data and methods. One of the most used data members of an array is its `Length`. By using it's length in the for loop condition, our code becomes cleaner and less prone to errors.
+As mentioned before, the arrays created in C# are no primitive types. While an array can hold primitive types, the array itself is an object. Objects have data and methods. One of the most used data members of an array is its `Length`. By using it's length in the `for` loop condition, our code becomes cleaner and less prone to errors.
 
 So the earlier example:
 
@@ -172,7 +170,7 @@ for (int i = 0; i < 10; i++) {
 }
 ```
 
-can be refactor to:
+can be refactored to:
 
 ```csharp
 // Creating an array numbers with 10 elements of type integer.
@@ -185,9 +183,9 @@ for (int i = 0; i < numbers.Length; i++) {
 }
 ```
 
-Which makes it easier to change. If we now increase the array to `20` elements, the for loop can remain untouched.
+Which makes it easier to change. If the array size is for example increased to `20` elements, the `for` loop can remain untouched.
 
-::: warning Length is a property
+::: warning 📏 Length is a property
 Do note that `Length` is actually a property of an array and not a method per se. That is why no parentheses are added after `Length`. This is an important distinction to make. More on properties later.
 :::
 
