@@ -19,30 +19,28 @@ All of these techniques will be handled thoroughly in the following chapters.
 
 When creating an application it can often be useful to put some diagrams on paper on how you are going to take on the problem. One of the most used diagrams in the world of object oriented programming is the UML (Unified Modeling Language) class diagram.
 
-UML is a general-purpose, modeling language in the field of software engineering, that is intended to provide a standard way to visualize the design of a system.
+UML is a **general-purpose, modeling language** in the field of software engineering, that is intended to provide a **standard way to visualize the design of a system**.
 
-A class diagram is a static diagram that describes the data and behavior of a class and also the relationships between the different classes in an application. Class diagrams are widely used in the modeling process of object oriented systems because they are easy to understand and map directly onto existing entities within the object oriented program.
-
-While methods can visualized as being private using a minus `-` symbol, often these are omitted from the UML diagram. This because most programmers find them cluttering the class diagram and they are often created as needed and not important for the outside user.
+A **class diagram** is a static diagram that **describes the data and behavior of a class and also the relationships between the different classes** in an application. Class diagrams are widely used in the modeling process of object oriented systems because they are easy to understand and map directly onto existing entities within the object oriented program.
 
 When modeling software it's normal that not all details are available from the start. For example the type of the attributes should also be documented in the UML diagram, as are the arguments and return types of the methods. However sometimes those details haven't been decided yet. In that case we just leave them out and add them later.
 
-As an example take a look at the UML class diagram of a Hotel Management System below.
+As an example take a look at a partial UML class diagram of a Snake Game below.
 
-![UML Class Diagram of a Hotel Management System](./img/uml_class_diagram_hotel.png)
-
-<!-- TODO: Another example would be nice. Maybe something with IoT -->
+![Partial UML Class Diagram of a Snake Game](./img/snake_game.png)
 
 Even if your are not an experienced programmer yet, you should be able to understand the concept of the application (not the details, only the general idea) just by looking at the diagram. If that is the case, its usefulness has just been proven.
 
+<!-- While methods can be visualized as being private using a minus `-` symbol, often these are omitted from the UML diagram. This because most programmers find them cluttering the class diagram and they are often created as needed and not important for the outside user. -->
+
 ## Creating a Class
 
-When creating custom classes in C# it is convention to place the whole class and nothing but the class inside its own `cs` file. In Visual Studio this can be achieved by right clicking on your project and selecting `Add => Class`.
+When creating custom classes in C#, it is convention to place the whole class and nothing but the class inside its own `cs` file. In Visual Studio this can be achieved by right clicking on your project and selecting `Add => Class`.
 
-Consider a class that represents a point in 2D space. The class can simply be called `Point`. It is convention in C# for class names to be named using **Pascal Case**.
+Consider a class that represents a point in 2D space. The class can simply be called `Point`. It is convention in C# for **class names** to be named using **Pascal Case**.
 
 ::: tip 🐫 Pascal Case and camel Case
-Pascal case is a subset of *Camel Case* where the first letter is capitalized. That is, `userAccount` is a camel case and `UserAccount` is in Pascal case. In C# the convention is that both method names and class names are Pascal cased. It is easy to remember. Pascal is a proper noun so capitalize the first letter, while camel is a common noun, so you do not capitalize the first letter.
+Pascal case is a subset of *Camel Case* where the first letter is capitalized. That is, `userAccount` is written in camel case and `UserAccount` is written in Pascal case. In C# the convention is that both method names and class names are Pascal cased. It is easy to remember. Pascal is a proper noun so capitalize the first letter, while camel is a common noun, so you do not capitalize the first letter.
 :::
 
 When adding a new class `Point` in a C# project, Visual Studio will generate the following code for you:
@@ -75,7 +73,9 @@ namespace Geometry
 }
 ```
 
-Next is the `namespace` to which the class belongs. **A namespace is like a container that can contain all sorts of entities such as classes.** `System` is actually also a namespace. By using these containers, collisions are avoided between class names. There can for example exist a class `Point` in the namespace `Geometry` and a class `Point` in the namespace `2DGraphics`. By placing classes in namespaces we don't have to invent unique names for our classes. Namespaces also allow developers to bundle classes together that logically belong together. Visual Studio will automatically add all your classes to a namespace with the same name as the application. You can change the names of these namespaces as you wish.
+Next is the `namespace` to which the class belongs. **A namespace is like a container that can contain all sorts of entities such as classes.** `System` is actually also a namespace. By using these containers, collisions are avoided between class names. There can for example exist a class `Point` in the namespace `Geometry` and a class `Point` in the namespace `2DGraphics`. By placing classes in namespaces we don't have to invent unique names for our classes. Namespaces also allow developers to bundle classes together that logically belong together.
+
+Visual Studio will automatically add all your classes to a namespace with the same name as the application. You can change the names of these namespaces as you wish.
 
 ```csharp{5,6,10}
 using System;
@@ -113,26 +113,23 @@ In its current state the `Point` class can be visualized using the class diagram
 
 ![Start of a class diagram of Point](./img/point_class.png)
 
-The class shape in a class diagram consists of a rectangle with three rows. The top row contains the **name of the class**, the middle row contains the **attributes of the class** (the data of the objects), and the bottom section expresses the **methods and/or constructors** (the behavior) that the class has. In a class diagram, classes and subclasses are grouped together to show the relationship between objects of these classes.
+The class shape in a class diagram consists of a rectangle with three rows. The top row contains the **name of the class**, the middle row contains the **attributes of the class** (the data of the objects), and the bottom section expresses the **methods and/or constructors** (the behavior) that the class has. In a class diagram, classes and subclasses are grouped together to show the relationships between objects of these classes.
 
 ## Creating Objects
 
 To create objects from the `Point` class one just needs to follow the **object creation syntax**:
 
 ```csharp
-ClassName variableName = new ClassName(<arguments_if_needed>);
+ClassName variableName = new ClassName(arguments_if_needed);
 ```
 
 This creates a new object of the specified class. A reference to this object will then be stored inside the variable.
 
 Consider the example shown below for the `Point` class. Here a new instance of the class is requested using the `new` keyword and a reference to it is stored inside of a variable called `center`.
 
-```csharp{4}
-static void Main(string[] args)
-{
-  // Creating a Point object and store its reference inside a variable
-  Point center = new Point();
-}
+```csharp
+// Create a Point object and store its reference inside a variable
+Point center = new Point();
 ```
 
 Notice the similarity with creating an object of the class `Random`.
@@ -151,19 +148,19 @@ Just as variables, attributes can be of any simple data type or they can contain
 
 Different from a normal local variable, an attribute also requires an **access modifier** to specify who can access the attribute. This can be any of the following:
 
-* `public`: anyone can access the attribute - depicted with a plus sign `+` in UML.
-* `private`: only the class itself can access the attribute - depicted with a minus sign `-` in UML.
-* `protected`: only the class itself or classes derived from this class can access the attributes - depicted with a hashtag `#` in UML.
-* `internal`: an internal attribute can be accessed by any code in the same assembly, but not from another assembly. In other words, internal types or members can be accessed from code that is part of the same compilation.
+* `public`: **anyone can access the attribute** - depicted with a plus sign `+` in UML.
+* `private`: **only the class itself can access the attribute** - depicted with a minus sign `-` in UML.
+* `protected`: **only the class itself or classes derived from this class can access the attributes** - depicted with a hashtag `#` in UML.
+* `internal`: **can be accessed by any code in the same assembly, but not from another assembly**. In other words, internal types or members can be accessed from code that is part of the same compilation (project). This is the default access modifier if none is specified in C#. There is no symbol for this in UML.
 
 ::: tip 🧱 Assembly
-An assembly is a `.dll` or `.exe` created by compiling one or more `.cs` files in a single compilation.
+An assembly is a `.dll` or `.exe` created by compiling one or more `.cs` files in a single compilation. This is typically mapped to a project in a solution.
 :::
 
 The **default access modifier for attributes, methods and classes** themselves in C# is `internal`. This means that if one does not specify an access modifier for the member it will be accessible from within all classes of the same assembly. This is an access modifier not found in many other object oriented programming languages. Most common access modifiers are `public`, `private` and `protected`.
 
 ::: tip 🔑 Explicit Access Modifiers
-It is good practice to always specify the access modifiers explicitly. The defaults are language dependant and not all programmers know them by heart. By explicitly specifying the modifiers, there can be no doubt.
+It is good practice to **always specify the access modifiers explicitly**. The defaults are language dependant and not all programmers know them by heart. By explicitly specifying the modifiers, there can be no doubt.
 :::
 
 This leads to the following syntax template for adding attributes to a class:
@@ -171,13 +168,13 @@ This leads to the following syntax template for adding attributes to a class:
 ```csharp
 class ClassName {
   // Attributes of the class
-  <access_modifier> <data_type> attributeName = <init_value>;
+  access_modifier data_type attributeName = init_value;
 }
 ```
 
 Notice how the **access modifier is placed before the declaration** of the instance variable.
 
-Consider the example below of the class `Point` that holds the two coordinate values of a point in a 2D space. For now, the attributes are made accessible from the outside of the object declaring them `public`.
+Consider the example below of the class `Point` that holds the two coordinate values of a point in a 2D space. For now, the attributes are made accessible from the outside of the object by declaring them `public`.
 
 ```csharp{3-4}
 class Point {
@@ -211,19 +208,19 @@ static void Main(string[] args)
   Point center = new Point();
 
   // Output current location of the point
-  Console.WriteLine($"Start location of point [{ center.x},{ center.y}]");
+  Console.WriteLine($"Start location of point [{center.x}, {center.y}]");
 
   // Move the point to a new location and output it
   center.x = 15.66;
   center.y = -3.12;
-  Console.WriteLine($"Moved the point to [{ center.x},{ center.y}]");
+  Console.WriteLine($"Moved the point to [{center.x}, {center.y}]");
 }
 ```
 
 ::: codeoutput
 ```
-Start location of point [0,0]
-Moved the point to [15.66,-3.12]
+Start location of point [0, 0]
+Moved the point to [15.66, -3.12]
 ```
 :::
 
@@ -241,7 +238,7 @@ The second row of the class rectangle is this time populated with a list of attr
 
 The nice part about objects is that they **can contain both data and behavior**. This makes them **standalone entities** that have a state and a way to change or act upon that state using methods.
 
-A method is basically a block of code with a name. This name can be used to invoke/call the method from another place in your application. The special thing about methods, compared to regular functions, is that they are called on objects and are therefore executed in context of the objects, meaning they are considered part of that object and can access the internal state of these objects.
+**A method is basically a block of code with a name.** This name can be used to invoke/call the method from another place in your application. The special thing about methods, compared to regular functions, is that they are called on objects and are therefore **executed in context of the objects**, meaning they are considered part of that object and can access the internal state of these objects.
 
 Consider the previous code example of the `Point` class.
 
@@ -252,12 +249,12 @@ static void Main(string[] args)
   Point center = new Point();
 
   // Output current location of the point
-  Console.WriteLine($"Start location of point [{ center.x},{ center.y}]");
+  Console.WriteLine($"Start location of point [{center.x}, {center.y}]");
 
   // Move the point to a new location and output it
   center.x = 15.66;
   center.y = -3.12;
-  Console.WriteLine($"Moved the point to [{ center.x},{ center.y}]");
+  Console.WriteLine($"Moved the point to [{center.x}, {center.y}]");
 }
 ```
 
@@ -270,24 +267,24 @@ static void Main(string[] args)
   Point center = new Point();
 
   // Output current location of the point
-  Console.WriteLine($"Start location of point [{ center.x},{ center.y}]");
+  Console.WriteLine($"Start location of point [{center.x}, {center.y}]");
 
   // Move the point to a new location and output it
   center.Move(15.66, -3.12);
-  Console.WriteLine($"Moved the point to [{ center.x},{ center.y}]");
+  Console.WriteLine($"Moved the point to [{center.x}, {center.y}]");
 }
 ```
 
-Instead of changing the state from the outside of the object, it's better to use a method to request a change in the objects state. This because of at least the following reasons:
+**Instead of changing the state from the outside of the object, it's better to use a method to request a change in the objects state.** This because of at least the following reasons:
 
-* By using a method to change the object's state we are guaranteed to only change the state that is required to change for that particular action we are requesting.
+* By using a method to change the object's state, we are guaranteed to only change the state that is required to change for that particular action we are requesting.
 * The internal state cannot be changed in a way that would place the object in an invalid state or corrupt the object. This because the method can check incoming data values.
 * The name of the method contributes to code readability as it reflects the action that is being taken.
 * The method can be called from many places, adding to the DRYness of the code.
 * A method also hides the complexity of the internal state from the user of that object (cfr. abstraction)
 * ...
 
-A `Move()` method also makes a logical part of the class `Point`. The advantage is also that this functionality may come in handy in other place too.
+A `Move()` method also represents a logical part of the class `Point`. The advantage is also that this functionality may come in handy in other place.
 
 ### Adding a Move method to Point
 
@@ -308,7 +305,7 @@ class Point {
 ```
 
 ::: warning ⏹️ static
-Note that the methods that are being added to the class `Point` are **not** `static`. This is because these methods will **act on the object created from the class** `Point`, cfr. they will access and even change the internal data of the object. Remember that `static` methods don't require objects and are called on the classes itself, cfr they require no state.
+Note that the methods that are being added to the class `Point` are **not** `static`. This is because these methods will **act on the object created from the class** `Point`, cfr. they will access and even change the internal data of the object. Remember that `static` methods don't require objects and are called on the classes itself, cfr they require no object state.
 :::
 
 Some important things to note about the implementation of the `Move()` method are:
@@ -363,23 +360,23 @@ static void Main(string[] args)
   Point center = new Point();
 
   // Output current location of the point
-  Console.WriteLine($"Start location of point [{ center.x},{ center.y}]");
+  Console.WriteLine($"Start location of point [{center.x}, {center.y}]");
 
   // Move the point to a new location and output it
   center.Move(15.66, -3.12);
-  Console.WriteLine($"Moved the point to [{ center.x},{ center.y}]");
+  Console.WriteLine($"Moved the point to [{center.x}, {center.y}]");
 
   // Move point again - wow it's so easy
   center.Move(12, 10);
-  Console.WriteLine($"Moved the point to [{ center.x},{ center.y}]");
+  Console.WriteLine($"Moved the point to [{center.x}, {center.y}]");
 }
 ```
 
 ::: codeoutput
 ```
-Start location of point [0,0]
-Moved the point to [15.66,-3.12]
-Moved the point to [12,10]
+Start location of point [0, 0]
+Moved the point to [15.66, -3.12]
+Moved the point to [12, 10]
 ```
 :::
 
@@ -422,7 +419,7 @@ Geometry.Point
 
 The C# `ToString()` method is used when we need a `string` representation of an object. It is defined in the special class `Object`.
 
-For some classes that are part of the C# library, this method generates a sensible result. However custom classes created by ourselves return the fully qualified name of the class.
+For some classes that are part of the C# library, this method generates a sensible result. However custom classes created by ourselves return the fully qualified name of the class (which consists of the class name proceeded by the namespace hierarchy).
 
 The result should be a concise but informative representation of the object that is easy for a person to read. It is recommended that all classes override this method and add their own implementation.
 
@@ -469,7 +466,7 @@ class Point
   // is placed inside of a string context
   public override string ToString()
   {
-    return $"[{x},{y}]";
+    return $"[{x}, {y}]";
   }
 
   // Both x and y are attributes of the class Point
@@ -502,13 +499,13 @@ static void Main(string[] args)
 ::: codeoutput
 ```
 [0,0]
-Moving the point to [15.66,-3.12]
-Moving the point to [12,10]
+Moving the point to [15.66, -3.12]
+Moving the point to [12, 10]
 ```
 :::
 
 ::: warning 🙅‍♀️ Don't print inside Classes
-As a teacher, I'm already hearing you think, "Why didn't we put the `Console.WriteLine()` inside the Point class in a Print() method or something similar?" Unless you have a good reason, it's most of the time a bad idea to place `Console.WriteLine()` statements inside your custom classes. This limits their use. What if the user of your class wanted to format the output differently or output its string representation to a log file or to an API in the cloud. If you decide to send it to the terminal directly instead of returning the actual string, you are limiting the capabilities of your classes.
+As a teacher, I'm already hearing you think, "Why didn't we put the `Console.WriteLine()` inside the `Point` class in a `Print()` method or something similar?" Unless you have a good reason, it's most of the time a bad idea to place `Console.WriteLine()` statements inside your custom classes. This limits their use. What if the user of your class wanted to format the output differently or output its string representation to a log file or to an API in the cloud. If you decide to send it to the terminal directly instead of returning the actual string, you are limiting the capabilities of your classes.
 :::
 
 ### UML Class Diagrams of Point
@@ -517,10 +514,4 @@ In its current state the `Point` class can be visualized using the class diagram
 
 ![Class diagram of Point with Attributes](./img/point_class_with_methods.png)
 
-The third row of the class rectangle is this time populated with a list of methods.
-
-Both methods are `public` so they are preceded with a plus sign `+`.
-
-The `Move()` method takes two arguments. Both arguments are separated using a comma. The argument themselves are represented by their name, a colon `:` followed by their type.
-
-Notice how the return datatype of the `ToString()` method is also specified in the UML diagram, in the same way as an attribute, by placing a colon `:` after the method and then stating the datatype (`String` in this case).
+Notice how the return datatype of the `ToString()` method is also specified in the UML diagram, in the same way as an attribute, by placing a colon `:` after the method and then stating the datatype (`string` in this case).
