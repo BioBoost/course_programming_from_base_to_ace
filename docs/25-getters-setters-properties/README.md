@@ -29,13 +29,19 @@ Data hiding is a software development technique specifically used in object-orie
 
 Take for example a class `Rectangle` which has a `width` and a `height` attribute. If these were `public`, there would be nothing to stop the user from assigning negative values to these attributes. This would be illogical. In many cases this can introduce bugs that the developer of the class never saw coming.
 
+![Rectangle with Public Attributes](./img/rectangle_class_public.png)
+
 Then how can one than change the state of objects? Simple, by **regulating the access to the state of the object using methods**. This allows the developer of the class to place safeguards where needed.
+
+![Rectangle with Private Attributes](./img/rectangle_class_data_hiding.png)
 
 So basically, it makes the class more user-friendly and makes sure that objects of the class cannot be placed in an invalid state by regulating access to the state of the objects via methods. It also allows the developer of the class to change the implementation of the class without having to worry about the people using his/her class, as long as he does not alter the public methods. On top of all that it contributes to the maintainability and DRYness of our code.
 
 ## Hiding the Attributes
 
 With **data hiding** in mind the class `Point` should actually be refactored a bit. The attributes should be made `private` instead of `public`. If you take a closer look at the `Main()` method, you will see that we actually don't access the attributes of a `Point` directly, we instead use the `Move()` method. This is good programming practice.
+
+Of course our application does not yet use the `Point` instances for any serious processing.
 
 ```csharp{18-19}
 class Point
@@ -59,7 +65,7 @@ In its current state the `Point` class can be visualized using the class diagram
 
 ![Class diagram of Point with Attributes](./img/point_class_data_hiding.png)
 
-Notice that the attributes switched from a plus sign `+` to a min sign `-` to indicate that they are `private`.
+Notice that the attributes switched from a plus sign `+` to a minus sign `-` to indicate that they are `private`.
 
 ## Getters
 
@@ -69,7 +75,7 @@ Typically getters follow these conventions:
 
 * Their name starts with `Get` followed by the name of the attribute they are making available. For example `GetRadius` for a getter of a class `Circle` that makes `radius` accessible.
 * Their return data type is the same datatype as that of the attribute.
-* They are typically `public`, but can be made `internal`, `protected` or even `private` as required.
+* They are typically `public`, but based on the situation can be made `internal`, `protected` or even `private` as required.
 * They do not take in any arguments.
 * They typically just return the attribute, however in some cases small calculations, filtering of data and such are also legal.
 * And last but not least, they never change the internal state of the object !
@@ -113,15 +119,15 @@ static void Main(string[] args)
   Point center = new Point();
 
   // Output current location of the point
-  Console.WriteLine($"Start location of point [{ center.GetX()},{ center.GetY()}]");
+  Console.WriteLine($"Start location of point [{center.GetX()}, {center.GetY()}]");
 
   // Move the point to a new location and output it
   center.Move(15.66, -3.12);
-  Console.WriteLine($"Moved the point to [{ center.GetX()},{ center.GetY()}]");
+  Console.WriteLine($"Moved the point to [{center.GetX()}, {center.GetY()}]");
 
   // Move point again - wow it's so easy
   center.Move(12, 10);
-  Console.WriteLine($"Moved the point to [{ center.GetX()},{ center.GetY()}]");
+  Console.WriteLine($"Moved the point to [{center.GetX()}, {center.GetY()}]");
 }
 ```
 
@@ -135,7 +141,7 @@ The UML class diagram has been expanded with the two getter methodes `GetX()` an
 
 ## Setters
 
-Where getters allow attributes values to be accessed from the outside of the class, setters (also called mutators) allow them to be changed.
+Where getters allow attributes values to be accessed from the outside of the class, **setters** (also called mutators) **allow attributes to be changed**.
 
 Typically setters follow these conventions:
 
@@ -143,7 +149,7 @@ Typically setters follow these conventions:
 * Setter do not return a value. So their return type is always `void`.
 * They are typically `public`, but can be made `internal`, `protected` or even `private` as required.
 * They take in the new value as an argument.
-* They typically just assign the argument value to the attribute in question. However, if require they can implement incoming data checks to make sure that the value of the arguments fits within the valid range of the attribute.
+* They typically just assign the argument value to the attribute in question. However, if required, they can implement incoming data checks to make sure that the value of the arguments fits within the valid range of the attribute.
 
 The `Point` example class here does not really require safe-guards for the `x` and `y` coordinates because all possible values for the `double` datatype can be considered valid. So here, both setters just need to assign the argument to the attribute.
 
@@ -196,28 +202,28 @@ static void Main(string[] args)
   Point center = new Point();
 
   // Output current location of the point
-  Console.WriteLine($"Start location of point [{ center.GetX()},{ center.GetY()}]");
+  Console.WriteLine($"Start location of point [{center.GetX()}, {center.GetY()}]");
 
   // Move the point to a new location and output it
   center.Move(15.66, -3.12);
-  Console.WriteLine($"Moved the point to [{ center.GetX()},{ center.GetY()}]");
+  Console.WriteLine($"Moved the point to [{center.GetX()}, {center.GetY()}]");
 
   // Move point again - wow it's so easy
   center.Move(12, 10);
-  Console.WriteLine($"Moved the point to [{ center.GetX()},{ center.GetY()}]");
+  Console.WriteLine($"Moved the point to [{center.GetX()}, {center.GetY()}]");
 
   // Now we can also move a single coordinate of the Point
   center.SetX(66);
-  Console.WriteLine($"Moved the point to [{ center.GetX()},{ center.GetY()}]");
+  Console.WriteLine($"Moved the point to [{center.GetX()}, {center.GetY()}]");
 }
 ```
 
 ::: codeoutput
 ```
-Start location of point [0,0]
-Moving the point to [15.66,-3.12]
-Moving the point to [12,10]
-Moving the point to [66,10]
+Start location of point [0, 0]
+Moving the point to [15.66, -3.12]
+Moving the point to [12, 10]
+Moving the point to [66, 10]
 ```
 :::
 
@@ -301,7 +307,7 @@ Basically the worst thing we could have done, was ignore the problem.
 
 ## Properties
 
-Providing getters and setters for internal attributes is a common practice. Because this is required so often, the C# language has introduced the properties construct. Properties are basically class members that provide a flexibel mechanism to read, write or compute the values of private attributes. They enable data to be accessed easily and still helps promote the safety and flexibility of methods.
+Providing getters and setters for internal attributes is a common practice. Because this is required so often, the C# language has introduced the **properties construct**. Properties are basically class members that provide a flexibel mechanism to read, write or compute the values of private attributes. They enable data to be accessed easily and still help promote the safety and flexibility of methods.
 
 Properties can be used in a similar way as public attributes, but internally they are actually special methodes (getters and setters).
 
@@ -309,7 +315,7 @@ Properties can be used in a similar way as public attributes, but internally the
 Not al programming languages support properties or provide a similar mechanism. It is mostly the more extensive and modern programming languages such as C# and Java that provide these sort of mechanisms.
 :::
 
-Properties come in two flavors: automatically implemented properties or with a backing attribute.
+Properties come in two flavors: **properties with a backing attribute** or **automatically implemented properties**.
 
 ### Properties with a Backing Attribute
 
@@ -329,17 +335,19 @@ public int MyProperty
 ```
 
 ::: tip 🈵 propfull
-You can generate the shown code snippet in Visual Studio by typing `propfull` and pressing TAB twice.
+You can generate the shown code snippet in Visual Studio by typing `propfull` and pressing the `TAB` key twice.
 :::
 
 The previous code snippet shows:
 
-* the actual attribute field as we know it.
+* the actual attribute field as we know it, `myVar` in this case.
 * a `public` property called `MyProperty` of type `int`.
   * the getter returns the `myVar` value. Calculations can be made inside the body of the `get` clause.
   * the setter assigns `value` to the attribute `myVar`. `value` is a C# keyword that contains the value that was assigned via the setter. So basically this can be checked or manipulated before assigning it to the attribute. This can be achieved inside the body of the `set` clause.
 
-The property can also be made `private` or `internal` based on your need. Also both `set` and `get` can be prefixed with an accessor modifier `public`, `private` or `internal` to change the accessibility level of that specific property accessor/mutator.
+The property can also be made `private`, `protected` or `internal` based on your needs. Also both `set` and `get` can be prefixed with an accessor modifier `public`, `private` or `internal` to change the accessibility level of that specific property accessor/mutator.
+
+This way you could even implement a readonly property by making the `set` `private` so it can only be used inside the class itself.
 
 Let us refactor the `Point` class and remove our own getters and setters and replace them with properties:
 
@@ -381,19 +389,19 @@ static void Main(string[] args)
   Point center = new Point();
 
   // Output current location of the point
-  Console.WriteLine($"Start location of point [{ center.X},{ center.Y}]");
+  Console.WriteLine($"Start location of point [{center.X}, {center.Y}]");
 
   // Move the point to a new location and output it
   center.Move(15.66, -3.12);
-  Console.WriteLine($"Moved the point to [{ center.X},{ center.Y}]");
+  Console.WriteLine($"Moved the point to [{center.X}, {center.Y}]");
 
   // Move point again - wow it's so easy
   center.Move(12, 10);
-  Console.WriteLine($"Moved the point to [{ center.X},{ center.Y}]");
+  Console.WriteLine($"Moved the point to [{center.X}, {center.Y}]");
 
   // Now we can also move a single coordinate of the Point
   center.X = 66;
-  Console.WriteLine($"Moved the point to [{ center.X},{ center.Y}]");
+  Console.WriteLine($"Moved the point to [{center.X}, {center.Y}]");
 }
 ```
 
@@ -459,7 +467,10 @@ static void Main(string[] args)
 
   // Change the radius to an invalid value
   circle.Radius = -12;
+  Console.WriteLine($"The radius of the circle is {circle.Radius}");
 
+  // Change the radius to a valid value
+  circle.Radius = 66;
   Console.WriteLine($"The radius of the circle is {circle.Radius}");
 }
 ```
@@ -467,6 +478,7 @@ static void Main(string[] args)
 ::: codeoutput
 ```
 The radius of the circle is 0
+The radius of the circle is 66
 ```
 :::
 
@@ -481,7 +493,7 @@ public int MyProperty { get; set; }
 ```
 
 ::: tip 🥙 prop
-You can generate the shown code snippet in Visual Studio by typing `prop` and pressing TAB twice.
+You can generate the shown code snippet in Visual Studio by typing `prop` and pressing the `TAB` key twice.
 :::
 
 So this would result in the `Point` class shown below:
@@ -513,7 +525,7 @@ Since properties are not a standard available in all programming languages, ther
 
 For this course we will agree on the notation where we use a **stereotype** indicator `<<get>>` or `<<set>>` prefixed with the access modifier.
 
-For **properties with backing attributes** we place the properties within the methods section as shown in the next image.
+For **properties with backing attributes** we place the properties within the attributes section together with the actual attributes, as shown in the next image.
 
 ![Properties with Backing Attribute](./img/point_class_properties_with_attribute.png)
 
@@ -602,6 +614,134 @@ class Rectangle
 ```
 
 Note that the `Area()` now also makes use of the `Width` and `Height` property as it should.
+
+For completeness sake, below is the UML diagram of the `Rectangle` class.
+
+![Rectangle with Properties](./img/rectangle_properties.png)
+
+## A ToString Method
+
+In C# every object that is created automatically gets a number of methods that are provided by the C# language. One of these methods is the `ToString()` method which is **implicitly called when an object reference is placed inside a String context** as for example:
+
+```csharp{7,10}
+static void Main(string[] args)
+{
+  // Create Point object and place reference in center variable
+  Point center = new Point();
+
+  // Here an implicit call to center.ToString() is made by C#
+  Console.WriteLine(center);
+
+  // You can also explicitly call the ToString() method
+  Console.WriteLine(center.ToString());
+}
+```
+
+::: codeoutput
+```
+Geometry.Point
+Geometry.Point
+```
+:::
+
+The C# `ToString()` method is used when we need a `string` representation of an object. It is defined in the special class `Object`.
+
+For some classes that are part of the C# library, this method generates a sensible result. However custom classes created by ourselves return the fully qualified name of the class (which consists of the class name proceeded by the namespace hierarchy).
+
+The result should be a concise but informative representation of the object that is easy for a person to read. It is recommended that all classes override this method and add their own implementation.
+
+This can be achieved by adding the following method to your class (the method signature must be exact and the `override` keyword must also be present):
+
+```csharp{12-15}
+class Point
+{
+  // A method called Move that allows us to relocate the point
+  public void Move(double x, double y)
+  {
+    this.X = x;   // You an actually leave "this." away
+    this.Y = y;
+  }
+
+  // The ToString() method is called when an object of Point
+  // is placed inside of a string context
+  public override string ToString()
+  {
+    return "Some String representation of your object";
+  }
+
+  // Properties with automatically implemented attributes
+  public double X { get; set; }
+  public double Y { get; set; }
+}
+```
+
+Of course the return statement `return "Some String representation of your object";` must be changed according to the representation you wish to return.
+
+For the `Point` class the representation could be the format in which we've been outputting the points thus far: `[x, y]`. This would lead to the following implementation:
+
+```csharp{14}
+class Point
+{
+  // A method called Move that allows us to relocate the point
+  public void Move(double x, double y)
+  {
+    this.X = x;   // You an actually leave "this." away
+    this.Y = y;
+  }
+
+  // The ToString() method is called when an object of Point
+  // is placed inside of a string context
+  public override string ToString()
+  {
+    return $"[{x}, {y}]";
+  }
+
+  // Properties with automatically implemented attributes
+  public double X { get; set; }
+  public double Y { get; set; }
+}
+```
+
+This results in a much cleaner `Main()` method:
+
+```csharp{7,11,15}
+static void Main(string[] args)
+{
+  // Creating a Point object and store its reference inside a variable
+  Point center = new Point();
+
+  // Output current location of the point
+  Console.WriteLine(center);
+
+  // Move the point to a new location and output it
+  center.Move(15.66, -3.12);
+  Console.WriteLine($"Moving the point to {center}");
+
+  // Move point again - wow it's so easy
+  center.Move(12, 10);
+  Console.WriteLine($"Moving the point to {center}");
+}
+```
+
+::: codeoutput
+```
+[0, 0]
+Moving the point to [15.66, -3.12]
+Moving the point to [12, 10]
+```
+:::
+
+::: warning 🙅‍♀️ Don't print inside Classes
+As a teacher, I'm already hearing you think, "Why didn't we put the `Console.WriteLine()` inside the `Point` class in a `Print()` method or something similar?" Unless you have a good reason, it's most of the time a bad idea to place `Console.WriteLine()` statements inside your custom classes. This limits their use. What if the user of your class wanted to format the output differently or output its string representation to a log file or to an API in the cloud. If you decide to send it to the terminal directly instead of returning the actual string, you are limiting the capabilities of your classes.
+:::
+
+### UML Class Diagrams of Point
+
+In its current state the `Point` class can be visualized using the class diagram shown below.
+
+![Class diagram of Point with Attributes](./img/point_to_string.png)
+
+Notice how the return datatype of the `ToString()` method is also specified in the UML diagram, in the same way as an attribute, by placing a colon `:` after the method and then stating the datatype (`string` in this case).
 
 ## Tightly Coupled Classes
 
@@ -702,4 +842,3 @@ class StudentCsvConverter {
 ```
 
 Note that we had to change the implementation of the `GetName()` getter of the `Student` class so it would still return the full name of the student. But that is not a problem since this change is local to the `Student` class. The important thing to notice here is that we did not have to change the `Convert` method.
-
