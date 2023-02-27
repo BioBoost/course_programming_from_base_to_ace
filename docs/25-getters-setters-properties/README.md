@@ -366,6 +366,7 @@ class Point
     get { return x;  }
     set { x = value; }
   }
+
   public double Y
   {
     get { return y; }
@@ -693,7 +694,7 @@ class Point
   // is placed inside of a string context
   public override string ToString()
   {
-    return $"[{x}, {y}]";
+    return $"[{X}, {Y}]";
   }
 
   // Properties with automatically implemented attributes
