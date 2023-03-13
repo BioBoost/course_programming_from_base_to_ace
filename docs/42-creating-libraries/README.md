@@ -3,11 +3,9 @@ description: Libraries allow classes and logic to be shared among applications a
 title: 42 - Creating Libraries
 ---
 
-::: danger ☠️ First draft
-Please note that this chapter is not finished yet. It may contain errors, typos, irregularities and even unfinished sections.
-:::
-
 # Chapter 42 - Creating Libraries
+
+TODO: Need a nice image here
 
 Sharing libraries between projects is a fundamental requirement in all but the most simple applications. This chapter looks at how to create a library that can be shared between applications.
 
@@ -15,7 +13,7 @@ Sharing libraries between projects is a fundamental requirement in all but the m
 
 When creating a new application it's a good idea to immediately considering also creating a library for your classes. Basically you cannot go wrong by doing so.
 
-Start by creating a new Project of type `Class Library` (targeting .NET Standard and .NET Core).
+Start by creating a new Project of type `Class Library` (targeting .NET and .NET Standard).
 
 ![Class Library Project](./img/class_library_project.png)
 
@@ -61,7 +59,7 @@ namespace StudentLibrary
 
 Sometimes we also need to create libraries when an application is already in development. In that case we have a number of existing classes that have to be placed in a library.
 
-In that case we just need to create a new project of type `Class Library` (targeting .NET Standard and .NET Core) in the existing solution and move the classes from the application project to the library (by process of dragging and dropping).
+In that case we just need to create a new project of type `Class Library` (targeting .NET and .NET Standard) in the existing solution and move the classes from the application project to the library (by process of dragging and dropping).
 
 There are however a couple of things that may have to be changed:
 
@@ -72,7 +70,7 @@ There are however a couple of things that may have to be changed:
 
 When using libraries in a C# application, we need to add the library as a reference to the project in which we want to make use of that library.
 
-Let's for example make a new `Console Application` (.NET Core) called `RegisterApp`. Your current solution in Visual Studio should look like this:
+Let's for example make a new `Console Application` called `RegisterApp`. Your current solution in Visual Studio should look like this:
 
 ![Adding Register App](./img/add_register_app.png)
 
@@ -142,3 +140,7 @@ namespace RegisterApp
     }
 }
 ```
+
+Before you will be able to run the `RegisterApp` project, you will also need to set the `RegisterApp` as the default project to start. You can do this by right clicking the project and selecting `Set as Startup Project`.
+
+In a later stage you will also be able to add `Unit Test` and `WPF` projects which make use of this same library.
