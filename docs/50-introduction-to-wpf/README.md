@@ -9,9 +9,9 @@ Please note that this chapter is not finished yet. It may contain errors, typos,
 
 # Chapter 50 - Introduction to WPF
 
-WPF or Windows Presentation Foundation is a microsoft GUI (Graphical User Interface) framework used with the .NET framework.
+WPF or Windows Presentation Foundation is a Microsoft GUI (Graphical User Interface) framework used with the .NET framework.
 
-A GUI framework allows you to create the graphical user interface of an application with a wide range of readily-available GUI components, like buttons, textboxes, labels, images, ... and many more. Without a GUI framework you would have to draw these elements manually and handle all of the user interaction scenarios like text and mouse input yourself.
+A GUI framework allows you to create the graphical user interface of an application with a wide range of readily-available GUI components, like buttons, text boxes, labels, images, ... and many more. Without a GUI framework you would have to draw these elements manually and handle all of the user interaction scenarios like text and mouse input yourself.
 
 This is not a feasible approach in this modern day of age. So instead, developers will use a GUI framework which will do all the basic work and allow the developers to focus on making great looking applications.
 
@@ -57,9 +57,15 @@ A better approach is to follow along with some nice YouTube video's that explain
 
 The rest of this document provides some reference documentation and extra topics not covered in the video.
 
+## Creating a Project
+
+To create a new WPF application select the `WPF Application` project template.
+
+![New WPF Application](./img/new-wpf-project.png)
+
 ## Window
 
-When creating a new WPF application, the first thing you encounter is the `<Window>` element. It serves as the root element of a window and provides the standard border, title bar and maximize, minimize and close buttons. A WPF window is a combination of a XAML (.xaml) file, where the `<Window>` element is the root, and a CodeBehind (.cs) file.
+When creating a new WPF application, the first thing you encounter is the `<Window>` element. It serves as the root element of a window and provides the standard border, title bar and maximize, minimize and close buttons. A WPF window is a combination of a XAML (`.xaml`) file, where the `<Window>` element is the root, and a CodeBehind (`.cs`) file.
 
 ```xml
 <Window x:Class="WpfTest.MainWindow"
@@ -76,13 +82,13 @@ When creating a new WPF application, the first thing you encounter is the `<Wind
 </Window>
 ```
 
-Some important things about Window:
+Some important things about `Window`:
 
-* `x:Class="WpfTest.MainWindow"` contains the fully qualified name of the class in the code behind file. If you change the name of the Window make sure sure to change the name of the class as well and match it up in the XAML file.
-* `Title="MainWindow"` allows you to change the title of the Window
-* `Height="450"` and `Width="800"` set the dimensions of the Window
+* `x:Class="WpfTest.MainWindow"` contains the fully qualified **name of the class** in the code behind file. If you change the name of the Window make sure sure to change the name of the class as well and match it up in the XAML file.
+* `Title="MainWindow"` allows you to change the **title** of the Window
+* `Height="450"` and `Width="800"` set the **dimensions** of the Window
 * By default VS will populate the Window with a `Grid` component, a popular layout container element.
-* A `Window` can have only 1 child element inside. So a layout control, which in turn can contain multiple child controls, is usually a good choice.
+* A `Window` can have **only 1 child element** inside. So a layout control, which in turn can contain multiple child controls, is usually a good choice.
 
 The matching code behind file contains a partial class with a default constructor that initializes the visual components.
 
@@ -99,57 +105,96 @@ namespace WpfTest
 }
 ```
 
+::: tip 🧩 Partial Classes
+It is possible to split the definition of a `class`, a `struct`, an `interface` or a method over two or more source files. Each source file contains a section of the type or method definition, and all parts are combined when the application is compiled.
+:::
+
 ## Finding your way
 
-When first starting out with WPF it might be a bit overwhelming. There are a lot of components, the XAML can be a bit of a mess if you allow it to be, and there are hundruths of properties for the components and thats only the visible stuff.
+When first starting out with WPF it might be a bit overwhelming. There are a lot of components, the XAML can be a bit of a mess if you allow it to be, and there are hundredths of properties for the components and thats only the visible stuff.
 
 Below are some tips that will help along the way:
 
-**Don't drag and drop components from the toolbox to the visual editor.** This will really make your XAML a mess and introduces much more properties than often needed. Drag and drop it inside the XAML or type up the component tag by hand.
+* **Don't drag and drop components from the toolbox to the visual editor.** This will really make your XAML a mess and introduces much more properties than often needed. Drag and drop it inside the XAML or type up the component tag by hand.
 
 ![Toolbox](./img/toolbox.png)
 
-**Learn the properties of the different components** by snooping through the properties via the visual listing in VS. Just set your cursor in the correct XAML tag or select the component in the visual editor and open the properties panel.
+* **Learn the properties of the different components** by snooping through the properties via the visual listing in VS. Just set your cursor in the correct XAML tag or select the component in the visual editor and open the properties panel.
 
 ![Properties](./img/properties.png)
 
-**Give the components that you'll need in code a decent name.** Often input and output controls will require intervention from the code behind. Make sure to give these a good name using the `x:Name=".."` property.
+::: tip 🛠️ Toolbox
+If you can't seem to find the toolbox, make sure it is enabled via `View => Toolbox`.
+:::
+
+* **Give the components that you'll need in code a decent name.** Often input and output controls will require intervention from the code behind. Make sure to give these a good name using the `x:Name=".."` property.
 
 ```xml
 <TextBlock x:Name="playerScore" Text="0" />
 ```
 
-::: tip `Name` versus `x:Name`
+::: tip 😕 `Name` versus `x:Name`
 There really is only one name in XAML, the `x:Name`. A framework, such as WPF, can optionally map one of its properties to XAML's `x:Name`.
 
-The reason this was done was to allow for frameworks that already have a concept of "Name" at runtime, such as WPF. 
+The reason this was done was to allow for frameworks that already have a concept of "Name" at runtime, such as WPF.
 
 In general, a class does not need to store the name for `x:Name` to be useable. All `x:Name` means to XAML is generate a field to store the value in the code behind class. What the runtime does with that mapping is framework dependent.
 :::
 
+* **Place comments in your XAML.** Some basic comments in your XAML can often help you find your way much faster through a larger markup. Do make sure to update your comments if you change things in such a way that the comments are not correct anymore.
+
+```xml
+<!-- ... -->
+<Grid.ColumnDefinitions>
+    <!--Border margin-->
+    <ColumnDefinition Width="20"></ColumnDefinition>
+    <!--Image column-->
+    <ColumnDefinition Width="*"></ColumnDefinition>
+    <!--User input and result-->
+    <ColumnDefinition Width="*"></ColumnDefinition>
+    <!--Border margin-->
+    <ColumnDefinition Width="20"></ColumnDefinition>
+</Grid.ColumnDefinitions>
+<Grid.RowDefinitions>
+    <!--Border margin-->
+    <RowDefinition Height="20"></RowDefinition>
+    <!--Title-->
+    <RowDefinition Height="auto"></RowDefinition>
+    <!--Content-->
+    <RowDefinition Height="*"></RowDefinition>
+    <!--Footer-->
+    <RowDefinition Height="auto"></RowDefinition>
+    <!--Border margin-->
+    <RowDefinition Height="20"></RowDefinition>
+</Grid.RowDefinitions>
+<!-- ... -->
+```
+
 ## Basic Components
 
-### TexBlock, Label and TextBox
+The basic components allow us the make the most basic applications and contain 90% of the components used in any application UI.
+
+### TextBlock and Label
 
 The `TextBlock` control is one of the most fundamental controls in WPF, yet it's very useful. It allows you to **put text on the screen**, much like a `Label` control does, but in a simpler and less resource demanding way. A common understanding is that a `Label` is for short, one-line texts (but may include e.g. an image), while the `TextBlock` works very well for multiline strings as well, but can only contain text (strings). Both the `Label` and the `TextBlock` offer their own unique advantages, so what you should use very much depends on the situation.
 
-::: warning TextBlock is not a control
+::: warning 🔤 TextBlock is not a control
 Even though `TextBlock` lives in the `System.Windows.Controls namespace`, it is not a control. It derives directly from `FrameworkElement`. `Label`, on the other hand, derives from `ContentControl`.
 
-This means that Label can:
+This means that `Label` can:
 
 * Be given a custom control template (via the Template property).
 * Display data other than just a string (via the Content property).
-* Apply a DataTemplate to its content (via the ContentTemplate property).
+* Apply a `DataTemplate` to its content (via the `ContentTemplate` property).
 * Do whatever else a `ContentControl` can do that a `FrameworkElement` cannot.
-* Label text is grayed out when disabled
-* Label supports access keys
-* Label is much heavier than TextBlock
+* `Label` text is grayed out when disabled
+* `Label` supports access keys
+* `Label` is much heavier than `TextBlock`
 :::
 
 So basically, most of the time if we wish to display some sort of text to the user, we'll often just need a `TextBlock`.
 
-Example of a TextBlock that has blue text and wraps the text in the control:
+Example of a `TextBlock` that has blue text and wraps the text in the control:
 
 ```xml
 <TextBlock Margin="10" TextWrapping="Wrap" Foreground="Blue">
@@ -162,9 +207,11 @@ Example of a TextBlock that has blue text and wraps the text in the control:
 
 <!-- Some fun example using icons: https://www.wpf-tutorial.com/basic-controls/the-label-control/ -->
 
+### TextBox
+
 The `TextBox` control is the most **basic text-input** control found in WPF, allowing the end-user to input plain text, either on a single line, for dialog input, or in multiple lines, like an editor.
 
-Single line TextBox:
+Single line `TextBox`:
 
 ```xml
 <TextBox Text="Hello World from C#" />
@@ -189,6 +236,52 @@ Just like many other WPF controls, a `Button` can be displayed simply by adding 
 ```xml
 <Button>Hello There</Button>
 ```
+
+### Image
+
+The WPF `Image` control allows us to display an image on the UI. All one has to do is to set the `Source` property of the image.
+
+In most circumstances the images are included with the application. Follow theses best practice steps to make sure your images can be loaded wherever the application is run.
+
+1. Create a directory `images` on the same level as you solution file (next to the `bin` and `obj` directories)
+2. Add your images to this directory
+3. Refresh the solution in Visual Studio. You `images` directory should appear.
+
+  ![Images Directory](./img/images-dir.png)
+
+4. Select all the images and open the properties in Visual Studio (by clicking them for example and selecting `Properties`)
+5. Set the the `Build Action` to `Resource` and the `Copy to Output Directory` to `Copy always`
+
+  ![Copy to Output](./img/copy-to-output-dir.png)
+
+6. Next set the `Source` property of the `Image` control to a relative path such as for example `Source="images/schematic.png"`
+
+::: tip 🌐 Image Source
+It is also possible to use online hosted images. All one needs to do is set the `Source` to the URI of the image. For example `Source="https://image.coolblue.be/max/500x500/products/1496051"`. While this seems the perfect solution, it is not always the case. If the application is run in an environment without Internet, no image is shown.
+:::
+
+#### Loading Images in Code
+
+Specifying the image source directly in your XAML will work out in a lot of cases, but sometimes you need to load an image dynamically from code. This can be done as shown in the code snippet below.
+
+```csharp
+imageControl.Source = new BitmapImage(
+  new Uri("./images/name_of_image", UriKind.Relative)
+);       
+```
+
+#### The Stretch Property
+
+The stretch property controls what happens when the dimensions of the image loaded doesn't completely match the dimensions of the `Image` control. This will happen all the time, since the size of your `Window` can be controlled by the user and unless your layout is very static, this means that the size of the `Image` control(s) will also change.
+
+The following options are available for the `Stretch` property:
+
+* `Uniform`: This is the default mode. The image will be automatically scaled so that it fits within the Image area. The Aspect ratio of the image will be preserved.
+* `UniformToFill`: The image will be scaled so that it completely fills the Image area. The Aspect ratio of the image will be preserved.
+* `Fill`: The image will be scaled to fit the area of the Image control. Aspect ratio might NOT be preserved, because the height and width of the image are scaled independently.
+* `None`: If the image is smaller than the Image control, nothing is done. If it's bigger than the Image control, the image will simply be cropped to fit into the Image control, meaning that only part of it will be visible.
+
+![Image Stretch](./img/image-stretch.png)
 
 ## Layout Containers aka Panels
 
@@ -222,7 +315,7 @@ The WrapPanel will position each of its child controls next to the other, horizo
 
 ### StackPanel
 
-The StackPanel acts much like the WrapPanel, but instead of wrapping if the child controls take up too much room, it simply expands itself, if possible. Just like with the WrapPanel, the orientation can be either horizontal or vertical, but instead of adjusting the width or height of the child controls based on the largest item, each item is stretched to take up the full width or height. Use the StackPanel when you want a list of controls that takes up all the available room, without wrapping.
+The `StackPanel` acts much like the `WrapPanel`, but instead of wrapping if the child controls take up too much room, it simply expands itself, if possible. Just like with the `WrapPanel`, the orientation can be either horizontal or vertical, but instead of adjusting the width or height of the child controls based on the largest item, each item is stretched to take up the full width or height. Use the `StackPanel` when you want a list of controls that takes up all the available room, without wrapping.
 
 ```xml
 <StackPanel Orientation="Vertical">
@@ -277,9 +370,9 @@ Note that child components are assigned cells by setting the properties `Grid.Co
 
 To specify the width of a column or the height of a row there are three options:
 
-* Pixels: this is an absolute value is should be avoided as much as possible because it does not scale well. However for example for margin space and absolutely sized components it can be used. In this case we just specify a number for the size. For example `20`.
-* `auto`: this will indicate that the size will grow as required to host the child components.
-* Percentage: the remaining space that is left over after the absolute space and `auto` space has been allocated can be divided among the columns/rows that have their size set using `*`-notation. For this all the stars are summed and divided using the indicated weight. For example two columns: one has `*` and the other `3*`. The remaining space will be divided as `1/4` and `3/4`.
+* **Pixels**: this is an absolute value is should be avoided as much as possible because it does not scale well. However for example for margin space and absolutely sized components it can be used. In this case we just specify a number for the size. For example `20`.
+* **`auto`**: this will indicate that the size will grow as required to host the child components.
+* **Percentage**: the remaining space that is left over after the absolute space and `auto` space has been allocated can be divided among the columns/rows that have their size set using `*`-notation. For this all the stars are summed and divided using the indicated weight. For example two columns: one has `*` and the other `3*`. The remaining space will be divided as `1/4` and `3/4`.
 
 Note that when using `auto`, the width/height will be set based on the required space of the child components:
 
@@ -316,7 +409,7 @@ Note that when using `auto`, the width/height will be set based on the required 
 
 ![Grid Auto](./img/grid-auto.png)
 
-While when using the percentage indication, the child components take up the full space of the cell - expanding or cropping as needed.
+When using the percentage indication, the child components take up the full space of the cell - expanding or cropping as needed.
 
 ```xml
 <Grid>
@@ -350,6 +443,25 @@ While when using the percentage indication, the child components take up the ful
 ```
 
 ![Grid Percentage](./img/grid-star.png)
+
+### Spanning Multiple Cells
+
+Sometimes certain controls need to span multiple columns or rows. In that case one can set the `Grid.ColumnSpan` and/or `Grid.RowSpan` properties to the number of columns/rows it should span.
+
+```xml
+<!--Title-->
+<TextBlock
+  Text="LED Series Resistor Calculator"
+  Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2"
+  TextAlignment="Center" Foreground="#FFC31919" FontSize="24"
+  Padding="12"
+/>
+```
+
+Which results in the title spanning two columns:
+
+![Col Span](./img/col-span.png)
+
 
 ## Event Handling
 
