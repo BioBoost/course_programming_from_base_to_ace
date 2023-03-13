@@ -1,0 +1,97 @@
+﻿<Window x:Class="LedSeriesResistorCalculator.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LedSeriesResistorCalculator"
+        mc:Ignorable="d"
+        Title="LED Series Resistor Calculator" Height="550" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <!--Border margin-->
+            <ColumnDefinition Width="20"></ColumnDefinition>
+            <!--Image column-->
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <!--User input and result-->
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <!--Border margin-->
+            <ColumnDefinition Width="20"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <!--Border margin-->
+            <RowDefinition Height="20"></RowDefinition>
+            <!--Title-->
+            <RowDefinition Height="auto"></RowDefinition>
+            <!--Content-->
+            <RowDefinition Height="*"></RowDefinition>
+            <!--Footer-->
+            <RowDefinition Height="auto"></RowDefinition>
+            <!--Border margin-->
+            <RowDefinition Height="20"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <!--Title-->
+        <TextBlock
+            Text="LED Series Resistor Calculator"
+            Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2"
+            TextAlignment="Center" Foreground="#FFC31919" FontSize="24"
+            Padding="12"
+            />
+
+        <Image Source="images/schematic.png"
+               Grid.Column="1" Grid.Row="2"
+               HorizontalAlignment="Right"
+            />
+
+        <TextBlock
+            Text="This application was made by Nico De Witte from VIVES University College"
+            Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="2"
+            TextAlignment="Center"
+            Padding="2"
+            />
+
+        <StackPanel
+            Orientation="Vertical" VerticalAlignment="Center"
+            Grid.Column="2" Grid.Row="2"
+            >
+
+            <!--Supply Voltage-->
+            <TextBlock Text="Supply Voltage (Vin)" Margin="4" FontWeight="Bold"></TextBlock>
+            <StackPanel Orientation="Horizontal">
+                <TextBox x:Name="supplyVoltage" Text="5" Margin="4" MinWidth="100" />
+                <TextBlock Text="V" Margin="2" VerticalAlignment="Center"></TextBlock>
+            </StackPanel>
+
+            <!--Current-->
+            <TextBlock Text="Current (I)" Margin="4,20,4,4" FontWeight="Bold"></TextBlock>
+            <StackPanel Orientation="Horizontal">
+                <TextBox x:Name="current" Text="10" Margin="4" MinWidth="100" />
+                <TextBlock Text="mA" Margin="2" VerticalAlignment="Center"></TextBlock>
+            </StackPanel>
+
+            <!--Resistor-->
+            <TextBlock Text="Resistor (R1)" Margin="4,20,4,4" FontWeight="Bold"></TextBlock>
+            <StackPanel Orientation="Horizontal">
+                <TextBox x:Name="resistance" Text="?" Margin="4" MinWidth="100" IsEnabled="False" />
+                <TextBlock Text="Ohm" Margin="2" VerticalAlignment="Center"></TextBlock>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBox x:Name="resistorVoltage" Text="1" Margin="4" MinWidth="100" IsEnabled="False" />
+                <TextBlock Text="V" Margin="2" VerticalAlignment="Center"/>
+            </StackPanel>
+
+            <!--LED-->
+            <TextBlock Text="LED Forward Voltage (D1)" Margin="4,20,4,4" FontWeight="Bold"></TextBlock>
+            <StackPanel Orientation="Horizontal">
+                <TextBox x:Name="ledVoltage" Text="1.8" Margin="4" MinWidth="100" />
+                <TextBlock Text="V" Margin="2" VerticalAlignment="Center"/>
+            </StackPanel>
+
+            <Button x:Name="solve" Padding="8" Margin="4,20,4,4" Background="Black" Foreground="White" Click="solve_Click">Solve</Button>
+
+        </StackPanel>
+
+
+    </Grid>
+</Window>
+
